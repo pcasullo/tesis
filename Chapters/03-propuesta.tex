@@ -1,0 +1,211 @@
+\chapter{Propuesta}
+\section{Visión y objetivos del proyecto}
+
+Por todo lo anteriormente descrito, es que surge este proyecto, impulsando un espacio de consolidación y armonización de publicación, gestión de accesos y monitoreo de métricas de uso para la adecuada gestión del portafolio de BI. Asimismo, unificar el acceso y ofrecer una experiencia homogénea y consistente, independiente de la tecnología de implementación, se presenta como una oportunidad para mejorar tanto la eficiencia de los equipos de datos como la satisfacción de los usuarios finales.
+
+De la complejidad de estas problemáticas surgió la necesidad de lograr una solución que permita:
+
+Concentrar en un solo lugar la oferta de reportes/tableros ofrecida por los distintos equipos.
+Permitir a los equipos que publican estos elementos, realizar una gestión de sus usuarios, incluyendo la asignación de roles si aplican restricciones de visibilidad de datos.
+Establecer objetivos de adopción y medirlos de modo consistente, de manera totalmente independiente a la tecnología de implementación que se haya utilizado.
+Darle a los potenciales usuarios una experiencia homogénea y consistente, de modo agnóstico a las tecnologías utilizadas mediante técnicas de ingeniería de software.
+A los usuarios, almacenar atajos o accesos directos “resilientes” que resistan cambios de URLs de reportes y a la vez conserven atributos de seguridad para que compartiendo los enlaces la seguridad se mantenga.
+
+\section{Principios de diseño de ReportHub}
+
+El diseño de la solución se basó en un conjunto de principios arquitectónicos que aseguraron no solo la cobertura de las necesidades funcionales del momento, sino también la capacidad de evolucionar en el tiempo. Estos principios tuvieron como propósito garantizar que la plataforma fuera escalable, permitiendo crecer en volumen de usuarios, contenidos y procesos sin comprometer el rendimiento. A su vez, aseguraron un mantenimiento eficiente, reduciendo la complejidad técnica y posibilitando la incorporación de nuevas funcionalidades de forma ágil y con bajo costo operativo.
+Otro eje fundamental fue la facilidad de uso, que permitió que cada rol interactuara con la solución de manera simple, intuitiva y orientada a sus tareas principales, evitando barreras de adopción. Asimismo, se estableció un marco que permitió cumplir con las normas internas de auditoría, control de calidad y gobierno de la información, garantizando la trazabilidad y responsabilidad en cada acción ejecutada dentro del sistema.
+Finalmente, los principios incorporaron las mejores prácticas en seguridad y estándares internacionales, asegurando la protección de datos, la correcta gestión de accesos y la interoperabilidad con diferentes tecnologías, lo que fortaleció la resiliencia y confiabilidad de la solución en contextos de negocio dinámicos y regulados.
+
+La solución debe cumplir con los siguientes principios de diseño:
+
+\subsection{\Gls{wapp}}
+\label{principios:webapp}
+Será una aplicación web, que contará con una elementos de presentación el el browser, una capa de lógica de negocio en un servidor y se apoyará en una base de datos relacional para almacenar la información y meta información necesaria para la configuración, uso y auditoría de actividades.
+
+\subsection{\gls{lux} minimalista y defensiva}
+\label{principios:leanUx}
+Experiencia de usuario simple e intuitiva para cada uno de los roles en que los usuarios operen la solución, ya que un mismo usuario, puede tener contenidos para publicar, ser administrador del sistema y eventualmente consumidor de contenidos publicados por otros usuarios:
+\begin{itemize}
+\item \textit{Administradores, roles:} “Admin Global / Admin Local”.
+\item \textit{Creadores de Contenidos, rol:} “Creador”.
+\item \textit{Consumidores de contenidos, rol:} “Consumidor”.
+\end{itemize}
+
+La interfaz, debe evitar que el usuario cargue información inválida mediante reglas de negocio intuitivas y ya incorporadas a la navegación y cuando esto nos sea posible, validará la información que el usuario ingrese y proveerá feedback inmediato en el momento de las interacciones para poder corregir problemas.
+
+\subsection{Tener una \Gls{soa}}
+\label{principios:soa}
+Ser agnóstico de las tecnologías en las que se han producido los contenidos que se publicarán minimizando el acoplamiento técnico y a la vez funcionando con una alta cohesión. Este punto permite garantizar la “interoperabilidad" con diferentes tecnologías y a la vez el soporte de procesos comunes, sin estar condicionados por las tecnologías de implementación.
+
+\subsection{Descentrado y Escalable}
+\label{principios:federado}
+Permitir la descentralización de la gestión de contenidos, accesos y configuraciones de modo de poder asignar en distintos niveles y equipos organizacionales las facultades para el auto servicio de sus contenidos. Esto evita los cuellos de botella de estructuras centralizadas y fomenta que se tomen las decisiones adecuadas en cada lugar adecuado de la organización, siguiendo procesos consistentes garantizados por el sistema.
+
+\subsection{Auditable}
+\label{princpipios:auditable}
+Cada acción debe ser auditable, para poder cumplir con normas internas de auditorías de calidad de procesos y responsabilidad, en particular a la hora de administrar usuarios y accesos.
+
+\section{Casos de uso principales}
+Los principales casos de uso, tienen como objetivo detallar en un nivel conceptual, las funcionalidades básicas y escenarios que iba a soportar el sistema. 
+
+\subsection{Creación de estructuras geográficas para organizar los contenidos (Admin Global).}
+Los contenidos del sistema debían estar organizados en una jerarquía de dos niveles. El primer nivel, compuesto de unidades geográficas, tenía como objetivo agrupar por geografía y a su vez, poder otorgar niveles de administración descentralizados a distintos Admins de geografías para administrar áreas de información. Se utilizan como valores válidos, los correspondientes a las distintas unidades geográficas:
+	-Global
+	-Europa
+	-America
+	-Asia
+	-Africa
+	y luego países
+	Todos estarán agrupados en un mismo nivel.
+
+\subsection{Creación de áreas de información para organizar los contenidos(Admin Global/Local).}
+
+El segundo nivel de organización son áreas de información y permiten una agrupación lógica de los contenidos en función de las temáticas que cubren, como por ejemplo finanzas, marketing, ventas, etc. No existe un listado predefinido de qué áreas de información existen a nivel local y pueden ser creadas libremente por los administradores a nivel geográfico. La única restricción: los nombres de las áreas en una región geográfica deben ser únicos.
+
+
+Por ejemplo:
+
+\begin{itemize}
+\item Global
+    \begin{itemize}
+        \item Marketing
+        \item Cumplimiento
+        \item Ventas
+        \item Finanzas
+        \item Recursos Humanos, etc.
+    \end{itemize}
+	\item America
+		\begin{itemize}
+		    \item Marketing
+            \item Legales, etc.
+        \end{itemize}
+	\item Argentina
+        \begin{itemize}
+            \item Fuerza de Ventas
+            \item Finanzas
+            \item Oportunidades, etc.	
+        \end{itemize}
+\end{itemize}
+
+\subsection{Creación y administración de Usuarios.}
+
+La “creación” y administración de usuarios, consiste en poder registrar usuarios que ya son parte del directorio corporativo como usuarios de este sistema y asignarles roles de Admins globales, locales, de áreas de información y/o eventualmente como consumidores. Del directorio corporativo se importan los siguientes datos: handle de usuario de la compañía, nombre completo, dirección de correo electrónico.
+
+	Es importante aclarar que un Admin tiene la capacidad de crear secciones, contenidos y manejar usuarios, pero no necesariamente tiene acceso a los mismos contenidos que publica, ya que son aspectos guiados por diferentes criterios de seguridad y las personas responsables de los contenidos son quienes deben aprobar los accesos y decidir quienes tienen acceso.
+		La forma en la que los permisos serán asignados de acuerdo a los roles se detalla en la tabla \ref{tab:funcxrol}.
+
+        
+        Todos los usuarios pueden asignar a otros usuarios  las siguientes reglas de la tabla \ref{tab:asignaciones}:
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}\hline
+         Función/rol&  Admin global&  Admin local&  Creador& Aprobador\\\hline
+         Crear áreas globales&  \ding{51}&  &  & \\\hline
+         Crear áreas locales& \ding{51}&  \ding{51}&  & \\\hline
+         Crear contenidos&  \ding{51}&  \ding{51}&  \ding{51}& \\\hline
+         Administrar usuarios&  \ding{51}&  \ding{51}&  \ding{51}& \ding{51}\\\hline
+         Asignar Roles $^1$&  \ding{51}&  \ding{51}&  \ding{51}& \ding{51}\\\hline
+         Aprobar accesos&  &  &  \ding{51}& \ding{51}\\ \hline
+    \end{tabular}
+    \caption{Funciones por rol (\ding{51})}
+    \label{tab:funcxrol}
+\end{table}
+
+
+
+\begin{table}
+
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}\hline
+         Rol / puede asignar&  Admin global&  Admin local&  Creador& Aprobador\\\hline
+         Admin global&  \ding{51} &  \ding{51}&  \ding{51}& \ding{51}\\\hline
+         Admin local&  &  \ding{51}&  \ding{51}& \ding{51}\\\hline
+         Creador&  &  &  \ding{51}& \ding{51}\\\hline
+         Aprobador&  &  &  & \ding{51}\\ \hline
+    \end{tabular}
+    \caption{Asignaciones de roles válidas (\ding{51})}
+    \label{tab:asignaciones}
+\end{table}
+
+Estos mecanismos designados, también aplican a la hora de modificar los privilegios de un usuario. En caso de que un usuario vaya a ser desafectado del sistema, debe haber siempre un usuario alternativo como administrador global/local o creador de área de información o contenido. Si en algún momento algún usuario deja de pertenecer a la compañía, y algún área quedara sin administradores, entonces el sistema asignará automáticamente a cargo de los elementos del portal “huérfanos” a quienes sean los responsables inmediatos superiores dentro del mismo, siguiendo la lógica de Aprobador - Creador - Admin Local y Admin Global en última instancia. Para Admins globales debe haber siempre al menos 2 y es parte de la configuración inicial del sistema.
+
+\subsection{Publicación de contenidos (Creador/Admin).}
+
+La publicación de contenidos se hará de modo que cada pieza de contenido estará representada por los siguientes metadatos obligatorios:
+
+\begin{itemize}
+\item Título: Un texto denomina al contenido.
+\item Descripción: Texto que da una breve descripción de lo que el contenido ilustra o representa.
+\item Imagen miniatura: una imagen que representa el contenido, pudiendo ser un logo, un pequeño screenshot o cualquier elemento visual que permita reconocer al contenido publicado.
+\item Tipo de Contenido: Los contenidos pueden ser de dos tipos, o bien archivos cargables o bien URLs a elementos que residan dentro de la intranet.
+\item Segmentos de usuarios: Debe haber al menos 1 segmento de usuario (segmento por defecto llamado usuarios generales) y se le deben asignar objetivos de frecuencia de uso, en función de una cantidad de veces por unidades de tiempo. 
+    Cantidad: Un número natural mayor a cero.
+	Frecuencia: deberá ser algún valor de esta lista: “diario, semanal, mensual, trimestral, semestral, anual”
+
+	De este modo, la idea es poder establecer los objetivos de adopción según perfiles de usuario y cómo se espera que estos utilicen los contenidos para poder ser eficientes en sus procesos de negocio.
+
+\item Aprobadores: puede agregarse el listado de aprobadores y por defecto quien crea podrá aprobar acceso.
+
+\item Selección del modo de provisión de acceso:
+    \begin{itemize}
+    \item En caso que el tipo de Contenido sea un archivo, se aplica la lógica por defecto de acceso directo.
+	\item En caso de que el tipo de Contenido sea un enlace a un reporte en otra tecnología, se opta entre dos modelos:
+    \begin{enumerate}
+        \item Un modelo de control de acceso integrado a un sistema de tickets, donde se debe especificar dentro de ese sistema qué grupo es el encargado de recibir el ticket y se configuran parámetros con los que se creará el ticket, según sean requeridos:
+	       \begin{itemize}
+	       \item Nombre del reporte al que se pide acceso.
+	       \item Nombre de quien solicita el acceso. 
+		   \item Handle de usuario.
+		   \item Dirección de email.
+		   \item Puesto en la compañía.
+		   \item País de localización de quien lo pide.
+           \end{itemize}
+	    \item Si el reporte tiene un modelo de acceso basado en listas de distribución del directorio corporativo, entonces deben especificarse dichas listas y quedarán asociadas al contenido (y se pueden asociar a segmentos de usuarios).
+        \end{enumerate}
+	\item Si tiene seguridad basada en roles dentro del reporte y de ser así, se definen dos mecanismos posibles:
+        \begin{enumerate}
+            \item Listas de distribución especificas del directorio corporativo. En este caso se define qué listas del directorio corporativo están asociadas a este contenido, para que el aprobador pueda utilizarlas en el momento de la aprobación.
+		    \item Esquema propio de cada contenido con perfiles/roles particulares. En este caso, deben especificarse los end points y credenciales para poder integrar la administración.
+        \end{enumerate}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Descubrimiento y navegación en el catálogo (Consumidor).}
+
+El portal tiene dos modos de operación. Un primer modo predeterminado, que permite utilizar los contenidos asignados, disponibles y ordenados según las unidades geográficas y áreas de información.
+	También hay una sección de “Favoritos” que contiene aquellos contenidos elegidos por el usuario como favoritos, que normalmente simplifican el acceso a los que son de uso frecuente.
+	Esta la posibilidad de buscar contenidos por textos relacionados a los metadatos definidos en el caso de uso 4.
+	El segundo modo, es el modo “catálogo”, donde el usuario consumidor tendrá la posibilidad de ver por unidades geográficas y áreas de información disponibles pero a los que no tiene acceso. Cada elemento podrá ser agregado a un “carrito de compras”, y una vez terminada la selección de los elementos para solicitar acceso, se podrá hacer un pedido formal de acceso. También está la posibilidad de agregar un texto como solicitud, explicando para cada elemento (o de forma colectiva) por qué la persona necesita acceso para los elementos. Cuando el usuario completa la acción de pedir acceso a los elementos del carrito de compras, se dispararán los procesos de aprobación, otorgamiento de accesos y notificación según se hayan definido en cada elemento.
+
+
+\subsection{Circuito de Aprobaciones (Creador/Admin).}
+
+En el circuito de aprobaciones, quienes son aprobadores recibirán una notificación por email y también tendrán un ícono en el portal que les indicará que tienen “tareas pendientes”. Tanto el email como el ícono, lleva a los aprobadores a la interfaz que les permite evaluar los pedidos en función de las solicitudes que recibieron y poder aprobarlos o rechazarlos de manera general o particular. En caso de rechazo de la solicitud, deben colocar el motivo y en ambos (tanto positivo como negativo) casos el resultado del proceso será informado al usuario solicitante, tanto por email, como una notificación en el portal.
+	Adicionalmente, si el contenido al que se solicita acceso, está cargado en el portal, el acceso se otorga de modo directo.
+	En caso de que el contenido publicado tenga asociada seguridad manejada por listas de distribución, se hará la asociación en ese momento y si además tiene habilitada la configuración de administración de perfiles de aplicación, se asignarán en el momento.
+	Si por último, el contenido publicado, está implementado y operado bajo un modelo de soporte basado en tickets, con la información configurada en el momento de la creación del contenido en el portal, se generará un ticket mediante el equipo correspondiente, adjuntando la información necesaria para el alta y la aprobación del aprobador para que el equipo de mantenimiento tenga el respaldo necesario para poder documentar y accionar el pedido, de acuerdo a las normas de cumplimiento de la empresa. En este caso, la notificación que recibirá el usuario que solicitó acceso tiene un texto que le informa que su pedido fue aprobado y se creó el ticket nro XXX en su nombre, para que pueda darle seguimiento con el equipo de operaciones.
+
+
+\subsection{Navegación, acceso al portal y a reportes y monitoreo de estadísticas.}
+
+Las acciones de navegación dentro del portal tienen como objetivo poder recorrer los contenidos y accederlos. Para acceder un contenido, bastará con clickear con el mouse sobre la el ícono que lo representa en el catálogo y esto desplegará un nuevo Frame del navegador de internet que será una dirección enmascarada al elemento en cuestión. Esto permitirá que el enlace se pueda guardar como acceso directo y a la vez compartir por el usuario con otras personas, sin exponer el link original y preservando el control de acceso primario. El efecto deseado es agregar un nivel de indirección de modo tal que al guardar el link como acceso directo, quienes publican los contenidos puedan modificar el link interno de acceso sin afectar los enlaces del portal.
+	Finalmente, todas las acciones de búsqueda, navegación, gestión de usuarios y de accesos, serán registradas en una bitácora de eventos de modo tal de generar un historial de las transacciones ocurridas, para poder luego poder optimizar el funcionamiento del sitio, aplicar auditorías de cumplimento necesarias y a la vez obtener métricas que permitan medir los criterios de éxito del Portal.	
+\section{Alcance inicial y entregables previstos}
+El alcance inicial comenzó con la implementación de los casos de uso para los roles de Administrador Global, Creador y Consumidor de contenidos. En una segunda fase se decidió incorporar al perfil de administrador Local para poder agregar una capa intermedia de administración que permita descentralizar y federar el gobierno de los contenidos de modo más eficiente.
+Se priorizó también la publicación de contenido global en una primera instancia y luego en etapas sucesivas, luego de la implementación del rol local, se comenzó a expandir a otras unidades geográficas con el abordaje a los equipos locales de múltiples áreas.
+
+\section{Definición de KPIs y métricas de éxito}
+
+Para poder medir el avance y el éxito del proyecto se identificaron métricas de varios tipos:
+
+\begin{itemize}
+    \item \textit{Experiencia de usuario}:
+	La primer métrica que se definió está asociada al tiempo de respuesta del portal durante las interacciones y en principio, lo que se buscó es que cada interacción, dure entre 300 y 500 milisegundos (sin incorporar el tiempo de latencia de red). Es decir que cada vez que el usuario disparaba una acción sobre el portal, el tiempo de respuesta combinado, desde que enviaba el estímulo hasta que recibía la respuesta completa (o el indicio de respuesta) no debía ser mayor a 1000 milisegundos. Cuando hablamos del indicio de respuesta, nos referimos a que a veces, por volumen de información que debe viajar desde el servidor de base de datos y web hasta el browser del usuario, simplemente no es posible, pero sí se puede comenzar a renderizar parcialmente o dar alguna indicación visual de que su solicitud fue hecha y que está en proceso de ser resuelta.
+
+    \item \textit{Adopción}: Para poder medir la adopción efectiva de la herramienta se estableció como métrica la cantidad de piezas de contenido creadas, cantidad de usuarios creadores, cantidad de usuarios asignados y finalmente actividad asociada según los tipos de transacciones definidos en los casos de uso.
+
+    \item \textit{Ahorros de tiempo y recursos y minimización de errores}:
+Para poder hacer una medición de estos elementos se decidió hacer seguimiento de cantidad de tickets generados para gestión de accesos a grupos de soporte. Cantidad de accesos asignados mediante listas de distribución.
+\end{itemize}

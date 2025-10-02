@@ -1,0 +1,82 @@
+# LaTeX auto-generated files
+.aux
+.log
+.out
+.toc
+.lof
+.lot
+.bbl
+.blg
+.bcf
+.acn
+.synctex
+.gz
+.xdy
+.xml
+.ist
+.fls
+.fli
+.latexmk
+.cls
+.glo
+.ist
+
+# LaTeX auxiliary files from subdirectories
+**/.aux
+**/.bcf
+**/.acn
+**/.log
+**/.out
+**/.toc
+**/.lof
+**/.lot
+**/.bbl
+**/.blg
+**/.synctex
+**/.gz
+**/.xdy
+**/.xml
+**/.ist
+**/.fls
+**/.fli
+**/.latexmk
+**/.cls
+**/.glo
+**/.ist
+
+# MiKTeX auto-generated files
+*.mtc0
+*.mtc1
+*.mtc2
+*.mtc3
+*.mtc4
+*.mtc5
+*ERROR
+
+# MiKTeX auxiliary files from subdirectories
+**/*.mtc0
+**/*.mtc1
+**/*.mtc2
+**/*.mtc3
+**/*.mtc4
+**/*.mtc5
+**/*ERROR
+
+# VS Code LaTeX Workshop settings
+.vscode/latex-workshop
+
+# Temporary files
+*.bak
+*.tmp
+*.swp
+*.bak.*
+*~
+
+# Backup files from text editors
+*.bak
+*.swo
+*.swp
+
+# System files
+Thumbs.db
+.DS_Store

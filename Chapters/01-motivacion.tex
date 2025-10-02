@@ -1,0 +1,108 @@
+\chapter{Motivacion}
+
+\section{Contexto organizacional}
+%{\begin{small}%
+%\begin{flushright}%
+%\it
+%There's nothing for me now.
+%I want to learn the ways of\\ the Force and become a Jedi like my father. \\
+%--Luke Skywalker
+%\end{flushright}%
+%\end{small}%
+%\vspace{.5cm}}
+
+En las grandes corporaciones multinacionales, existen múltiples tecnologías para resolver distintos desafíos de análisis e inteligencia de negocios, a lo largo de todo el stack tecnológico que va desde los sistemas \gls{etl} \cite{inmon1992}, distintos repositorios de almacenamiento para datos estructurados y no estructurados, y herramientas de exploración y explotación de datos que se asocian a la capa de presentación. En esta última coexisten planillas de cálculo (xls) y software específico de visualización para crear reportes y tableros de información, tales como Microstrategy, Cognos, PowerBI, Tableau o Qlik, entre otros.
+
+Estas corporaciones suelen definir estándares tecnológicos que determinan herramientas o proveedores oficiales, con el fin de simplificar y lograr sinergias entre las tecnologías seleccionadas y reducir las combinaciones según distintos casos de uso \cite{jacobson1986}.
+
+Adicionalmente, es común que las iniciativas de inteligencia de negocios estén descentralizadas y distribuidas tanto en áreas funcionales (marketing, ventas, compras, finanzas), como en distintos niveles geográficos, que abarcan desde equipos corporativos hasta instancias globales, regionales y locales.
+
+\section{Situación inicial y limitaciones detectadas}
+
+Este contexto de distribución de recursos en áreas y geografías, combinado con la multiplicidad de herramientas “aprobadas” por dichas corporaciones, genera una combinación de componentes para la creación de distintas soluciones que, aun siguiendo las mejores prácticas de gobernanza tecnológica y de arquitectura \cite{isaca2012}, devienen en un ecosistema complejo, desarmonizado y lleno de particularidades.
+
+Poder establecer el valor real e impacto que estas soluciones tienen en el negocio es un desafío, ya que en muchos casos la relación entre adopción e impacto es indirecta y no trivial \cite{davenport2006}. A su vez, la experiencia de los distintos usuarios varía significativamente: solicitar acceso o encontrar los enlaces de cada herramienta resulta inconsistente, incoherente y dependiente de qué equipo haya desarrollado la solución.
+
+\section{Problemas principales para usuarios y equipos de datos}
+\subsection{Gestión de accesos}
+
+La gestión de accesos junto con la aplicación de políticas de seguridad una vez otorgados los mismos, variaban absolutamente y quedaban definidas por el criterio de cada equipo que desarrollaba los contenidos, sin haber coherencia alguna.
+Algunos ejemplos de variantes incluyen:
+
+Enviar un email a quien dio las capacitaciones (en caso que las haya habido). Muchas veces la persona encargada de la instrucción o entrenamiento de usuarios era también la encargada de controlar el acceso y otorgarlo. En otros casos, actuaba como intermediario para poder llegar a quien era responsable de otorgar los accesos adecuados.
+Solicitar acceso mediante herramientas de tickets a equipos encargados de la operación de dichos tableros/reportes. En equipos de proyecto de tamaños medio o grandes (con un número de integrantes excediendo la decena), es común que haya gente dedicada exclusivamente a tareas operativas, cuyo objetivo es por un lado garantizar la continuidad y máxima disponibilidad de las soluciones como así también en ocasiones se encargan de ejecutar las actividades que habilitan acceso y perfiles de seguridad adecuados a los usuarios.
+Solicitar acceso a alguien conocido si puede hacer de nexo para dar con el contacto indicado.
+
+\subsection{Consumo de contenidos}
+
+Para poder consumir o utilizar reportes es fundamental saber de su existencia, conocer su ubicación (normalmente son enlaces dentro de redes internas) y tener acceso a los mismos.
+Algunos ejemplos acerca de cómo acceder, pueden incluir:
+
+\begin{enumerate}
+    \item Usuarios reciben enlaces de acceso por emails o en documentos de entrenamientos y luego (con suerte) los almacenan como atajos en sus navegadores (con los problemas de tener hardcoded links que luego con el tiempo pueden variar, apuntar a versiones obsoletas de dichos reportes o incluso quedar deprecados conforme algunos reportes son decomisionados).
+    \item Páginas de intranet donde se publican los puntos de acceso (muchas veces implementadas como portales de acceso, provistos por las mismas herramientas de visualización).
+    \item Usuarios reciben reportes como archivos adjuntos en correos electrónicos.
+\end{enumerate}
+
+\subsection{Manejo del portafolio de soluciones de inteligencia de negocios}
+
+Para poder hacer un manejo efectivo de un portafolio de soluciones y de las tecnologías que se utilizan, es necesario poder entender:
+
+¿Qué soluciones hay disponibles y en qué tecnologías están desarrolladas (inventario)?
+
+¿Qué áreas de negocio cubren y quienes son responsables?
+
+¿Qué nivel de adopción tienen?
+
+¿Qué usuarios tienen acceso y no deberían?
+
+¿Qué usuarios necesitan acceso y no tienen?
+
+¿Qué usuarios tienen acceso y no lo usan?
+
+¿Qué usuarios tienen altos nivel de adopción?
+
+¿Qué volumen de pedidos de acceso manejan, según las audiencias objetivo?
+
+¿Hay duplicidad de contenidos, hechos por áreas afines pero sin colaborar?
+
+¿Hay patrones de uso de reportes que tengan correlación con el desempeño de áreas de negocio?
+
+La respuesta a cada una y en particular a todas estas preguntas, en el entorno descripto, es de un esfuerzo que no permite tener información en tiempo y forma ni de modo adecuado, repetible y consistente de manera constante. Poder responder cada pregunta en un contexto tan heterogéneo, implica un nivel de trabajo manual, armonización y alineación de criterios y definiciones que simplemente lo vuelven imposible, en la escala de estas organizaciones.
+
+\newpage
+En resumen, los impactos negativos descriptos anteriormente pueden sintetizarse en la siguiente lista: 
+
+\begin{itemize}
+\item Falta de un repositorio central y común donde buscar/encontrar y solicitar acceso a los contenidos necesarios genera dificultad para poder dar con los contenidos.
+\item Procesos inconsistentes y altamente variables.
+\item Falta de transparencia en cuanto a puntos de contactos de reportes.
+\item Métodos de aprobación de múltiples pasos y manuales, que dependen de horarios laborales, feriados distribuidos en varias zonas horarios y múltiples geografías.
+\item Separación entre nivel de aprobación (hecha por la persona responsable) de un acceso y el nivel de ejecución de dicho acceso (hecha por operadores, una vez que la persona responsable ha definido qué acceso corresponde).
+\item Falta de información necesaria para el aprobador, acerca de rol, país, función y otros elementos que ayudan a determinar si un acceso debe o no ser otorgado a un usuario.
+\item La ausencia de un repositorio centralizado agrava los problemas de consistencia y coherencia. Esto se traduce en dificultades para asegurar estándares de seguridad homogéneos, en la duplicación de esfuerzos.
+\item El estado fragmentado limita la capacidad de contar con indicadores confiables y oportunos para la toma de decisiones de portafolio. 
+\item La falta de métricas unificadas de adopción impide evaluar el impacto de las soluciones desarrolladas, dificultando la gestión adecuada del portafolio de inteligencia de negocios.
+\end{itemize}
+
+
+\section{Aporte de la Tesis}
+Esta \textit{tesis}, en formato de Experience Report, tiene como objetivo, profundizar en el proceso de desarrollo de una solución que atiende a los desafíos mencionados, detallando desde su concepción en el contexto organizacional, hasta su despliegue y medición del impacto, dentro de una organización de estas características.
+
+Los contenidos a desarrollar incluyen:
+
+\textbf{Definiciones Preliminares:} Conjunto de definiciones básicas que nos introducen en el dominio del problema.
+
+\textbf{Propuesta:} Descripción detallada conceptual de la solución, en función de sus requerimientos funcionales y no funcionales. \cite{zave1979} \cite{yeh1980}
+
+\textbf{Arquitectura:} Descripción de los componentes y sus relaciones como también algunos patrones de diseño aplicados. \cite{yourdon1979} \cite{erl2005} \cite{fowler2003}
+
+\textbf{Desarrollo y Despliegue:} Explicación de la metodología aplicada y entregas iterativas. 
+
+\textbf{Evaluación:} Monitoreo y evaluación de las métricas clave y factores de éxito.
+
+\textbf{Lecciones aprendidas:} Hallazgos y aprendizajes de la experiencia en el proyecto.
+
+\textbf{Conclusiones:} Síntesis final del trabajo, con implicancias finales.
+
+\unsure { es una prueba de unsure para ver si funciona, está piola}

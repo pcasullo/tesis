@@ -1,0 +1,111 @@
+\documentclass[11pt,a4paper,twoside]{tesis}
+% SI NO PENSAS IMPRIMIRLO EN FORMATO LIBRO PODES USAR
+%\documentclass[11pt,a4paper]{tesis}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{csquotes}
+\usepackage{pifont}
+\usepackage[left=3cm,right=3cm,bottom=3.5cm,top=3.5cm]{geometry}
+\usepackage[backend=biber,style=numeric]{biblatex} % estilo APA, podés cambiarlo
+\addbibresource{tesis.bib} % nombre de tu archivo .bib
+
+% Paquete para glosario
+\usepackage[toc, acronym]{glossaries}
+
+
+% Paquetes para gráficos
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes.multipart, shapes.geometric, shapes, shadows, backgrounds,fit,calc}
+%\usetikzlibrary{positioning,shapes,arrows.meta,shadows,backgrounds}
+
+\tikzset{
+  block/.style={rectangle, draw, fill=blue!10, rounded corners,
+                minimum height=1cm, minimum width=2.8cm, align=center},
+  block2/.style={rectangle, draw, fill=red!10, rounded corners,
+                minimum height=1cm, minimum width=2.8cm, align=center},
+  block3/.style={rectangle, draw, fill=yellow!10, rounded corners,
+                minimum height=1cm, minimum width=2.8cm, align=center},
+  db/.style={cylinder, draw, fill=green!10, aspect=0.25, shape border rotate=90,
+             minimum height=1cm, minimum width=2.5cm, align=center},
+  db2/.style={cylinder, draw, fill=red!10, aspect=0.25, shape border rotate=90,
+             minimum height=1cm, minimum width=2.5cm, align=center},
+%ellipse/.style={ellipse, draw, fill=blue!10, align=center},
+  arrow/.style={-{Stealth}, thick},
+%  every node/.style={font=\sffamily},
+  comp/.style={draw, rounded corners, minimum width=2.8cm, minimum height=1cm, align=center, fill=violet!20, drop shadow},
+  webserver/.style={draw, rounded corners, minimum width=2.8cm, minimum height=1cm, align=center, fill=yellow!20, drop shadow},
+  appserver/.style={draw, rounded corners, minimum width=2.8cm, minimum height=1cm, align=center, fill=blue!20, drop shadow},
+  lb/.style={draw, ellipse, minimum width=2.5cm, minimum height=1.2cm, align=center, fill=green!20, drop shadow},
+  server/.style={draw, densely dashed, rounded corners, inner sep=4mm},%, fill=gray!5}
+  server2/.style={draw, densely dashed, rounded corners, inner sep=4mm, color=green},%, fill=blackgray!5}
+  sharedFS/.style={cylinder, draw, fill=red!10, aspect=0.25, shape border rotate=90,
+             minimum height=1cm, minimum width=2.5cm, align=center}, 
+}
+
+
+% Paquete para comentarios en el pdf.
+\usepackage{xargs} 
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+
+%habilito el glosario
+\input{glossary}
+
+\begin{document}
+
+%%%% CARATULA
+
+\def\autor{Pablo S. Casullo}
+\def\tituloTesis{Experience Report: \vspace{.2cm} \\ ReportsHub}
+\def\runtitulo{Experience Report: ReportsHub}
+\def\runtitle{Experience Report: ReportsHub}
+\def\director{Diego Garbervetsky}
+%\def\codirector{Master Yoda}
+\def\lugar{Buenos Aires, 2025}
+\input{caratula}
+
+%%%% ABSTRACTS, AGRADECIMIENTOS Y DEDICATORIA
+\frontmatter
+\pagestyle{empty}
+\input{abs_esp.tex}
+
+\cleardoublepage
+%\input{abs_en.tex} % OPCIONAL: comentar si no se quiere
+
+\cleardoublepage
+\input{agradecimientos.tex} % OPCIONAL: comentar si no se quiere
+
+\cleardoublepage
+\input{dedicatoria.tex}  % OPCIONAL: comentar si no se quiere
+
+\cleardoublepage
+\tableofcontents
+
+\mainmatter
+\pagestyle{headings}
+
+%%%% ACA VA EL CONTENIDO DE LA TESIS
+
+\include{Chapters/01-motivacion}
+\include{Chapters/02-preliminares}
+\include{Chapters/03-propuesta}
+\include{Chapters/04-arquitectura}
+\include{Chapters/05-desarrolloydespliegue}
+\include{Chapters/06-evaluacion}
+\include{Chapters/07-conclusiones}
+\include{Chapters/08-lecciones}
+
+%% ...
+
+%%%% BIBLIOGRAFIA
+\backmatter
+%\bibliography{tesis}
+\printbibliography
+\printglossary
+
+
+
+\end{document}
