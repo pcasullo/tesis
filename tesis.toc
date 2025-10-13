@@ -1,0 +1,78 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1.}Motivacion}{1}{}%
+\contentsline {section}{\numberline {1.1}Contexto organizacional}{1}{}%
+\contentsline {section}{\numberline {1.2}Situación inicial y limitaciones detectadas}{1}{}%
+\contentsline {section}{\numberline {1.3}Problemas principales para usuarios y equipos de datos}{1}{}%
+\contentsline {subsection}{\numberline {1.3.1}Gestión de accesos}{1}{}%
+\contentsline {subsection}{\numberline {1.3.2}Consumo de contenidos}{2}{}%
+\contentsline {subsection}{\numberline {1.3.3}Manejo del portafolio de soluciones de inteligencia de negocios}{2}{}%
+\contentsline {section}{\numberline {1.4}Aporte de la Tesis}{3}{}%
+\contentsline {chapter}{\numberline {2.}Definiciones Preliminares}{5}{}%
+\contentsline {section}{\numberline {2.1}Definiciones de industria y corporaciones multinacionales}{5}{}%
+\contentsline {section}{\numberline {2.2}Definiciones de inteligencia de negocios}{5}{}%
+\contentsline {section}{\numberline {2.3}Definiciones de diseño y arquitectura de software}{5}{}%
+\contentsline {section}{\numberline {2.4}Definiciones de metodologías}{6}{}%
+\contentsline {section}{\numberline {2.5}Definiciones propias del proyecto}{6}{}%
+\contentsline {chapter}{\numberline {3.}Propuesta}{9}{}%
+\contentsline {section}{\numberline {3.1}Visión y objetivos del proyecto}{9}{}%
+\contentsline {section}{\numberline {3.2}Principios de diseño de ReportHub}{9}{}%
+\contentsline {subsection}{\numberline {3.2.1}\Gls {wapp}}{9}{}%
+\contentsline {subsection}{\numberline {3.2.2}\gls {lux} minimalista y defensiva}{10}{}%
+\contentsline {subsection}{\numberline {3.2.3}Tener una \Gls {soa}}{10}{}%
+\contentsline {subsection}{\numberline {3.2.4}Descentrado y Escalable}{10}{}%
+\contentsline {subsection}{\numberline {3.2.5}Auditable}{10}{}%
+\contentsline {section}{\numberline {3.3}Casos de uso principales}{10}{}%
+\contentsline {subsection}{\numberline {3.3.1}Creación de estructuras geográficas para organizar los contenidos (Admin Global).}{11}{}%
+\contentsline {subsection}{\numberline {3.3.2}Creación de áreas de información para organizar los contenidos(Admin Global/Local).}{11}{}%
+\contentsline {subsection}{\numberline {3.3.3}Creación y administración de Usuarios.}{11}{}%
+\contentsline {subsection}{\numberline {3.3.4}Publicación de contenidos (Creador/Admin).}{12}{}%
+\contentsline {subsection}{\numberline {3.3.5}Descubrimiento y navegación en el catálogo (Consumidor).}{13}{}%
+\contentsline {subsection}{\numberline {3.3.6}Circuito de Aprobaciones (Creador/Admin).}{14}{}%
+\contentsline {subsection}{\numberline {3.3.7}Navegación, acceso al portal y a reportes y monitoreo de estadísticas.}{14}{}%
+\contentsline {section}{\numberline {3.4}Alcance inicial y entregables previstos}{15}{}%
+\contentsline {section}{\numberline {3.5}Definición de KPIs y métricas de éxito}{15}{}%
+\contentsline {chapter}{\numberline {4.}Arquitectura}{17}{}%
+\contentsline {section}{\numberline {4.1}Principios de diseño}{17}{}%
+\contentsline {section}{\numberline {4.2}Arquitectura}{19}{}%
+\contentsline {section}{\numberline {4.3}Componentes principales}{19}{}%
+\contentsline {section}{\numberline {4.4}Diseño de seguridad y Row Level Security (RLS)}{21}{}%
+\contentsline {section}{\numberline {4.5}Flujos de datos e integraciones con sistemas existentes}{22}{}%
+\contentsline {section}{\numberline {4.6}Consideraciones de escalabilidad y resiliencia}{22}{}%
+\contentsline {chapter}{\numberline {5.}desarrollo y despliegue}{23}{}%
+\contentsline {section}{\numberline {5.1}Enfoque metodológico (Waterfall/Agile)}{23}{}%
+\contentsline {section}{\numberline {5.2}Planificación y backlog inicial}{24}{}%
+\contentsline {section}{\numberline {5.3}Definición de historias de usuario clave}{24}{}%
+\contentsline {section}{\numberline {5.4}Iteraciones y sprints principales}{24}{}%
+\contentsline {section}{\numberline {5.5}Validaciones con usuarios de negocio}{24}{}%
+\contentsline {section}{\numberline {5.6}Gestión de calidad}{24}{}%
+\contentsline {subsection}{\numberline {5.6.1}Pruebas funcionales}{24}{}%
+\contentsline {subsection}{\numberline {5.6.2}Pruebas de seguridad}{24}{}%
+\contentsline {subsection}{\numberline {5.6.3}Pruebas de performance}{24}{}%
+\contentsline {subsection}{\numberline {5.6.4}Pruebas de integración}{24}{}%
+\contentsline {section}{\numberline {5.7}Hitos alcanzados y ajustes sobre la marcha}{24}{}%
+\contentsline {section}{\numberline {5.8}Estrategia de despliegue y fases de rollout.}{24}{}%
+\contentsline {section}{\numberline {5.9}Piloto inicial y resultados}{24}{}%
+\contentsline {section}{\numberline {5.10}Escalamiento a más áreas y usuarios}{24}{}%
+\contentsline {section}{\numberline {5.11}Plan de comunicación y capacitación}{24}{}%
+\contentsline {section}{\numberline {5.12}Materiales de soporte y guías de usuario}{24}{}%
+\contentsline {section}{\numberline {5.13}Gestión del cambio organizacional}{24}{}%
+\contentsline {section}{\numberline {5.14}Mecanismos de soporte post-lanzamiento}{24}{}%
+\contentsline {chapter}{\numberline {6.}evaluacion}{25}{}%
+\contentsline {section}{\numberline {6.1}Metodología de evaluación}{25}{}%
+\contentsline {section}{\numberline {6.2}Resultados cuantitativos}{25}{}%
+\contentsline {section}{\numberline {6.3}Resultados cualitativos}{25}{}%
+\contentsline {section}{\numberline {6.4}Comparación con KPIs iniciales}{25}{}%
+\contentsline {section}{\numberline {6.5}Impacto en seguridad y cumplimiento}{25}{}%
+\contentsline {section}{\numberline {6.6}Conclusiones de la evaluación}{25}{}%
+\contentsline {chapter}{\numberline {7.}Conclusiones}{27}{}%
+\contentsline {section}{\numberline {7.1}Resumen de los logros principales}{27}{}%
+\contentsline {section}{\numberline {7.2}Relevancia del proyecto para la organización}{27}{}%
+\contentsline {section}{\numberline {7.3}Impacto estratégico a largo plazo}{27}{}%
+\contentsline {section}{\numberline {7.4}Próximos pasos sugeridos (roadmap evolutivo)}{27}{}%
+\contentsline {chapter}{\numberline {8.}Lecciones Aprendidas}{29}{}%
+\contentsline {section}{\numberline {8.1}Aspectos que funcionaron bien}{29}{}%
+\contentsline {section}{\numberline {8.2}Dificultades y cómo se superaron}{29}{}%
+\contentsline {section}{\numberline {8.3}Factores clave de éxito}{29}{}%
+\contentsline {section}{\numberline {8.4}Aspectos a mejorar}{29}{}%
+\contentsline {section}{\numberline {8.5}Aprendizajes organizacionales}{29}{}%
+\contentsline {section}{\numberline {8.6}Recomendaciones para futuros proyectos}{29}{}%
