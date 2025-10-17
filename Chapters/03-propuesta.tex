@@ -26,11 +26,11 @@ Será una aplicación web, que contará con una elementos de presentación el el
 \subsection{\gls{lux} minimalista y defensiva}
 \label{principios:leanUx}
 Experiencia de usuario simple e intuitiva para cada uno de los roles en que los usuarios operen la solución, ya que un mismo usuario, puede tener contenidos para publicar, ser administrador del sistema y eventualmente consumidor de contenidos publicados por otros usuarios:
-\begin{itemize}
-\item \textit{Administradores, roles:} “Admin Global / Admin Local”.
-\item \textit{Creadores de Contenidos, rol:} “Creador”.
-\item \textit{Consumidores de contenidos, rol:} “Consumidor”.
-\end{itemize}
+ \begin{itemize}
+ \item \textit{Administradores, roles:} “Admin Global / Admin Local”.
+ \item \textit{Creadores de Contenidos, rol:} “Creador”.
+ \item \textit{Consumidores de contenidos, rol:} “Consumidor”.
+ \end{itemize}
 
 La interfaz, debe evitar que el usuario cargue información inválida mediante reglas de negocio intuitivas y ya incorporadas a la navegación y cuando esto nos sea posible, validará la información que el usuario ingrese y proveerá feedback inmediato en el momento de las interacciones para poder corregir problemas.
 
@@ -47,9 +47,11 @@ Permitir la descentralización de la gestión de contenidos, accesos y configura
 Cada acción debe ser auditable, para poder cumplir con normas internas de auditorías de calidad de procesos y responsabilidad, en particular a la hora de administrar usuarios y accesos.
 
 \section{Casos de uso principales}
+\label{usecases:main}
 Los principales casos de uso, tienen como objetivo detallar en un nivel conceptual, las funcionalidades básicas y escenarios que iba a soportar el sistema. 
 
 \subsection{Creación de estructuras geográficas para organizar los contenidos (Admin Global).}
+\label{usecases:geolevel1}
 Los contenidos del sistema debían estar organizados en una jerarquía de dos niveles. El primer nivel, compuesto de unidades geográficas, tenía como objetivo agrupar por geografía y a su vez, poder otorgar niveles de administración descentralizados a distintos Admins de geografías para administrar áreas de información. Se utilizan como valores válidos, los correspondientes a las distintas unidades geográficas:
 	-Global
 	-Europa
@@ -57,10 +59,10 @@ Los contenidos del sistema debían estar organizados en una jerarquía de dos ni
 	-Asia
 	-Africa
 	y luego países
-	Todos estarán agrupados en un mismo nivel.
+   	Todos estarán agrupados en un mismo nivel.
 
-\subsection{Creación de áreas de información para organizar los contenidos(Admin Global/Local).}
-
+%\subsection{Creación de áreas de información para organizar los contenidos(Admin Global/Local).}
+\label{usecases:geolevel2}
 El segundo nivel de organización son áreas de información y permiten una agrupación lógica de los contenidos en función de las temáticas que cubren, como por ejemplo finanzas, marketing, ventas, etc. No existe un listado predefinido de qué áreas de información existen a nivel local y pueden ser creadas libremente por los administradores a nivel geográfico. La única restricción: los nombres de las áreas en una región geográfica deben ser únicos.
 
 
@@ -88,7 +90,8 @@ Por ejemplo:
         \end{itemize}
 \end{itemize}
 
-\subsection{Creación y administración de Usuarios.}
+\subsection{Gestión de Usuarios.}
+\label{usecases:useradmin}
 
 La “creación” y administración de usuarios, consiste en poder registrar usuarios que ya son parte del directorio corporativo como usuarios de este sistema y asignarles roles de Admins globales, locales, de áreas de información y/o eventualmente como consumidores. Del directorio corporativo se importan los siguientes datos: handle de usuario de la compañía, nombre completo, dirección de correo electrónico.
 
@@ -131,8 +134,8 @@ La “creación” y administración de usuarios, consiste en poder registrar us
 
 Estos mecanismos designados, también aplican a la hora de modificar los privilegios de un usuario. En caso de que un usuario vaya a ser desafectado del sistema, debe haber siempre un usuario alternativo como administrador global/local o creador de área de información o contenido. Si en algún momento algún usuario deja de pertenecer a la compañía, y algún área quedara sin administradores, entonces el sistema asignará automáticamente a cargo de los elementos del portal “huérfanos” a quienes sean los responsables inmediatos superiores dentro del mismo, siguiendo la lógica de Aprobador - Creador - Admin Local y Admin Global en última instancia. Para Admins globales debe haber siempre al menos 2 y es parte de la configuración inicial del sistema.
 
-\subsection{Publicación de contenidos (Creador/Admin).}
-
+\subsection{Gestión de contenidos (Creador/Admin).}
+\label{usecases:contentadmin}
 La publicación de contenidos se hará de modo que cada pieza de contenido estará representada por los siguientes metadatos obligatorios:
 
 \begin{itemize}
@@ -172,7 +175,8 @@ La publicación de contenidos se hará de modo que cada pieza de contenido estar
     \end{itemize}
 \end{itemize}
 
-\subsection{Descubrimiento y navegación en el catálogo (Consumidor).}
+\subsection{Navegación del catálogo y solicitud de acceso (Consumidor).}
+\label{usecases:browse}
 
 El portal tiene dos modos de operación. Un primer modo predeterminado, que permite utilizar los contenidos asignados, disponibles y ordenados según las unidades geográficas y áreas de información.
 	También hay una sección de “Favoritos” que contiene aquellos contenidos elegidos por el usuario como favoritos, que normalmente simplifican el acceso a los que son de uso frecuente.
@@ -180,7 +184,8 @@ El portal tiene dos modos de operación. Un primer modo predeterminado, que perm
 	El segundo modo, es el modo “catálogo”, donde el usuario consumidor tendrá la posibilidad de ver por unidades geográficas y áreas de información disponibles pero a los que no tiene acceso. Cada elemento podrá ser agregado a un “carrito de compras”, y una vez terminada la selección de los elementos para solicitar acceso, se podrá hacer un pedido formal de acceso. También está la posibilidad de agregar un texto como solicitud, explicando para cada elemento (o de forma colectiva) por qué la persona necesita acceso para los elementos. Cuando el usuario completa la acción de pedir acceso a los elementos del carrito de compras, se dispararán los procesos de aprobación, otorgamiento de accesos y notificación según se hayan definido en cada elemento.
 
 
-\subsection{Circuito de Aprobaciones (Creador/Admin).}
+\subsection{Gestión de accesos y permisos (Creador/Admin).}
+\label{usecases:accessmgmnt}
 
 En el circuito de aprobaciones, quienes son aprobadores recibirán una notificación por email y también tendrán un ícono en el portal que les indicará que tienen “tareas pendientes”. Tanto el email como el ícono, lleva a los aprobadores a la interfaz que les permite evaluar los pedidos en función de las solicitudes que recibieron y poder aprobarlos o rechazarlos de manera general o particular. En caso de rechazo de la solicitud, deben colocar el motivo y en ambos (tanto positivo como negativo) casos el resultado del proceso será informado al usuario solicitante, tanto por email, como una notificación en el portal.
 	Adicionalmente, si el contenido al que se solicita acceso, está cargado en el portal, el acceso se otorga de modo directo.
@@ -188,10 +193,17 @@ En el circuito de aprobaciones, quienes son aprobadores recibirán una notificac
 	Si por último, el contenido publicado, está implementado y operado bajo un modelo de soporte basado en tickets, con la información configurada en el momento de la creación del contenido en el portal, se generará un ticket mediante el equipo correspondiente, adjuntando la información necesaria para el alta y la aprobación del aprobador para que el equipo de mantenimiento tenga el respaldo necesario para poder documentar y accionar el pedido, de acuerdo a las normas de cumplimiento de la empresa. En este caso, la notificación que recibirá el usuario que solicitó acceso tiene un texto que le informa que su pedido fue aprobado y se creó el ticket nro XXX en su nombre, para que pueda darle seguimiento con el equipo de operaciones.
 
 
-\subsection{Navegación, acceso al portal y a reportes y monitoreo de estadísticas.}
+\subsection{Navegacion y acceso a los contenidos.}
+\label{usecases:contentaccess}
 
 Las acciones de navegación dentro del portal tienen como objetivo poder recorrer los contenidos y accederlos. Para acceder un contenido, bastará con clickear con el mouse sobre la el ícono que lo representa en el catálogo y esto desplegará un nuevo Frame del navegador de internet que será una dirección enmascarada al elemento en cuestión. Esto permitirá que el enlace se pueda guardar como acceso directo y a la vez compartir por el usuario con otras personas, sin exponer el link original y preservando el control de acceso primario. El efecto deseado es agregar un nivel de indirección de modo tal que al guardar el link como acceso directo, quienes publican los contenidos puedan modificar el link interno de acceso sin afectar los enlaces del portal.
 	Finalmente, todas las acciones de búsqueda, navegación, gestión de usuarios y de accesos, serán registradas en una bitácora de eventos de modo tal de generar un historial de las transacciones ocurridas, para poder luego poder optimizar el funcionamiento del sitio, aplicar auditorías de cumplimento necesarias y a la vez obtener métricas que permitan medir los criterios de éxito del Portal.	
+
+\subsection{Logs de actividades y monitoreo de estadísticas.}
+\label{usecases:logging}
+hay que explicar acá qué es lo que se requiere para poder guardar la info y las estadísticas.
+
+
 \section{Alcance inicial y entregables previstos}
 El alcance inicial comenzó con la implementación de los casos de uso para los roles de Administrador Global, Creador y Consumidor de contenidos. En una segunda fase se decidió incorporar al perfil de administrador Local para poder agregar una capa intermedia de administración que permita descentralizar y federar el gobierno de los contenidos de modo más eficiente.
 Se priorizó también la publicación de contenido global en una primera instancia y luego en etapas sucesivas, luego de la implementación del rol local, se comenzó a expandir a otras unidades geográficas con el abordaje a los equipos locales de múltiples áreas.

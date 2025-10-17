@@ -1,20 +1,53 @@
 \chapter{Arquitectura}
 \section{Principios de diseño}
 
-La arquitectura que se buscó debía contar con los siguientes elementos: 
+Para poder cumplir adecuadamente con los requerimientos funcionales (descriptos anteriormente en los casos de uso Sec. \ref{usecases:main}), como así también de los no funcionales, se decidió implementar diferentes principios de diseño.
 
-\begin{enumerate}
-    \item Ser una Web-app (\ref{principios:webapp}) \label{arq:webapp}
 
-El encarar el proyecto como una aplicación web, vs una arquitectura de cliente servidor tradicional con un cliente ejecutable e instalado en las máquinas clientes y el código del servidor corriendo en un server, permitió aprovechar las ventajas de mantenimiento y escalabilidad propias de las arquitecturas de las aplicaciones web. En escencia, siguen siendo cliente servidor, con la diferencia de que el código que se ejecuta en el cliente se descarga en el código web al que se accede desde el browswer de internet, de modo que al mantenimiento y el control de versiones, actualizaciones y mejoras se da de modo automático\footnote{En ciertos casos, es posible que haya código descargado en cachés locales, pero pueden invalidarse y actualizarse fácilmente como parte de las actualizaciones.} en cada máquina cliente.
+A continuación, un detalle de qué principios de diseño se eligieron para dar adecuado soporte.
 
-Adicionalmente, con un diseño para dicha arquitectura, adecuado, se puede también escalar horizontalmente sin mayores esfuerzos y aumentar la tolerancia a fallas.
+\begin{table} 
+    \centering
+    \begin{tabular}{|c|c|}\hline
+         Caso de Uso&  Principio de diseño\\\hline
+         \ref{usecases:geolevel1}-Gestión de áreas geográficas&  descentralizado y escalable \ref{principios:federado}\\\hline
+         \ref{usecases:geolevel2}-Gestión de áreas de información&  descentralizado y escalable \ref{principios:federado}\\\hline
+         \ref{usecases:useradmin}-Gestión de usuarios&  descentralizado y escalable \ref{principios:federado}\\\hline
+         \ref{usecases:contentadmin}-Gestión de contenidos&  descentralizado y escalable \ref{principios:federado}\\\hline
+         \ref{usecases:browse}-Navegación del catálogo y solicitud de acceso&  webapp \ref{principios:webapp} y lean UX\ref{principios:leanUx}\\\hline             
+         \ref{usecases:accessmgmnt}-Gestión de accesos y permisos&  descentralizado y escalable \ref{principios:federado}\\\hline 
+         \ref{usecases:contentaccess}-Navegacion y acceso a los contenidos&  webapp \ref{principios:webapp} y lean UX \ref{principios:leanUx}\\\hline          
+         \ref{usecases:logging}-Logs de actividades y monitoreo de estadísticas& auditable \ref{princpipios:auditable}\\\hline          
+    \end{tabular}
+    \caption{Mapeo de Casos de uso a principios de diseño}
+    \label{tab:usecasesxdesignprinciples}
+\end{table}
+
+Para poder responder a diseño escalable y descentralizado, se seleccionó una arquitectura de \emph{\Gls{wapp}}, ya que el encarar el proyecto con este enfoque, en lugar de una arquitectura de cliente servidor tradicional con un cliente compilado, ejecutable e instalado en las máquinas clientes y el código del servidor corriendo en un server, permitió aprovechar el mantenimiento y escalabilidad propias de las arquitecturas de las aplicaciones web. 
+
+En escencia, siguen siendo cliente servidor, con la diferencia de que el código que se ejecuta en el cliente se descarga en el código web al que se accede desde el browswer de internet, de modo que al mantenimiento y el control de versiones, actualizaciones y mejoras se da de modo automático\footnote{En ciertos casos, es posible que haya código descargado en cachés locales, pero pueden invalidarse y actualizarse fácilmente como parte de las actualizaciones.} en cada máquina cliente.
+
+
+Adicionalmente, con un diseño de despliegue físico adecuado, se puede también escalar horizontalmente sin mayores esfuerzos y aumentar la tolerancia a fallas.
+
 
 En el caso puntual de esta aplicación, se diseñaron dos configuraciones: una para entornos de desarrollo y pruebas y luego una para un entorno productivo, donde se tolera una carga de usuarios real y debe maximizarse la tolerancia a fallas, donde se agrega un tercer servidor web/de aplicaciones.
 
-En los entornos de desarrollo y de test, siempre se prueba con la siguiente configuración:
+\newpage 
 
-\begin{figure}
+Finalmente y de acuerdo a los estándares tecnológicos de este proyecto, se utilizó el siguiente stack tecnológico:
+
+    \begin{itemize}
+        \item Loadbalancer de F5
+        \item Webserver: Apache
+        \item Application server: Tomcat (Java)
+        \item RDBMS: Oracle
+        \item sistema operativo de servers: RH Linux
+    \end{itemize}
+
+A continuación, describimos el diagrama de despliegue físico que permitió implementar la arquitectura de webapp, con máxima tolerancia a fallas en sus componentes de mayor demanda con escalabilidad horizontal.
+
+\begin{figure} [h!]
     \centering
     \begin{tikzpicture} [node distance=1.8cm and 2.5cm]
  % Client
@@ -74,20 +107,14 @@ En los entornos de desarrollo y de test, siempre se prueba con la siguiente conf
   };    
 
 \end{tikzpicture}
-    \caption{Componentes de la arquitectura de la webapp}
+    \caption{Componentes de la arquitectura de la webapp - Diagrama de despliegue físico}
     \label{fig:arq_webapp} 
 \end{figure}
 
-Finalmente y de acuerdo a los estándares tecnológicos de este proyecto, se utilizó el siguiente stack tecnológico:
+\newpage
 
-    \begin{itemize}
-        \item [Loadbalancer de F5]
-        \item [Webserver: Apache]
-        \item [Application server: Tomcat]
-        \item [RDBMS: Oracle]
-        \item [sistema operativo de servers: RH Linux]
-    \end{itemize}
-    
+\begin{enumerate}
+
     \item \Gls{lux} (\ref{principios:leanUx})
 
     En el caso del diseño de la interfaz de usuario, no condiciona la arquitectura en sí de la aplicación, aunque influye en la selección de qué tecnologías se utilizarán para implementar las interacciones y los elementos de visualización. La interfaz de usuario, es el sistema de comunicación que tiene el producto de software para brindarle información sobre el estado del sistema, los contenidos y el resultado de las operaciones que el usuario realice con el mismo. 
@@ -109,8 +136,8 @@ Finalmente y de acuerdo a los estándares tecnológicos de este proyecto, se uti
         \item userid: identificador unico del usuario que inicia la transacción.
         \item timestamp (formato de timestamp que representa el instante de tiempo en el que se hizo la transacción con nivel de granularidad de milisegundo).
         \item operación descripción de la operación que se realiza.
-        \item campos afectados (con valores anteriores y nuevos, en caso de ediciones/actualizaciones).
-        \item id de transacción (para el caso de que haya multiples operaciones en una transacción.
+        \item campos afectados (con valores anteriores y nuevos en caso de actualizaciones).
+        \item id de transacción (para el caso de que haya multiples operaciones en una transacción).
         \item duracion (en milisegundos).
         
     \end{itemize}
@@ -118,6 +145,7 @@ Finalmente y de acuerdo a los estándares tecnológicos de este proyecto, se uti
     Con toda esta metainformación, es posible obtener una vitácora de las transacciones ocurridas y poder realizar auditorías y análisis varios, tanto para evaluar estadísticas del sistema como así también patrones de uso y performance.
     
 \end{enumerate}
+
 
 \section{Arquitectura}
 \section{Componentes principales}
@@ -144,45 +172,56 @@ El controlador es el intermediario entre la vista y el modelo. Es responsable de
 Aquí, el controlador se encarga de procesar las solicitudes HTTP, extraer los datos de la solicitud, invocar el código de negocio del modelo y devolver una vista actualizada al cliente.
 El controlador está implementado en el servidor de aplicaciones, donde maneja las interacciones con el usuario y coordina el flujo de datos entre la vista y el modelo.
 
-Arquitectura de la webapp:
+A continuación, una breve explicación de cómo el \gls{mvc} se mapeó a esta arquitectura de \Gls{wapp}:
 
-En una arquitectura de webapp basada en MVC, los componentes se distribuyen a lo largo de los diferentes niveles de la stack tecnológico.
-El servidor web (Apache) actúa como el punto de entrada para las solicitudes y atendiendo las solicitudes estáticas y delegando las dinámicas a los componentes tomcats.
-El servidor de aplicaciones (Tomcat) ejecuta el controlador y el modelo, procesando las solicitudes y generando las vistas.
-El sistema de archivos compartido proporciona el soporte al contenido estático que comparten las instancias de Apache y de Tomcats.
-La base de datos (Oracle) proporciona almacenamiento persistente para los datos generados, mantenidos y accedidos por el modelo.
+Los componentes se distribuyen a lo largo de los diferentes niveles de la stack tecnológico:
+
+\begin{itemize}
+    \item El servidor web (Apache) actúa como el punto de entrada para las solicitudes y atendiendo las solicitudes estáticas y delegando las dinámicas a los componentes tomcats.
+    \item El servidor de aplicaciones (Tomcat) ejecuta el controlador y el modelo, procesando las solicitudes y generando las vistas.
+    \item El sistema de archivos compartido proporciona el soporte al contenido estático que comparten las instancias de Apache y de Tomcats.
+    \item La base de datos (Oracle) proporciona almacenamiento persistente para los datos generados, mantenidos y accedidos por el modelo.
+\end{itemize}
+
+A su vez, también, dentro del modelo, se identificaron los siguientes componentes lógicos que permitieron distribuir las actividades de desarrollo y mantener a la vez una estructura modular, de muy alta cohesión y bajo acomplamiento.
 
 \begin{enumerate}
     \item \textbf{ReportsHub}:
         Codigo que contiene la lógica de negocios y la capa de presentación que se sirve a los browsers con los que se accede.
-    \item \textbf{User Admin API}
+
+    \item \textbf{User Admin API}: Módulo de interacción con el directorio LDAP, que permite al portal ejecutar operaciones básicas de gestion de usuarios y de listas de distribución y grupos de seguridad.
+        
+    \item \textbf{RLS API}: Módulo que implementa de manera genérica y universal, la gestión de perfiles de usuarios con el \gls{rls} que se utilice. Este módulo es de uso opcional y depende de un proyecto tiene implementado \gls{rls} o no.
     
+        el conjunto de servicios implementados para dicho módulo es el siguiente:
+        \begin{enumerate}
+            \item **GET\_ROLES**: devuelve una lista de roles de proyecto.
+            \item **GET\_USER\_ROLES**: devuelve el rol asociado a un usuario específico - usando un UserID.
+            \item **ADD\_USER\_ROLES**: agrega o actualiza un rol a un usuario específico.
+            \item **ADD\_USER\_W\_FULL\_NAME\_ROLES**: agrega un rol a un usuario específico enviando el nombre completo también.
+            \item **REMOVE\_USER\_ROLES**: elimina un rol de un usuario.
+            \item **ADD\_ACTIVITY\_LOG**: envía información de auditoría al proyecto.
+        \end{enumerate}
+
+
+    Cada uno de estos servicios, se implementan como consultas a las bases de datos de cada proyecto, con las espeficidades de cada modelo de datos y sql, segun el rdbms que se utilice.
     
-    \item \textbf{RLS API}
-    en este caso se puede explicar como funciona el API de roles para poder integrar como wrapper lo que se decidió implmentar.
-    \item \textbf{RH DB} (base de datos de ReportsHub)
+    \item \textbf{RH DB}: Representa la instancia de la base de datos de ReportsHub, que almacena toda la información de catálogos, de usuarios del sistema, de actividad y de auditoría. En este caso puntual, una RDBMS Oracle.
 \end{enumerate}
 
 Componentes del ecosistema:
 
+
+Algunos elementos del ecosistema que debían utilizarse y con los que se tenía que interactuar con el directorio LDAP corporativo, para poder administrar usuarios y grupos de seguridad, bases de datos de los proyectos específicos y adicionalmente el sistema de autenticación de la corporación, para poder implmenentar \gls{sso}
+
 \begin{enumerate}
-    \item LDAP
-
-    Explicación del directorio de LDAP y las técnicas de integración para poder meterse.
-    
-    \item herramientas de visualización
-    Acá uno puede hablar de lo que son las herramientas de visualización y luego profundizar en variaciones.
-    
-    \item bases de datos de proyectos
-    acpa se puede hablar del API
-
+    \item \Gls{ldap} Directorio corporativo.
+    \item Herramientas de visualización. \footnote{En este caso se habla de herramientas de visualización porque son las relevantes para los proyectos de analytics, pero se puede generalizar a la gestión de accesos de cualquier tipo de software que pueda administrar sus accesos de usuarios apoyándose en listas de distribución o grupos de seguridad de \gls{ldap}}
+    \item Bases de datos de proyectos.
     
 \end{enumerate}
 
-
-\vspace{1cm}
-
-\begin{figure}
+\begin{figure} [h!]
     \centering
     \begin{tikzpicture}[node distance=0.5cm and 0.5cm]
 
@@ -253,81 +292,47 @@ Componentes del ecosistema:
 \draw[arrow] (rls) -- (reportshub);
 \draw[arrow] (reportshub) -- (rls);
 
-  % --- LEYENDA ---
-  \matrix [draw, below right= -1cm and 4cm of rls, column sep=0.5cm, row sep=0.3cm, nodes={anchor=west}]
-  {
-    \node[block2, scale=0.5] {}; & \node {Componentes de ReportsHub}; \\
-    \node[block, scale=0.5] {}; & \node {Aplicaciones / Herramientas de BI}; \\
-    \node[block3, scale=0.5] {}; & \node {Herramientas de visualización}; \\
-    \node[db, scale=0.6] {};    & \node {Bases de datos de proyectos}; \\
-  };
+\matrix [draw, below right= -1cm and 4cm of rls, column sep=0.3cm, row sep=0.3cm, nodes={anchor=west}]
+{
+    \node[block2, scale=0.5] {}; & \node[align=left, text width=5cm] {\small Componentes de ReportsHub}; \\
+    \node[block, scale=0.5] {};  & \node[align=left, text width=5cm] {\small Aplicaciones / \\Herramientas de BI}; \\
+    \node[block3, scale=0.5] {}; & \node[align=left, text width=5cm] {\small Herramientas de visualización}; \\
+    \node[db, scale=0.6] {};     & \node[align=left, text width=5cm] {\small Bases de datos de proyectos}; \\
+};
+
     \end{tikzpicture}
     \caption{Componentes de Arquitectura}
     \label{fig:arq_components2} 
 \end{figure}
 
+\newpage
+
 \section{Diseño de seguridad y Row Level Security (RLS)}
 Por cuestiones de simplicidad y de diseño general, se trabajó con un esquema de seguirdad donde usuarios de ciertas áreas funcionales, pueden tener acceso a la información completa de dichas áreas, con limitaciones geográficas. en el caso de los usuarios "locales", en general se les otorga permiso vingulado al país donde operan. usuarios regionales, se les otorga visibilidad sobre la región (información consolidada a nivel regional) y del detalle de los paises incluidos en dicha región.
 finalmente hay usuarios globales que tienen acceso a una capa global de datos (del area de interés del contenido publicado) y luego a los datos consolidados en niveles geográficos incluidos (regionales y paiese de cada región).
 
-normlamnete para implementar el filtrado a nivel geográfico, se aplicaron técnicas de RLS, de modo que permite mediante el rol del usuario, poder tener scope a las filas (rows) que son relevantes a dicho usuario.
+Normlamnete para implementar el filtrado a nivel geográfico, se aplicaron técnicas de RLS, de modo que permite mediante el rol del usuario, poder tener scope a las filas (rows) que son relevantes a dicho usuario.
 
 La implmentación, normalmente se aplica a nivel de modelo de datos, haciéndola inherente a las consultas, de modo que siempre se agregan automáticamente a todas las queries, where conditions limitando las filas con las que se trabaja por alcance geográfico.
 
-Se puede agregar algún diagrama de RLS y algún modelo de datos (DER) que ayude a implmenentarlo.
+%Se puede agregar algún diagrama de RLS y algún modelo de datos (DER) que ayude a implmenentarlo.
 
-\section{Flujos de datos e integraciones con sistemas existentes}
+\section{Mejora y simplificación en el proceso estándard de asignación de permisos}
 
-Workflows de aprobaciones y relación con los casos de uso. 
+En el caso del proceso de asignación de permisos, puede observarse que intervienen dos roles, llamados Business Analysts y AMS BI Tool y AMS Project Support team que son resultado de la extrema burocracia y configuración sub-óptima del funcionamiento de las áreas de operaciones y mantenimiento.
+\vspace{1cm}
 
-acá se puede trabajar las mejoras de los flujos de interacciones para cada caso de uso.
+\begin{tabular}{l}
+\includegraphics[width=15cm]{Workflow-aprobacion-original.jpeg}
+%\caption{proceso Original}
+\end{tabular}
 
+El nuevo proceso resultante, quita del medio todos los elementos de "complejidad accidental", dejando simplemente a los únicos dos roles, que son relevantes, el "End User" que es el usuario final quien solicita el acceso al reporte y el "Report Owner" que es quien determina si la solicitud corresponde o no y puede actuar en consecuencia.
 
-\section{Consideraciones de escalabilidad y resiliencia}
+EL proceso resultante de la simplificación e integración del portal conlas herramientas de visualización y también del RLS (en caso de ser necesario), se describe a continuación:
 
-revisar si acá las condiciones de escalabilidad y resiliencia que se definieron en los principios de diseño se implementan en arquitectura.
-
-\begin{tikzpicture}[
-  node distance=1.5cm and 1cm,
-  every node/.style={draw, fill=white, drop shadow, font=\sffamily, align=center},
-  model/.style={ellipse, minimum width=2cm, minimum height=1cm},
-  view/.style={rectangle, minimum width=3cm, minimum height=1.5cm},
-  controller/.style={rectangle, minimum width=3cm, minimum height=1.5cm},
-  browser/.style={rectangle, minimum width=2cm, minimum height=1cm},
-  webserver/.style={rectangle, minimum width=2cm, minimum height=1cm},
-  appserver/.style={rectangle, minimum width=2cm, minimum height=1cm},
-  dbserver/.style={cylinder, shape border rotate=90, minimum width=1.5cm, minimum height=1.5cm},
-  ap/.style={-Stealth, thick}
-]
-
-% Browser
-\node[browser] (browser) {Browser};
-
-% Web Server (Apache)
-\node[webserver, below=of browser] (webserver) {Apache};
-
-% App Server (Tomcat)
-\node[appserver, below=of webserver] (appserver) {Tomcat};
-
-% Database Server (Oracle)
-\node[dbserver, below=of appserver] (dbserver) {Oracle DB};
-
-% MVC Components
-\node[controller, left=of appserver] (controller) {Controller};
-\node[model, left=of controller] (model) {Model};
-\node[view, left=of webserver] (view) {View};
-
-% Arrows
-\draw[ap] (browser) -- (webserver);
-\draw[ap] (webserver) -- (controller);
-\draw[ap] (controller) -- (model);
-\draw[ap] (model) -- (dbserver);
-\draw[ap] (dbserver) -- (model);
-\draw[ap] (model) -- (controller);
-\draw[ap] (controller) -- (view);
-\draw[ap] (view) -- (webserver);
-\draw[ap] (webserver) -- (browser);
-
-\end{tikzpicture}
-
+\begin{tabular}{l}
+\includegraphics[width=10cm]{Workflow-aprobacion-mejorado.jpeg}
+%\caption{Proceso simplificado}
+\end{tabular}
 
