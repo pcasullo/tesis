@@ -1,46 +1,192 @@
 \chapter{desarrollo y despliegue}
-\section{Enfoque metodológico (Waterfall/Agile)}
+\section{Enfoque metodológico}
 
-Metodología Waterfall
-En la metodología Waterfall, las fases del desarrollo de software se llevan a cabo de manera secuencial. Aquí tienes cómo se organiza el equipo en esta metodología:
+El proyecto se estructuró de modo clásico \gls{sdlc} con las siguientes fases:
 
-Product Owner: Responsable de definir los requerimientos y asegurarse de que el producto final cumpla con las expectativas del cliente.
-Scrum Master: Este rol no existe en Waterfall, pero podría haber un jefe de proyecto que coordina las tareas y asegura que las fases se completen a tiempo.
-Programadores de Front End: Se encargan de la interfaz de usuario una vez que se ha definido y aprobado el diseño.
-Programadores de Back End y de Base de Datos: Trabajan en la lógica del servidor y la estructura de la base de datos después de la fase de diseño.
-Testers: Realizan pruebas finales después de que el desarrollo esté completo.
-Operadores: Se encargan del despliegue y mantenimiento del sistema una vez que ha sido probado y aprobado.
-Metodología Agile
-En la metodología Agile, las fases del desarrollo de software son iterativas e incrementales. El equipo trabaja en sprints cortos y frecuentes para entregar funcionalidades completas. Aquí es cómo se organiza el equipo:
+\begin{enumerate}
+    \item Ideación: del concepto y problema general a resolver.
+    \item Especificación de requerimientos: Definicion de los requerimientos funcionales y no funcionales, junto con los criterios de aceptación.
+    \item Diseño de la solución: Definición de la arquitectura, de los componentes logicos, del modelo de datos y de la experiencia de usuario (mediante maquetas).
+    \item Desarrollo y pruebas: Fase de codificación y verificación de que el código cumple con los requerimientos y alcanza satisfactoriamente los criterios de aceptación.
+    \item Despliegue a producción y lanzamiento: Fase de despliegue en el entorno productivo y tareas de capacitación y entrenamiento de usuarios (y de equipo de soporte/operaciones)
+    \item Operación: fase en la que ya estando el sistema productivo, se le da soporte a los usuarios frente a incidentes.
+    \item Decomisado: fase en la que se planifica y ejecuta el decomisado de la aplicación una vez que ya ha cumplido su ciclo de vida (todavía no ha ocurrido esto, ni se espera que ocurra en los proximos 2-3 años)
+\end{enumerate}
 
-Product Owner: Define y prioriza el backlog del producto, asegurándose de que el equipo trabaje en las tareas de mayor valor.
-Scrum Master: Facilita el proceso Agile y remueve obstáculos para el equipo.
-Programadores de Front End: Trabajan en la interfaz de usuario en cada sprint, colaborando estrechamente con los programadores de back end.
-Programadores de Back End y de Base de Datos: Desarrollan la lógica del servidor y la estructura de la base de datos en cada sprint.
-Testers: Realizan pruebas continuas durante cada sprint, asegurando que las nuevas funcionalidades funcionen correctamente.
-Operadores: Empiezan a involucrarse en el proceso de despliegue más frecuentemente, aunque aún puede haber una separación entre desarrollo y operaciones.
+%Cada fase estando muy bien definida con documentación formal como parte de los entregables de cada fase.
+
+Inicialmente se decidió trabajar con una metodología \emph{Waterfall}, para poder enfocarse en un primer entregable, que pudiera cumplir con la funcionalidad básica de los casos de uso.
+
+
+Para encarar el desarrollo, también se ensambló un equipo compuesto por los siguientes roles:
+
+\begin{enumerate}
+    \item Product Owner: Persona encargada de definir el producto, su roadmap, prioridades y fases de entregas para maximizar el valor de cada entrega, en múltiples fases de desarrollo.
+    \item Project Manager: Persona encargada de armar el plan de trabajo con el product owner, los equipos de desarrollo, pruebas, operaciones y entrenamiento, para poder planificar las entregas y luego hacer la coordinar la ejecución y su seguimiento.
+    \item Equipo de desarrollo: Equipo responsable por escribir el código y realizar pruebas unitarias y verificaciones iniciales del código. Conformado por programadores especializados en visualización, en logica de negocio y bases de datos. También hubo apoyo part time de un arquitecto para poder trabajar las definiciones estructurales y detalles de arquitectura definidas en la sección anterior.
+    \item Equipo de testing: conformado por un líder de testing encargado de desarrollar los planes de pruebas, y desarrollar los casos de pruebas en funcion de las especificaciones de los casos de uso. Testers, encargados de ejecutar los casos de prueba, de distintos tipos, desde pruebas de integración, como así también de regresión y de performance.
+    \item Equipo de operaciones: Este equipo es el responsable de operar el sistema una vez desplegado en producción y a la vez de dar continuidad a la operación, en caso de que alguno de los componentes falle por algún problema. Frente alguna situación de falla o reportes de errores de usuario, son la primer capa de atención al usuario y que permite analizar el síntoma y hacer un diagnóstico, para saber si lo reportado por los usuarios es realmente un error del sistema, un problema de experiencia de usuario o de entrenamiento.
+    \item Equipo de capacitación: Equipo responsable de generar el material didáctico y planificar junto con el PM las capacitaciones de los usuarios, para poder garantizar una adopción adecuada del producto. También se explica el esquema de soporte en caso de necesitar reportar incidentes.
+\end{enumerate}
+
+\newpage
+El esquema de trabajo en función de responsabilidades puede resumirse en la siguiente matriz \gls{raci}
+
+
+\begin{figure}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Rol / Fase} & \textbf{Ideación} & \textbf{Reqs} & \textbf{Diseño} & \textbf{Desarrollo } & \textbf{Despliegue} & \textbf{Operación} \\
+\midrule
+PO & \textbf{A / R} & \textbf{A / R} & C & C & C & I \\
+PM & C & C & \textbf{R} & A & \textbf{A / R} & I \\
+Architect & C & C & \textbf{A} & R & C & I \\
+Desarrollo & I & C & R / C & \textbf{R} & C & I \\
+Testing & I & C & C & \textbf{R / C} & C & I \\
+Operaciones & I & I & C & I & \textbf{I} & \textbf{R / A} \\
+Capacitación & I & A & I & I & \textbf{R} & C \\
+\bottomrule
+\end{tabular}
+    \caption{Matriz \gls{raci}-\gls{sdlc} para el equipo definido}
+    \label{fig:raci_matrix} 
+\end{figure}
+
+    \newpage
+
+\begin{figure}
+\begin{tikzpicture}[
+  role/.style={rectangle, draw, rounded corners, align=center, minimum height=1.5cm},
+  arr/.style={-{Stealth}, thick}
+  ]
+
+  % Nodos
+  \node[role] (PO) {Product Owner};
+  \node[role, below=of PO] (PM) {Project Manager};
+  \node[role, below=of PM] (DEV) {Equipo de Desarrollo};
+  \node[role, right=of DEV] (TEST) {Equipo de Testing};
+  \node[role, below=of TEST] (OPS) {Equipo de Operaciones};
+  \node[role, right=of TEST] (TRAIN) {Equipo de Capacitación};
+
+  % Flechas principales
+  \draw[arr] (PO) -- (PM);
+  \draw[arr] (PM) -- (DEV);
+  \draw[arr] (PM) -- (TEST);
+  \draw[arr] (PM) -- (OPS);
+  \draw[arr] (PM) -- (TRAIN);
+
+  % Interacciones entre equipos
+  \draw[arr] (DEV) -- (TEST);
+  \draw[arr] (TEST) -- (DEV);
+  \draw[arr] (DEV) -- (OPS);
+  \draw[arr] (OPS) -- (DEV);
+
+  \draw[arr] (TRAIN) -- (DEV);
+  \draw[arr] (TRAIN) -- (OPS);
+  \draw[arr] (TRAIN) -- (PM);
+
+\end{tikzpicture}
+    \caption{Interacciones entre roles/sub-equipos}
+    \label{fig:ways_of_working} 
+\end{figure}
+
+
+Adicionalmente, recordemos que se cuenta con 4 entornos para el desarrollo.
+
+\begin{enumerate}
+    \item Entornos locales:
+    \item Entorno de Dev.
+    \item Entorno de UAT.
+    \item Entorno de Producción.
+\end{enumerate}
+
+
+
+\section*{Diagrama de estados del ciclo de entornos}
+
+\begin{figure}
+\begin{tikzpicture} 
+  % Estados
+  \node[state, initial] (1local) {local};
+  \node[state, right of=1local] (1dev) {Dev};
+  \node[state, right of=1dev] (1uat) {UAT};
+  \node[state, right of=1uat] (1prod) {Prod};
+
+  % Transiciones
+  \path (1local) edge[bend left=0] node[above]{Integracion} (1dev)
+        (1dev) edge[bend left=0] node[above]{Integracion y regresion ok} (1uat)
+        (1uat) edge[bend left=0] node[above]{UAT ok} (1prod);
+%        (1prod) edge[loop right] node[right]{M4} ();
+\end{tikzpicture}
+    \caption{Hitos que definen el pasaje de estado}
+    \label{fig:transiciones_estados} 
+\end{figure}
+
+
+
+
+
+% Metodología Waterfall
+% En la metodología Waterfall, las fases del desarrollo de software se llevan a cabo de manera secuencial. Aquí tienes cómo se organiza el equipo en esta metodología:
+
+% Product Owner: Responsable de definir los requerimientos y asegurarse de que el producto final cumpla con las expectativas del cliente.
+% Scrum Master: Este rol no existe en Waterfall, pero podría haber un jefe de proyecto que coordina las tareas y asegura que las fases se completen a tiempo.
+% Programadores de Front End: Se encargan de la interfaz de usuario una vez que se ha definido y aprobado el diseño.
+% Programadores de Back End y de Base de Datos: Trabajan en la lógica del servidor y la estructura de la base de datos después de la fase de diseño.
+% Testers: Realizan pruebas finales después de que el desarrollo esté completo.
+% Operadores: Se encargan del despliegue y mantenimiento del sistema una vez que ha sido probado y aprobado.
+
+% Metodología Agil.
+% En la metodología Agile, las fases del desarrollo de software son iterativas e incrementales. El equipo trabaja en sprints cortos y frecuentes para entregar funcionalidades completas. Aquí es cómo se organiza el equipo:
+
+% Product Owner: Define y prioriza el backlog del producto, asegurándose de que el equipo trabaje en las tareas de mayor valor.
+% Scrum Master: Facilita el proceso Agile y remueve obstáculos para el equipo.
+% Programadores de Front End: Trabajan en la interfaz de usuario en cada sprint, colaborando estrechamente con los programadores de back end.
+% Programadores de Back End y de Base de Datos: Desarrollan la lógica del servidor y la estructura de la base de datos en cada sprint.
+% Testers: Realizan pruebas continuas durante cada sprint, asegurando que las nuevas funcionalidades funcionen correctamente.
+% Operadores: Empiezan a involucrarse en el proceso de despliegue más frecuentemente, aunque aún puede haber una separación entre desarrollo y operaciones.
 
 \section{Planificación y backlog inicial}
-
-\section{Definición de historias de usuario clave}
-
-\section{Iteraciones y sprints principales}
 
 \section{Validaciones con usuarios de negocio}
 
 \section{Gestión de calidad}
 
-\subsection{Pruebas funcionales}
+Inicialmente, la calidad del desarrollo se fue monitoreando mediante el equipo de testing. EL leader de testing había creado un plan de pruebas y estas pruebas eran ejecutadas y documentadas rigurosamente antes de realizar pasajes a producción. 
 
-\subsection{Pruebas de seguridad}
-\subsection{Pruebas de performance}
-\subsection{Pruebas de integración}
+En caso de encontrar errores, se notificaban al equipo de desarrollo y luego de corregirse, se re-verificaban. 
+
+El proceso era muy manual y no permitía, ni gran agilidad, ni múltiples y rápidas iteraciones a la hora de lanzar nuevas versiones a producción.
+
 \section{Hitos alcanzados y ajustes sobre la marcha}
+Después de un período inicial de desarrollo de 6 meses, se logró alcanzar el primer hito, donde se implementaron de manera básica todos los casos de uso definidos inicialmente. Esto por un lado permitió ofrecer un MVP util y funcional y a la vez, detectar oportunidades de mejora y evoluciones posibles, ya con el producto rodando en productivo.
+
+Para poder encarar sucesivas iteraciones en la evolución de la plataforma, se tuvo que cambiar drásticamente la composición del equipo, como así también la metodología de desarrollo, de modo tal de poder responder on mayor agilidad a los cambios y necesidades sin sacrificar calidad.
+
 \section{Estrategia de despliegue y fases de rollout.}
-\section{Piloto inicial y resultados}
+
+Para hacer el despliegue, se realizó la puesta en producción y se seleccionó un equipo de usuarios que trabajaba con la región de latinoamérica. Ellos tenían muy buena formación técnica y eran los clientes indicados para poder dar el puntapié inicial al despliegue global.
+
+Se trabajó entonces con este equipo en modo piloto inicial y los resultados fueron alentadores. 
+
+Se realizaron las capacitaciones y luego estableció un período de tres meses para dejar rodar la solución y a la vez evaluar la estabilidad, performance y mejorar temas necesarios que no habían sido considerados como para poder luego hacer el rollout global.
+
 \section{Escalamiento a más áreas y usuarios}
+
+Ya con el piloto satisfactorio, una lista mínima de mejoras ya implementadas y el equipo redefinido junto con la metodología, se decidió expandir el piloto al resto de las regiones y otros equipos corporativos. El despliege completo duró aproxiamdamente 6 meses más y a medida que se fue avanzando cada vez se fue simplificando más el proceso de "onboarding" de nuevos usuarios.
+
+Se adoptó un enfoque de entrenamiento para los creadores de contenidos y ellos a su vez comenzaron a promocionarlo y entrenar a sus propios usuarios y en muchos casos, cuando había usuarios que ya usaban el portal por otros creadores de contenido, preguntaban proactivamente por qué faltaban agregar más contenidos, con lo cual el crecimiento se dio de modo orgánico y natural.
+
 \section{Plan de comunicación y capacitación}
-\section{Materiales de soporte y guías de usuario}
-\section{Gestión del cambio organizacional}
+El plan de comunicación y de capacitación, se diseñó de modo de acompañar las fases de despliegue por grupos de usuarios y audiencias. Se encaró un enfoque de \gls{cop}, que permitió crear un universo de usuarios general, con algunos más "expertos" que ayudaron a disceminar las mejores prácticas. 
+
+se identificaron dichos usuarios líderes o clave y se hizo una capacitación del estilo \gls{ttt}, para poder hacerlo en múltiples olas y a la vez de modo federado y escalable.
+
+Los materiales de soporte y guías de usuario, se defineron en dos niveles: 
+\begin{enumerate}
+    \item Guía específica para usuarios con privilegios de publicación y administración de contenidos
+    \item Guía para usuarios finales, que en realidad estaba integrada al portal, e incluso la misma interfaz era bastante auto descriptiva.
+\end{enumerate}
+
 \section{Mecanismos de soporte post-lanzamiento}
+
 

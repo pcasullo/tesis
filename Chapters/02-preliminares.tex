@@ -87,5 +87,82 @@ Las definiciones preliminares son aquellas que nos permiten profundizar en los e
         \item Configuración de provisión de acceso
     \end{itemize}
 
+\end{description}
+
+\section{Definiciones de diseño y arquitectura de software}
+
+\begin{description}
+
+    \item [Stack tecnológico:] Conjunto de tecnologías y herramientas utilizadas para construir y ejecutar una aplicación o sistema \gls{techstack}.
+    \item [Web App:] Aplicación que se ejecuta en un navegador web y accede a servicios a través de Internet \gls{wapp}.
+    \item [RLS:] \gls{rls}, directrices o políticas que definen cómo se maneja y protege la información sensible.
+    \item [LDAP:] \gls{ldap}, un protocolo de red para acceder a servicios de directorio de información.
+    \item [API:] \gls{api}, un conjunto de rutinas y protocolos de programación que permiten la creación de software.
+    \item [SOA:] \gls{soa}, un enfoque de diseño en el que tanto las aplicaciones como los componentes de las aplicaciones son services intercambiables.
+    \item [Cohesión:] La medida en que las funciones relacionadas se agrupan en un módulo o clase \cite{yourdon1979}.
+    \item [Acoplamiento:] La dependencia entre módulos o componentes de software \cite{yourdon1979}.
+    \item [\Gls{webserver}:] Servidor que sirve páginas web y gestiona las solicitudes HTTP.
+    \item [\Gls{loadbalancer}:] Dispositivo de red que distribuye la carga de trabajo entre múltiples servidores.
+    \item [Web Application Server:] Servidor que gestiona aplicaciones web y proporciona servicios adicionales como escalado y seguridad.
+    \item [Back end:] Parte del sistema que maneja la lógica de negocio, el almacenamiento de datos y la interacción con el front end \gls{backend}.
+    \item [\Gls{clientserver}:] Modelo de arquitectura de red en el que los clientes solicitan servicios al servidor.
+    \item [\Gls{cache}:] Componente de hardware o software que almacena copias temporales de datos para acceder a ellos más rápidamente.
+    \item [Tolerancia a fallas:] La capacidad de un sistema para continuar funcionando a pesar de errores o fallos.
+    \item [NFS:] \Gls{nfs}, sistema de archivos central y compartido que permite a múltiples computadoras acceder a archivos de forma simultánea.
+    \item [\Gls{dbserver}:] Un servidor que gestiona bases de datos y permite el acceso y la manipulación de datos.
+    \item [MVC:] Model View Controller \cite{pope1988}. Patrón de diseño mediante el cual, se separan en tres capas bien definidas, para mayor flexibilidad, mantenibilidad y escalabilidad.
+    
+\end{description}
+
+\section{Definiciones de metodologías}
+    
+\begin{description}
+
+\item[Waterfall/Cascada:] Una metodología de desarrollo de software en la que el proceso se divide en fases secuenciales y se asume que cada fase se completa antes de pasar a la siguiente \cite{royce1970}.
+\item[Agile/Agil:] Una metodología de desarrollo de software que promueve la iteración y la colaboración, y que se adapta a los cambios a medida que el proyecto avanza.% \cite{agile2001}.
+\item[DevOps:] El término "DevOps" fue acuñado por Patrick Debois en 2009 para nombrar su conferencia "DevOpsDays", la cual se inspiró en la charla "10 despliegues por día" de John Allspaw y Paul Hammond en la Conferencia Velocity de 2009. El término se creó al combinar Development (desarrollo) y Ops (operaciones) para resolver la brecha entre los dos equipos.\cite{allspaw2009}.
+\item[Unit tests:] Pruebas unitarias.
+\item[Integration tests:] Pruebas de integración.
+\item[Dev:] Desarrollo. Entorno para desarrollo y pruebas de unidad y de integración.
+\item[UAT:] User Acceptance Test. Entorno de pruebas de usuario y validaciones finales antes de hacer pasajes a producción.
+\item[Pr:] Production/Producción. Entorno de operaciones productivo.
 
 \end{description}
+
+\section{Definiciones propias del proyecto}
+
+\begin{description}
+
+\item[ReportHub:] Plataforma propuesta para consolidar y armonizar la publicación de reportes y tableros, gestión de accesos y monitoreo de métricas de uso de BI.
+
+\item[Administradores:] Usuarios con privilegios para gestionar contenidos, accesos y usuarios dentro de la plataforma. Se distinguen tres tipos:
+    \begin{itemize}
+        \item \textbf{Admin Global:} Gestiona unidades geográficas globales y áreas de información a nivel global.
+        \item \textbf{Admin Local:} Gestiona áreas de información dentro de su región geográfica asignada.
+    \end{itemize}
+
+\item[Creadores de Contenidos:] Usuarios responsables de generar y publicar contenidos dentro de la plataforma.
+
+\item[Consumidores de Contenidos:] Usuarios que acceden y utilizan los contenidos publicados en el portal, pudiendo también marcar favoritos y realizar solicitudes de acceso.
+
+\item[Aprobadores:] Usuarios que evalúan y aprueban solicitudes de acceso a contenidos según la configuración de seguridad definida.
+
+\item[Estructura de contenidos:] Jerarquía de organización de contenidos en dos niveles:
+    \begin{enumerate}
+        \item \textbf{Nivel 1:} Unidades geográficas (Global, Europa, América, Asia, África y países correspondientes).
+        \item \textbf{Nivel 2:} Áreas de información (temáticas específicas, únicas dentro de cada región).
+    \end{enumerate}
+
+\item[Metadatos de Contenido:] Información asociada a cada contenido publicado, incluyendo:
+    \begin{itemize}
+        \item Título
+        \item Descripción
+        \item Imagen miniatura
+        \item Tipo de contenido (archivo o URL)
+        \item Segmentos de usuarios y objetivos de frecuencia de uso
+        \item Aprobadores
+        \item Configuración de provisión de acceso
+    \end{itemize}
+
+\end{description}
+
