@@ -42,30 +42,27 @@
 \contentsline {section}{\numberline {4.5}Mejora y simplificación en el proceso estándard de asignación de permisos}{26}{}%
 \contentsline {chapter}{\numberline {5.}desarrollo y despliegue}{29}{}%
 \contentsline {section}{\numberline {5.1}Enfoque metodológico}{29}{}%
-\contentsline {section}{\numberline {5.2}Planificación y backlog inicial}{32}{}%
-\contentsline {section}{\numberline {5.3}Validaciones con usuarios de negocio}{32}{}%
-\contentsline {section}{\numberline {5.4}Gestión de calidad}{32}{}%
-\contentsline {section}{\numberline {5.5}Hitos alcanzados y ajustes sobre la marcha}{33}{}%
-\contentsline {section}{\numberline {5.6}Estrategia de despliegue y fases de rollout.}{33}{}%
-\contentsline {section}{\numberline {5.7}Escalamiento a más áreas y usuarios}{33}{}%
-\contentsline {section}{\numberline {5.8}Plan de comunicación y capacitación}{33}{}%
-\contentsline {section}{\numberline {5.9}Mecanismos de soporte post-lanzamiento}{34}{}%
-\contentsline {chapter}{\numberline {6.}evaluacion}{35}{}%
-\contentsline {section}{\numberline {6.1}Metodología de evaluación}{35}{}%
-\contentsline {section}{\numberline {6.2}Resultados cuantitativos}{35}{}%
-\contentsline {section}{\numberline {6.3}Resultados cualitativos}{35}{}%
-\contentsline {section}{\numberline {6.4}Comparación con KPIs iniciales}{35}{}%
-\contentsline {section}{\numberline {6.5}Impacto en seguridad y cumplimiento}{35}{}%
-\contentsline {section}{\numberline {6.6}Conclusiones de la evaluación}{35}{}%
-\contentsline {chapter}{\numberline {7.}Conclusiones}{37}{}%
-\contentsline {section}{\numberline {7.1}Resumen de los logros principales}{37}{}%
-\contentsline {section}{\numberline {7.2}Relevancia del proyecto para la organización}{37}{}%
-\contentsline {section}{\numberline {7.3}Impacto estratégico a largo plazo}{37}{}%
-\contentsline {section}{\numberline {7.4}Próximos pasos sugeridos (roadmap evolutivo)}{37}{}%
-\contentsline {chapter}{\numberline {8.}Lecciones Aprendidas}{39}{}%
-\contentsline {section}{\numberline {8.1}Aspectos que funcionaron bien}{39}{}%
-\contentsline {section}{\numberline {8.2}Dificultades y cómo se superaron}{39}{}%
-\contentsline {section}{\numberline {8.3}Factores clave de éxito}{39}{}%
-\contentsline {section}{\numberline {8.4}Aspectos a mejorar}{39}{}%
-\contentsline {section}{\numberline {8.5}Aprendizajes organizacionales}{39}{}%
-\contentsline {section}{\numberline {8.6}Recomendaciones para futuros proyectos}{39}{}%
+\contentsline {section}{\numberline {5.2}Estrategia de despliegue y fases de rollout.}{34}{}%
+\contentsline {subsection}{\numberline {5.2.1}Fase I: \gls {mvp} con Grupo piloto}{34}{}%
+\contentsline {subsection}{\numberline {5.2.2}Fase II: Expansión y escalamiento a más áreas y usuarios}{34}{}%
+\contentsline {section}{\numberline {5.3}Plan de comunicación y capacitación}{34}{}%
+\contentsline {section}{\numberline {5.4}Mecanismos de soporte post-lanzamiento}{35}{}%
+\contentsline {section}{\numberline {5.5}Gestión de calidad y ajustes/mejoras metodológicas}{35}{}%
+\contentsline {chapter}{\numberline {6.}evaluacion}{37}{}%
+\contentsline {section}{\numberline {6.1}Metodología de evaluación}{37}{}%
+\contentsline {section}{\numberline {6.2}Resultados cuantitativos}{38}{}%
+\contentsline {section}{\numberline {6.3}Resultados cualitativos}{38}{}%
+\contentsline {section}{\numberline {6.4}Impacto en seguridad y cumplimiento}{39}{}%
+\contentsline {section}{\numberline {6.5}Conclusiones de la evaluación}{39}{}%
+\contentsline {chapter}{\numberline {7.}Conclusiones}{41}{}%
+\contentsline {section}{\numberline {7.1}Resumen de los logros principales}{41}{}%
+\contentsline {section}{\numberline {7.2}Relevancia del proyecto para la organización}{41}{}%
+\contentsline {section}{\numberline {7.3}Impacto estratégico a largo plazo}{41}{}%
+\contentsline {section}{\numberline {7.4}Próximos pasos sugeridos (roadmap evolutivo)}{41}{}%
+\contentsline {chapter}{\numberline {8.}Lecciones Aprendidas}{43}{}%
+\contentsline {section}{\numberline {8.1}Aspectos que funcionaron bien}{43}{}%
+\contentsline {section}{\numberline {8.2}Dificultades y cómo se superaron}{43}{}%
+\contentsline {section}{\numberline {8.3}Factores clave de éxito}{43}{}%
+\contentsline {section}{\numberline {8.4}Aspectos a mejorar}{43}{}%
+\contentsline {section}{\numberline {8.5}Aprendizajes organizacionales}{43}{}%
+\contentsline {section}{\numberline {8.6}Recomendaciones para futuros proyectos}{43}{}%

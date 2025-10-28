@@ -8,6 +8,7 @@
 \glossaryentry{DW?\glossentry{dw}|setentrycounter[]{page}"\glsnumberformat}{\es@scroman  {i}}
 \glossaryentry{UX?\glossentry{ux}|setentrycounter[]{page}"\glsnumberformat}{\es@scroman  {i}}
 \glossaryentry{SOA?\glossentry{soa}|setentrycounter[]{page}"\glsnumberformat}{\es@scroman  {vii}}
+\glossaryentry{MVP?\glossentry{mvp}|setentrycounter[]{page}"\glsnumberformat}{\es@scroman  {viii}}
 \glossaryentry{ETL?\glossentry{etl}|setentrycounter[]{page}"\glsnumberformat}{1}
 \glossaryentry{RLS?\glossentry{rls}|setentrycounter[]{page}"\glsnumberformat}{7}
 \glossaryentry{LDAP?\glossentry{ldap}|setentrycounter[]{page}"\glsnumberformat}{7}
@@ -28,5 +29,8 @@
 \glossaryentry{RACI?\glossentry{raci}|setentrycounter[]{page}"\glsnumberformat}{31}
 \glossaryentry{SDLC?\glossentry{sdlc}|setentrycounter[]{page}"\glsnumberformat}{31}
 \glossaryentry{RACI?\glossentry{raci}|setentrycounter[]{page}"\glsnumberformat}{31}
-\glossaryentry{CoP?\glossentry{cop}|setentrycounter[]{page}"\glsnumberformat}{33}
+\glossaryentry{MVP?\glossentry{mvp}|setentrycounter[]{page}"\glsnumberformat}{34}
+\glossaryentry{MVP?\glossentry{mvp}|setentrycounter[]{page}"\glsnumberformat}{34}
+\glossaryentry{CoP?\glossentry{cop}|setentrycounter[]{page}"\glsnumberformat}{34}
 \glossaryentry{TTT?\glossentry{ttt}|setentrycounter[]{page}"\glsnumberformat}{34}
+\glossaryentry{ETC?\glossentry{fte}|setentrycounter[]{page}"\glsnumberformat}{36}

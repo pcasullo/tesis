@@ -60,7 +60,8 @@ Capacitación & I & A & I & I & \textbf{R} & C \\
   ]
 
   % Nodos
-  \node[role] (PO) {Product Owner};
+  \coordinate (anchoro) at (-5cm,0cm);
+  \node[role, right=10cm of anchoro] (PO) {Product Owner};
   \node[role, below=of PO] (PM) {Project Manager};
   \node[role, below=of PM] (DEV) {Equipo de Desarrollo};
   \node[role, right=of DEV] (TEST) {Equipo de Testing};
@@ -90,87 +91,54 @@ Capacitación & I & A & I & I & \textbf{R} & C \\
 \end{figure}
 
 
-Adicionalmente, recordemos que se cuenta con 4 entornos para el desarrollo.
+En esta metodología de desarrollo waterfall, se encuentran diferentes entornos de trabajo, dedicados a distintos fines y a la vez, a los que se accede, al cumplir satisfactoriamente diferentes verificaciones del ciclo de desarrollo.
+
+\begin{tabular}{l}
+\includegraphics[width=15cm]{waterfal_dev_phase1.jpg}
+%\caption{Actividades según roles y entornos}
+\end{tabular}
 
 \begin{enumerate}
-    \item Entornos locales:
-    \item Entorno de Dev.
-    \item Entorno de UAT.
-    \item Entorno de Producción.
+    \item Entornos locales: En los entornos locales, se trabaja de manera independiente en la documentación de casos de uso, diseño de arquitectura y luego cada desarrollador y tester, trabaja con versiones locales del codigo. En este caso, pueden exisistir múltiples versiones del mismo código que se modifican en paralelo por los distintos desarrolladores, según se hayan dividido las tareas según los skills de los miembros del equipo. (puede ser front end, back end, modelos de datos, apis, etc.).
+
+        A su vez, el equipo de testing, en sus equipos locales, también desarrolla sus casos de prueba, alineados con la funcionalidad definida en la especificación, pero sin interactuar con el equipo de desarrollo, de modo que se toma como base la especifiación y no el código que desarrollan los programadores. De este modo, el equipo de testing se enfoca 100\% en la escencia de la funcionalidad y no necesariamente en cómo se ha desarrollado/implementado la funcionalidad.
+    
+    
+    \item Entorno de Dev: En el entorno de Dev. (o de Desarrollo), es el primero entorno en el que se realizan pruebas del código generado por los multiples desarrolladores, ya combinado en una versión candidata para ser lanzada a producción. Es el espacio donde el equipo de testing puede correr la totalidad de los casos de pruebas que generaron y se evalúan los resultados de las ejecuciones. Si son exitosas, en principio se habilita esa versión de la aplicación/código para ser promovido al entorno de UAT.
+    
+    En caso de resultar fallidas, el equipo de testing trabaja junto con el equipo de desarrollo para hacer el troubleshooting de aquellos casos fallidos y en función de los hallazgos:
+        \begin{enumerate}
+            \item se corrije el código porque tenía defectos.
+            \item se corrije caso de test porque tenía defectos.
+            \item se corrijen el código y el caso de test porque ambos tenían defectos.
+        \end{enumerate}
+    
+    Finalmente, se vuelve a unificar el código y los casos de pruebas ajustados para luego repetir las pruebas en el entorno de desarrollo hasta que todo sea satisfactorio.
+
+    \item Entorno de UAT: Este es el entorno donde el Product Owner, habilita acceso a ciertos usuarios clave, que ayudan a hacer una verificación del sistema para dar el visto bueno para poder pasar el sistema a producción. De surgir fallas, se reportan al equipo de testing y de desarrollo y se realiza el troubleshooting de modo similar al del estadio anterior. De este modo, cualquier falla que se detecta, lleva el proceso al ajuste de código y luego a las pruebas en el estadio anterior.
+    
+        Una vez que la aplicación se ha desplegado al entorno de UAT, las interfaces de usuario ya son práctiamente definitivas y el equipo de capacitación puede trabajar en el desarrollo de los materiales para la capacitación de los usuarios finales.
+    
+    \item Entorno de Producción: Una vez que las pruebas en el entorno de UAT han sido superadas con éxito, se hace el pasaje final a producción y ocurren dos actividades escenciales. El product owner queda ya habilitado para comenzar las sesiones de capacitación según el plan de despliegue y entrenamiento y el equipo de desarrollo realiza una transferencia de conocimiento y capacitación (junto con la entrega de la documentación correspondiente) para que el equpo de operaciones, comience a dar el soporte necesario con la plataforma ya en vivo. 
+    
+    El product owner, junto con el equipo de capacitación (training) hacen el lanzamiento y las campañas de comuniación/entrenamiento con la finalidad de entrenar a los usuarios en el uso del sistema y luego trabajar en la adopción del mismo.
 \end{enumerate}
-
-
-
-\section*{Diagrama de estados del ciclo de entornos}
-
-\begin{figure}
-\begin{tikzpicture} 
-  % Estados
-  \node[state, initial] (1local) {local};
-  \node[state, right of=1local] (1dev) {Dev};
-  \node[state, right of=1dev] (1uat) {UAT};
-  \node[state, right of=1uat] (1prod) {Prod};
-
-  % Transiciones
-  \path (1local) edge[bend left=0] node[above]{Integracion} (1dev)
-        (1dev) edge[bend left=0] node[above]{Integracion y regresion ok} (1uat)
-        (1uat) edge[bend left=0] node[above]{UAT ok} (1prod);
-%        (1prod) edge[loop right] node[right]{M4} ();
-\end{tikzpicture}
-    \caption{Hitos que definen el pasaje de estado}
-    \label{fig:transiciones_estados} 
-\end{figure}
-
-
-
-
-
-% Metodología Waterfall
-% En la metodología Waterfall, las fases del desarrollo de software se llevan a cabo de manera secuencial. Aquí tienes cómo se organiza el equipo en esta metodología:
-
-% Product Owner: Responsable de definir los requerimientos y asegurarse de que el producto final cumpla con las expectativas del cliente.
-% Scrum Master: Este rol no existe en Waterfall, pero podría haber un jefe de proyecto que coordina las tareas y asegura que las fases se completen a tiempo.
-% Programadores de Front End: Se encargan de la interfaz de usuario una vez que se ha definido y aprobado el diseño.
-% Programadores de Back End y de Base de Datos: Trabajan en la lógica del servidor y la estructura de la base de datos después de la fase de diseño.
-% Testers: Realizan pruebas finales después de que el desarrollo esté completo.
-% Operadores: Se encargan del despliegue y mantenimiento del sistema una vez que ha sido probado y aprobado.
-
-% Metodología Agil.
-% En la metodología Agile, las fases del desarrollo de software son iterativas e incrementales. El equipo trabaja en sprints cortos y frecuentes para entregar funcionalidades completas. Aquí es cómo se organiza el equipo:
-
-% Product Owner: Define y prioriza el backlog del producto, asegurándose de que el equipo trabaje en las tareas de mayor valor.
-% Scrum Master: Facilita el proceso Agile y remueve obstáculos para el equipo.
-% Programadores de Front End: Trabajan en la interfaz de usuario en cada sprint, colaborando estrechamente con los programadores de back end.
-% Programadores de Back End y de Base de Datos: Desarrollan la lógica del servidor y la estructura de la base de datos en cada sprint.
-% Testers: Realizan pruebas continuas durante cada sprint, asegurando que las nuevas funcionalidades funcionen correctamente.
-% Operadores: Empiezan a involucrarse en el proceso de despliegue más frecuentemente, aunque aún puede haber una separación entre desarrollo y operaciones.
-
-\section{Planificación y backlog inicial}
-
-\section{Validaciones con usuarios de negocio}
-
-\section{Gestión de calidad}
-
-Inicialmente, la calidad del desarrollo se fue monitoreando mediante el equipo de testing. EL leader de testing había creado un plan de pruebas y estas pruebas eran ejecutadas y documentadas rigurosamente antes de realizar pasajes a producción. 
-
-En caso de encontrar errores, se notificaban al equipo de desarrollo y luego de corregirse, se re-verificaban. 
-
-El proceso era muy manual y no permitía, ni gran agilidad, ni múltiples y rápidas iteraciones a la hora de lanzar nuevas versiones a producción.
-
-\section{Hitos alcanzados y ajustes sobre la marcha}
-Después de un período inicial de desarrollo de 6 meses, se logró alcanzar el primer hito, donde se implementaron de manera básica todos los casos de uso definidos inicialmente. Esto por un lado permitió ofrecer un MVP util y funcional y a la vez, detectar oportunidades de mejora y evoluciones posibles, ya con el producto rodando en productivo.
-
-Para poder encarar sucesivas iteraciones en la evolución de la plataforma, se tuvo que cambiar drásticamente la composición del equipo, como así también la metodología de desarrollo, de modo tal de poder responder on mayor agilidad a los cambios y necesidades sin sacrificar calidad.
 
 \section{Estrategia de despliegue y fases de rollout.}
 
+Para la estrategia de despliege, se optó, por un enfoque en dos fases. una Fase I, que consistía en un \gls{mvp} con un pequeño grupo piloto de colaboración cercana, de modo de tener un primer acercamiento al uso real del sistema, con quienes se pudo trabajar muy de cerca. Esto permitió que se puedan testear las hipótesis y recolectar feedback valioso, para poder refinar los casos de uso originales.
+
+Luego, se pasó a la fase II, fomentando un crecimiento "orgánico", donde se identificaron equipos clave en el resto de la organización y se fueron sumando gradualmente en un período de 12 meses.
+
+\subsection{Fase I: \gls{mvp} con Grupo piloto}
+    
 Para hacer el despliegue, se realizó la puesta en producción y se seleccionó un equipo de usuarios que trabajaba con la región de latinoamérica. Ellos tenían muy buena formación técnica y eran los clientes indicados para poder dar el puntapié inicial al despliegue global.
 
 Se trabajó entonces con este equipo en modo piloto inicial y los resultados fueron alentadores. 
 
 Se realizaron las capacitaciones y luego estableció un período de tres meses para dejar rodar la solución y a la vez evaluar la estabilidad, performance y mejorar temas necesarios que no habían sido considerados como para poder luego hacer el rollout global.
 
-\section{Escalamiento a más áreas y usuarios}
+\subsection{Fase II: Expansión y escalamiento a más áreas y usuarios}
 
 Ya con el piloto satisfactorio, una lista mínima de mejoras ya implementadas y el equipo redefinido junto con la metodología, se decidió expandir el piloto al resto de las regiones y otros equipos corporativos. El despliege completo duró aproxiamdamente 6 meses más y a medida que se fue avanzando cada vez se fue simplificando más el proceso de "onboarding" de nuevos usuarios.
 
@@ -189,4 +157,83 @@ Los materiales de soporte y guías de usuario, se defineron en dos niveles:
 
 \section{Mecanismos de soporte post-lanzamiento}
 
+Dentro del esquema de soporte, se trabajó con un equipo corporativo que maneja un esquema de soporte de dos niveles. El primer nivel, orientado a preguntas simples y que son de solucion fácil, como pueden ser problemas de conectividad, instrucciones básicas sobre el uso del portal o eventualmente sobre alguno de los reportes. Si el primer nivel, no puede resolver satisfactoriamente la consulta del usuario, entonces se derivaba a un segundo nivel donde se identificaba, según la naturaleza de la consulta, qué acción seguir y qué grupo debía darle seguimiento.
 
+Es importante destacar que el objetivo del equipo de nivel 2, es garantizar la continuidad del servicio y mantener el sistema disponible y los accesos de los usuarios activados.
+
+En caso de que los usuarios finales hayan reportado un comportamiento compatible con un defecto o bug, entonces se derivaba al equipo de desarrollo para seguir con máxima prioridad un proceso de troubleshooting y análisis de causa raíz, para a su vez aplicar una solución definitiva.
+
+
+\section{Gestión de calidad y ajustes/mejoras metodológicas}
+
+
+Inicialmente, la calidad del desarrollo se fue monitoreando mediante el equipo de testing. EL leader de testing había creado un plan de pruebas y estas pruebas eran ejecutadas y documentadas rigurosamente antes de realizar pasajes a producción. 
+
+
+En caso de encontrar errores, se notificaban registraban en una plataforma que utilizabamos para tal fin y se compartían con el equipo de desarrollo y luego de corregirse, se re-verificaban. 
+
+
+El proceso era muy manual y no permitía, ni gran agilidad, ni múltiples y rápidas iteraciones a la hora de lanzar nuevas versiones a producción.
+
+
+Después de un período inicial de desarrollo de 6 meses, se logró alcanzar el primer hito, donde se implementaron de manera básica todos los casos de uso definidos inicialmente. 
+
+
+Esto por un lado permitió ofrecer un MVP útil y funcional y a la vez, detectar oportunidades de mejora y evoluciones posibles, ya con el sistema rodando en el entorno de producción.
+
+
+Para poder encarar sucesivas iteraciones en la evolución de la plataforma, se tuvo que cambiar drásticamente la composición del equipo, como así también la metodología de desarrollo, de modo tal de poder responder on mayor agilidad a los cambios y necesidades aumentando significativamente calidad y reduciendo los plazos de entrega.
+
+
+Los cambios, fueron sustantivos y afectaron, no sólo la metodología de desarrollo, sino también la composición del equipo de desarrollo y operaciones.
+
+
+Las principales causas para revisar la forma de trabajo fueron las siguientes:
+El esfuerzo manual de testeo, por parte del equipo de testing era excesivo, lento y un verdadero cuello de botella. La forma en la que se documentaban los defectos, a veces era inconsistente y se podían duplicar y a medida que la complejidad de la aplicación aumentaba, los casos de pruebas y sus tiempos de ejecución crecían de modo exponencial. La complejidad y diversidad casuística aumentaba a un ritmo mucho mayor que el código que la soportaba y era fundamental buscar alternativas.
+
+
+Esto además tenía un impacto muy negativo en los ciclos de entrega, haciendonos demorar meses hasta que una versión inicial y funcional, llegó a un punto de madurez que la hizo "usable".
+
+
+Adicionalmente, había problemas en la calidad del código desarrollado por los desarrolladores, porque al demorarse las entregas, la presión por terminar aumentaba e impactaba los entregables generando retrabajo. 
+
+
+Finalmente, cuando llegaban las versiones al entorno de producción, notamos que en varias ocasiones, a pesar de haber pasado satisfactoriamente las fases de testeo y control de calidad, tenían defectos y el equipo de operaciones, tampoco era efectivo a la hora de resolver algunos incidentes, por falta de conocimiento de la aplicación, y las capacitaciones que el equipo de desarrollo les daba al hacer los despliegues productivos, eran complejas o insuficientes.
+
+\begin{table} 
+    \centering
+    \begin{tabular}{|c|c|c|c|}\hline
+        \textbf{Actividades}&  \textbf{Waterfall}&  \textbf{DevOps Interino}&  \textbf{DevOps Final}\\\hline
+         Esquema de entregas&  1 x Trimestre &  1 x Mes & 1-3 x Semana  \\\hline
+         Cobertura del código& $\approx 25$\% &  $\approx 25$\%&  $\approx 50$\%\\\hline
+         Pruebas de Regresión (hs)&  24&  1&  2\\\hline
+         Tiempos de Hand Over (hs)& 8&  4&  -\\\hline
+         Tasa de defectos desde Prod\\ (vs trabajo nuevo x mes)&  $\approx 30$\%&  $\approx 15$\%&  $\approx 5$\%\\\hline
+    \end{tabular}
+    \caption{Mejoras metodológicas}
+    \label{tab:water_to_devops_method}
+\end{table}
+
+A continuación, se detalla cómo ha evolucionado la composición del equipo, a medida que se avanzó con la transformación metodológica, comparando \gls{fte}.
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|c|}\hline
+        \textbf{Composición del Equipo}&  \textbf{Waterfall}&  \textbf{DevOps Interino}&  \textbf{DevOps Final}\\\hline
+         ProductOwner&  1 &  1 & 1  \\\hline
+         PM/ScrumMaster& 1 &  1&  1\\\hline
+         Desarroladores&  4&  4&  4\\\hline
+         Arquitecto& 0,3&  0,3&  0,3\\\hline
+         DevOps Engineer& 0&  0,1&  0,1\\\hline
+         Lead de Test& 1&  1&  0\\\hline
+         Testers& 4&  3&  0\\\hline
+         Testers+& 0&  2&  2\\\hline
+         Training& 0,3&  0,3&  0,3\\\hline
+         Support Lead& 1&  0&  0\\\hline
+         Support& 1&  0&  0\\\hline
+         Total & 13,9&  13,4&  8,4\\\hline         
+         Evolucion s\% & 100\%& $\approx 96$ \% &  $\approx 60$\%\\\hline         
+        \end{tabular}
+    \caption{Evolución del Equipo}
+    \label{tab:water_to_devops_team}
+\end{table}

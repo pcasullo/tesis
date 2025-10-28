@@ -104,13 +104,13 @@ La “creación” y administración de usuarios, consiste en poder registrar us
 \begin{table}
     \centering
     \begin{tabular}{|c|c|c|c|c|}\hline
-         Función/rol&  Admin global&  Admin local&  Creador& Aprobador\\\hline
+        \textbf{Función/rol}&  \textbf{Admin global}&  \textbf{Admin local}&  \textbf{Creador}& \textbf{Aprobador}\\\hline
          Crear áreas globales&  \ding{51}&  &  & \\\hline
          Crear áreas locales& \ding{51}&  \ding{51}&  & \\\hline
          Crear contenidos&  \ding{51}&  \ding{51}&  \ding{51}& \\\hline
          Administrar usuarios&  \ding{51}&  \ding{51}&  \ding{51}& \ding{51}\\\hline
          Asignar Roles $^1$&  \ding{51}&  \ding{51}&  \ding{51}& \ding{51}\\\hline
-         Aprobar accesos&  &  &  \ding{51}& \ding{51}\\ \hline
+         Aprobar accesos&  &  &  \ding{51}& \ding{51}\\\hline
     \end{tabular}
     \caption{Funciones por rol (\ding{51})}
     \label{tab:funcxrol}
@@ -122,7 +122,7 @@ La “creación” y administración de usuarios, consiste en poder registrar us
 
     \centering
     \begin{tabular}{|c|c|c|c|c|}\hline
-         Rol / puede asignar&  Admin global&  Admin local&  Creador& Aprobador\\\hline
+         \textbf{Rol / puede asignar}&  \textbf{Admin global}&  \textbf{Admin local}&  \textbf{Creador}& \textbf{Aprobador}\\\hline
          Admin global&  \ding{51} &  \ding{51}&  \ding{51}& \ding{51}\\\hline
          Admin local&  &  \ding{51}&  \ding{51}& \ding{51}\\\hline
          Creador&  &  &  \ding{51}& \ding{51}\\\hline
@@ -209,15 +209,22 @@ El alcance inicial comenzó con la implementación de los casos de uso para los 
 Se priorizó también la publicación de contenido global en una primera instancia y luego en etapas sucesivas, luego de la implementación del rol local, se comenzó a expandir a otras unidades geográficas con el abordaje a los equipos locales de múltiples áreas.
 
 \section{Definición de KPIs y métricas de éxito}
+\label{success:metrics}
 
 Para poder medir el avance y el éxito del proyecto se identificaron métricas de varios tipos:
 
-\begin{itemize}
-    \item \textit{Experiencia de usuario}:
+\begin{enumerate}
+    \item \textit{Experiencia de usuario}: \label{success:metric_ux}
 	La primer métrica que se definió está asociada al tiempo de respuesta del portal durante las interacciones y en principio, lo que se buscó es que cada interacción, dure entre 300 y 500 milisegundos (sin incorporar el tiempo de latencia de red). Es decir que cada vez que el usuario disparaba una acción sobre el portal, el tiempo de respuesta combinado, desde que enviaba el estímulo hasta que recibía la respuesta completa (o el indicio de respuesta) no debía ser mayor a 1000 milisegundos. Cuando hablamos del indicio de respuesta, nos referimos a que a veces, por volumen de información que debe viajar desde el servidor de base de datos y web hasta el browser del usuario, simplemente no es posible, pero sí se puede comenzar a renderizar parcialmente o dar alguna indicación visual de que su solicitud fue hecha y que está en proceso de ser resuelta.
 
-    \item \textit{Adopción}: Para poder medir la adopción efectiva de la herramienta se estableció como métrica la cantidad de piezas de contenido creadas, cantidad de usuarios creadores, cantidad de usuarios asignados y finalmente actividad asociada según los tipos de transacciones definidos en los casos de uso.
+    \item \textit{Adopción}: \label{success:adoption}
+    Para poder medir la adopción efectiva de la herramienta se estableció como métrica la cantidad de piezas de contenido creadas, cantidad de usuarios creadores, cantidad de usuarios asignados y finalmente actividad asociada según los tipos de transacciones definidos en los casos de uso.
 
-    \item \textit{Ahorros de tiempo y recursos y minimización de errores}:
-Para poder hacer una medición de estos elementos se decidió hacer seguimiento de cantidad de tickets generados para gestión de accesos a grupos de soporte. Cantidad de accesos asignados mediante listas de distribución.
-\end{itemize}
+    \item \textit{Ahorros de tiempo y recursos y minimización de errores}: \label{success:timesaving}
+    
+    Para poder hacer una medición de estos elementos se decidió hacer seguimiento de cantidad de tickets generados para gestión de accesos a grupos de soporte. Cantidad de accesos asignados mediante listas de distribución.
+
+    \item \textit{Métricas de Auditoría y Cumplimiento}: \label{success:compliance}
+    Para poder hacer una medición del cumplimento se decidió identificar qué nivel de cobertura de transacciones eran documentadas apuntando al 100 en tiempo real como objetivo.
+
+\end{enumerate}

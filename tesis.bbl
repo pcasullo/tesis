@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.3 $
+% $ biblatex bbl format version 3.2 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,8 +18,8 @@
 
 
 \refsection{0}
-  \datalist[entry]{nty/global//global/global/global}
-    \entry{allspaw2009}{inproceedings}{}{}
+  \datalist[entry]{nty/global//global/global}
+    \entry{allspaw2009}{inproceedings}{}
       \name{author}{2}{}{%
         {{hash=eaf4555152f71d2f57fedde6180fc30c}{%
            family={Allspaw},
@@ -40,12 +40,10 @@
       }
       \strng{namehash}{53390a6a73c48fbc8a5d8c76ae1b2e1b}
       \strng{fullhash}{53390a6a73c48fbc8a5d8c76ae1b2e1b}
-      \strng{fullhashraw}{53390a6a73c48fbc8a5d8c76ae1b2e1b}
       \strng{bibnamehash}{53390a6a73c48fbc8a5d8c76ae1b2e1b}
       \strng{authorbibnamehash}{53390a6a73c48fbc8a5d8c76ae1b2e1b}
       \strng{authornamehash}{53390a6a73c48fbc8a5d8c76ae1b2e1b}
       \strng{authorfullhash}{53390a6a73c48fbc8a5d8c76ae1b2e1b}
-      \strng{authorfullhashraw}{53390a6a73c48fbc8a5d8c76ae1b2e1b}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{labelnamesource}{author}
@@ -54,7 +52,7 @@
       \field{title}{10 deployments per day: Dev and ops cooperation at Flickr}
       \field{year}{2009}
     \endentry
-    \entry{davenport2006}{article}{}{}
+    \entry{davenport2006}{article}{}
       \name{author}{1}{}{%
         {{hash=418715aadaf08f606ff3e5575fa44f4f}{%
            family={Davenport},
@@ -64,12 +62,10 @@
       }
       \strng{namehash}{418715aadaf08f606ff3e5575fa44f4f}
       \strng{fullhash}{418715aadaf08f606ff3e5575fa44f4f}
-      \strng{fullhashraw}{418715aadaf08f606ff3e5575fa44f4f}
       \strng{bibnamehash}{418715aadaf08f606ff3e5575fa44f4f}
       \strng{authorbibnamehash}{418715aadaf08f606ff3e5575fa44f4f}
       \strng{authornamehash}{418715aadaf08f606ff3e5575fa44f4f}
       \strng{authorfullhash}{418715aadaf08f606ff3e5575fa44f4f}
-      \strng{authorfullhashraw}{418715aadaf08f606ff3e5575fa44f4f}
       \field{sortinit}{D}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{labelnamesource}{author}
@@ -82,7 +78,7 @@
       \field{pages}{98\bibrangedash 107}
       \range{pages}{10}
     \endentry
-    \entry{erl2005}{book}{}{}
+    \entry{erl2005}{book}{}
       \name{author}{1}{}{%
         {{hash=5606702d875163ff65690170e545c0b8}{%
            family={Erl},
@@ -95,12 +91,10 @@
       }
       \strng{namehash}{5606702d875163ff65690170e545c0b8}
       \strng{fullhash}{5606702d875163ff65690170e545c0b8}
-      \strng{fullhashraw}{5606702d875163ff65690170e545c0b8}
       \strng{bibnamehash}{5606702d875163ff65690170e545c0b8}
       \strng{authorbibnamehash}{5606702d875163ff65690170e545c0b8}
       \strng{authornamehash}{5606702d875163ff65690170e545c0b8}
       \strng{authorfullhash}{5606702d875163ff65690170e545c0b8}
-      \strng{authorfullhashraw}{5606702d875163ff65690170e545c0b8}
       \field{sortinit}{E}
       \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
       \field{labelnamesource}{author}
@@ -108,7 +102,7 @@
       \field{title}{Service-Oriented Architecture: Concepts, Technology, and Design}
       \field{year}{2005}
     \endentry
-    \entry{fowler2003}{book}{}{}
+    \entry{fowler2003}{book}{}
       \name{author}{1}{}{%
         {{hash=312ac886938a9b2be4f8eb607567fe4c}{%
            family={Fowler},
@@ -121,12 +115,10 @@
       }
       \strng{namehash}{312ac886938a9b2be4f8eb607567fe4c}
       \strng{fullhash}{312ac886938a9b2be4f8eb607567fe4c}
-      \strng{fullhashraw}{312ac886938a9b2be4f8eb607567fe4c}
       \strng{bibnamehash}{312ac886938a9b2be4f8eb607567fe4c}
       \strng{authorbibnamehash}{312ac886938a9b2be4f8eb607567fe4c}
       \strng{authornamehash}{312ac886938a9b2be4f8eb607567fe4c}
       \strng{authorfullhash}{312ac886938a9b2be4f8eb607567fe4c}
-      \strng{authorfullhashraw}{312ac886938a9b2be4f8eb607567fe4c}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{labelnamesource}{author}
@@ -134,7 +126,7 @@
       \field{title}{Patterns of Enterprise Application Architecture}
       \field{year}{2003}
     \endentry
-    \entry{inmon1992}{book}{}{}
+    \entry{inmon1992}{book}{}
       \name{author}{1}{}{%
         {{hash=5bfe0de53ac3256b1a056d46b49b5f50}{%
            family={Inmon},
@@ -150,12 +142,10 @@
       }
       \strng{namehash}{5bfe0de53ac3256b1a056d46b49b5f50}
       \strng{fullhash}{5bfe0de53ac3256b1a056d46b49b5f50}
-      \strng{fullhashraw}{5bfe0de53ac3256b1a056d46b49b5f50}
       \strng{bibnamehash}{5bfe0de53ac3256b1a056d46b49b5f50}
       \strng{authorbibnamehash}{5bfe0de53ac3256b1a056d46b49b5f50}
       \strng{authornamehash}{5bfe0de53ac3256b1a056d46b49b5f50}
       \strng{authorfullhash}{5bfe0de53ac3256b1a056d46b49b5f50}
-      \strng{authorfullhashraw}{5bfe0de53ac3256b1a056d46b49b5f50}
       \field{sortinit}{I}
       \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
       \field{labelnamesource}{author}
@@ -163,7 +153,7 @@
       \field{title}{Building the Data Warehouse}
       \field{year}{1992}
     \endentry
-    \entry{isaca2012}{book}{}{}
+    \entry{isaca2012}{book}{}
       \name{author}{1}{}{%
         {{hash=cc2032cdfad6e690ac5a9b0982ef0dae}{%
            family={{ISACA}},
@@ -177,12 +167,10 @@
       }
       \strng{namehash}{cc2032cdfad6e690ac5a9b0982ef0dae}
       \strng{fullhash}{cc2032cdfad6e690ac5a9b0982ef0dae}
-      \strng{fullhashraw}{cc2032cdfad6e690ac5a9b0982ef0dae}
       \strng{bibnamehash}{cc2032cdfad6e690ac5a9b0982ef0dae}
       \strng{authorbibnamehash}{cc2032cdfad6e690ac5a9b0982ef0dae}
       \strng{authornamehash}{cc2032cdfad6e690ac5a9b0982ef0dae}
       \strng{authorfullhash}{cc2032cdfad6e690ac5a9b0982ef0dae}
-      \strng{authorfullhashraw}{cc2032cdfad6e690ac5a9b0982ef0dae}
       \field{sortinit}{I}
       \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
       \field{labelnamesource}{author}
@@ -190,7 +178,7 @@
       \field{title}{COBIT 5: A Business Framework for the Governance and Management of Enterprise IT}
       \field{year}{2012}
     \endentry
-    \entry{jacobson1986}{inproceedings}{}{}
+    \entry{jacobson1986}{inproceedings}{}
       \name{author}{1}{}{%
         {{hash=3e8f03cc324f52193ab00c1fab4df61a}{%
            family={Jacobson},
@@ -200,12 +188,10 @@
       }
       \strng{namehash}{3e8f03cc324f52193ab00c1fab4df61a}
       \strng{fullhash}{3e8f03cc324f52193ab00c1fab4df61a}
-      \strng{fullhashraw}{3e8f03cc324f52193ab00c1fab4df61a}
       \strng{bibnamehash}{3e8f03cc324f52193ab00c1fab4df61a}
       \strng{authorbibnamehash}{3e8f03cc324f52193ab00c1fab4df61a}
       \strng{authornamehash}{3e8f03cc324f52193ab00c1fab4df61a}
       \strng{authorfullhash}{3e8f03cc324f52193ab00c1fab4df61a}
-      \strng{authorfullhashraw}{3e8f03cc324f52193ab00c1fab4df61a}
       \field{sortinit}{J}
       \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
       \field{labelnamesource}{author}
@@ -214,7 +200,7 @@
       \field{title}{Object-Oriented Development in an Industrial Environment}
       \field{year}{1987}
     \endentry
-    \entry{pope1988}{article}{}{}
+    \entry{pope1988}{article}{}
       \name{author}{2}{}{%
         {{hash=9bfbfad21c965b54d0802df075d65b20}{%
            family={Krasner},
@@ -229,12 +215,10 @@
       }
       \strng{namehash}{10a70c3fe8bcda7adb6ee36438ee004c}
       \strng{fullhash}{10a70c3fe8bcda7adb6ee36438ee004c}
-      \strng{fullhashraw}{10a70c3fe8bcda7adb6ee36438ee004c}
       \strng{bibnamehash}{10a70c3fe8bcda7adb6ee36438ee004c}
       \strng{authorbibnamehash}{10a70c3fe8bcda7adb6ee36438ee004c}
       \strng{authornamehash}{10a70c3fe8bcda7adb6ee36438ee004c}
       \strng{authorfullhash}{10a70c3fe8bcda7adb6ee36438ee004c}
-      \strng{authorfullhashraw}{10a70c3fe8bcda7adb6ee36438ee004c}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{labelnamesource}{author}
@@ -243,7 +227,7 @@
       \field{title}{A Description of the Model-View-Controller User Interface Paradigm in the Smalltalk-80 System}
       \field{year}{1988}
     \endentry
-    \entry{royce1970}{inproceedings}{}{}
+    \entry{royce1970}{inproceedings}{}
       \name{author}{1}{}{%
         {{hash=76fa9a9ce5c1fc4fb3e489c50266c455}{%
            family={Royce},
@@ -256,12 +240,10 @@
       }
       \strng{namehash}{76fa9a9ce5c1fc4fb3e489c50266c455}
       \strng{fullhash}{76fa9a9ce5c1fc4fb3e489c50266c455}
-      \strng{fullhashraw}{76fa9a9ce5c1fc4fb3e489c50266c455}
       \strng{bibnamehash}{76fa9a9ce5c1fc4fb3e489c50266c455}
       \strng{authorbibnamehash}{76fa9a9ce5c1fc4fb3e489c50266c455}
       \strng{authornamehash}{76fa9a9ce5c1fc4fb3e489c50266c455}
       \strng{authorfullhash}{76fa9a9ce5c1fc4fb3e489c50266c455}
-      \strng{authorfullhashraw}{76fa9a9ce5c1fc4fb3e489c50266c455}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{labelnamesource}{author}
@@ -273,7 +255,7 @@
       \field{pages}{1\bibrangedash 9}
       \range{pages}{9}
     \endentry
-    \entry{yeh1980}{article}{}{}
+    \entry{yeh1980}{article}{}
       \name{author}{2}{}{%
         {{hash=bcf17e33ce14d5b155186fcc812b99ac}{%
            family={Yeh},
@@ -288,12 +270,10 @@
       }
       \strng{namehash}{b4ff1abb012781d43303fe7d1e63dcde}
       \strng{fullhash}{b4ff1abb012781d43303fe7d1e63dcde}
-      \strng{fullhashraw}{b4ff1abb012781d43303fe7d1e63dcde}
       \strng{bibnamehash}{b4ff1abb012781d43303fe7d1e63dcde}
       \strng{authorbibnamehash}{b4ff1abb012781d43303fe7d1e63dcde}
       \strng{authornamehash}{b4ff1abb012781d43303fe7d1e63dcde}
       \strng{authorfullhash}{b4ff1abb012781d43303fe7d1e63dcde}
-      \strng{authorfullhashraw}{b4ff1abb012781d43303fe7d1e63dcde}
       \field{sortinit}{Y}
       \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
       \field{labelnamesource}{author}
@@ -306,7 +286,7 @@
       \field{pages}{1077\bibrangedash 1085}
       \range{pages}{9}
     \endentry
-    \entry{yourdon1979}{book}{}{}
+    \entry{yourdon1979}{book}{}
       \name{author}{2}{}{%
         {{hash=ee6bc3c9f8c0a6c784c023dffc23d4ca}{%
            family={Yourdon},
@@ -324,12 +304,10 @@
       }
       \strng{namehash}{3248ba981c8d1cc5300ed32260a51a45}
       \strng{fullhash}{3248ba981c8d1cc5300ed32260a51a45}
-      \strng{fullhashraw}{3248ba981c8d1cc5300ed32260a51a45}
       \strng{bibnamehash}{3248ba981c8d1cc5300ed32260a51a45}
       \strng{authorbibnamehash}{3248ba981c8d1cc5300ed32260a51a45}
       \strng{authornamehash}{3248ba981c8d1cc5300ed32260a51a45}
       \strng{authorfullhash}{3248ba981c8d1cc5300ed32260a51a45}
-      \strng{authorfullhashraw}{3248ba981c8d1cc5300ed32260a51a45}
       \field{sortinit}{Y}
       \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
       \field{labelnamesource}{author}
@@ -337,7 +315,7 @@
       \field{title}{Structured Design: Fundamentals of a Discipline of Computer Program and Systems Design}
       \field{year}{1979}
     \endentry
-    \entry{zave1979}{inproceedings}{}{}
+    \entry{zave1979}{inproceedings}{}
       \name{author}{1}{}{%
         {{hash=42f79bfbeee9a0a56775e92e552aa9d5}{%
            family={Zave},
@@ -350,12 +328,10 @@
       }
       \strng{namehash}{42f79bfbeee9a0a56775e92e552aa9d5}
       \strng{fullhash}{42f79bfbeee9a0a56775e92e552aa9d5}
-      \strng{fullhashraw}{42f79bfbeee9a0a56775e92e552aa9d5}
       \strng{bibnamehash}{42f79bfbeee9a0a56775e92e552aa9d5}
       \strng{authorbibnamehash}{42f79bfbeee9a0a56775e92e552aa9d5}
       \strng{authornamehash}{42f79bfbeee9a0a56775e92e552aa9d5}
       \strng{authorfullhash}{42f79bfbeee9a0a56775e92e552aa9d5}
-      \strng{authorfullhashraw}{42f79bfbeee9a0a56775e92e552aa9d5}
       \field{sortinit}{Z}
       \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
       \field{labelnamesource}{author}

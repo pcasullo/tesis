@@ -1,7 +1,126 @@
 \chapter{evaluacion}
+
+Medir el éxito de este proyecto fue fundamental por varias razones:
+
+\begin{enumerate}
+    \item Evaluación del rendimiento: Pudimos evaluar si los objetivos del proyecto se cumplieron y si los resultados esperados se alcanzaron. Esto ayudó a determinar si el proyecto fue efectivo y eficiente.
+    \item Identificación de áreas de mejora: Al medir el éxito, tambien pudimos identificar áreas que funcionaron bien y las que necesitan mejoras. Esto fue vital para aprender de la experiencia y aplicar esos aprendizajes a futuros proyectos.
+    \item Justificación de inversiones: Este proyecto requirió de una inversión, tanto en términos de tiempo como de dinero. La evaluación del éxito ayudó a justificar estas inversión, a demostrar el retorno sobre la inversión (ROI) a los interesados y sponsors y habilitar futuras fases de financiamiento para su evolución en el tiempo.
+    \item Motivación y reconocimiento: El haber medido y celebrado el impacto del proyecto, motivó al equipo del proyecto, reconociendo sus esfuerzos y logros. Esto mejoró la moral e imagen del equipo en la compañía y ayudó a fomentar una cultura de éxito y colaboración.
+    \item Mejora continua: La evaluación del éxito proporcionó datos y conocimiento que se utilizaron luego para mejorar los procesos y metodologías de gestión de proyectos. Esto contribuye a la mejora continua y a la optimización de futuras iniciativas.
+    \item Rendición de cuentas: Permitió al product owner rendir cuentas a los sponsors y stakeholders y demostrar que gestionaron los recursos de manera adecuada y responsable, cumpliendo con los objetivos establecidos.
+\end{enumerate}
+
+A continuación, se detalla la metodología que se utilizó y los resultados obtenidos.
+
 \section{Metodología de evaluación}
+
+La metodología de evaluación se basó en tomar diferentes métricas y evaluarlas en función de las distintas fases de despliegue del proyecto.
+
+Se evaluaron dichas métricas en un estado inicial (previo al despliegue del proyecto), como punto de partida, llamado \emph{baseline} y luego, se tomó una primer evaluación, a los 12 meses de haber iniciado (y desplegado el proyecto) y se re-evaluaron dichas métricas para poder ver la evolución.
+
+Las métricas que se evaluaron son las detalladas inicilamnete en la Sec.\ref{success:metrics} y rondan en tres ejes principales:
+
+\begin{enumerate}
+    \item Métricas de experienca de usuario (\ref{success:metric_ux})
+    \item Métricas de adopción de la herramienta (\ref{success:adoption}) 
+    \item Métricas de ahorro y optimización (\ref{success:timesaving})
+    \item Métricas de Auditoría y Cumplimiento (\ref{success:compliance})
+\end{enumerate}
+
 \section{Resultados cuantitativos}
+
+A continuación, se detallan las mediciones para cada metrica comparando el punto de partida (línea base) y el resultado al cabo de 12 meses del primer despliegue a producción.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{lcccccc}
+        \hline
+        \textbf{ms por tx} & \textbf{Línea Base} & \textbf{12meses Prom} & \textbf{min} & \textbf{max} \\ \hline
+        Gestion de Geografia \ref{usecases:geolevel1}& N/A & 750 & 750 & 1020\\ \hline
+        Gestion de estructura 2 \ref{usecases:geolevel2}& N/A & 857 & 750 & 1020\\ \hline
+        Gestion de usuarios \ref{usecases:useradmin}& N/A & 1123 & 750 & 1020\\ \hline
+        Gestion de Acceso \ref{usecases:accessmgmnt} & N/A & 950 & 750 & 1020\\ \hline
+        Navegacion \ref{usecases:browse}& N/A & 1050 & 750 & 1020\\ \hline
+        Gestion Contenido \ref{usecases:contentaccess}& N/A & 600 & 750 & 1020\\ \hline
+    \end{tabular}
+    \caption{Tiempos de respuesta en ms por transacción}
+    \label{tab:tiempo_respuesta}
+\end{table}
+
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{lcccc}
+        \hline
+        \textbf{Métricas de Adopción} & \textbf{Línea Base} & \textbf{12meses} & \textbf{Objetivo} \\ \hline
+        Accesos Mensuales & 0 & 7000(prom)/10000(max) & N/A \\ \hline
+        Reportes & 0 & 307 & 550 \\ \hline
+        Usuarios Únicos & 0 & 1785 & 2500 \\ \hline
+        Países & 0 & 42 & 50 \\ \hline
+    \end{tabular}
+    \caption{Métricas de Adopción y Contenidos}
+    \label{tab:adopcion_contenidos}
+\end{table}
+
+
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{lcccc}
+        \hline
+        \textbf{Métricas de Ahorro y Optimizacion} & \textbf{Línea Base} & \textbf{12meses} & \textbf{Objetivo} \\ \hline
+        Tickets de Soporte Creados Automáticamente & 0 & 1036 & N/A \\ \hline
+        Pedidos de Acceso & 0 & 1447 & N/A \\ \hline
+    \end{tabular}
+    \caption{Métricas de Ahorro y Optimizacion}
+    \label{tab:ahorros_optimizacion}
+\end{table}
+
+aquí, tengo que agregar un correlato entre el volumen de accesos y tickets y ahorros tanto de tiempos como eventualmente costos... (pendiente)
+
+
 \section{Resultados cualitativos}
-\section{Comparación con KPIs iniciales}
+
+Adicionalmente, se hizo una medición "cualitativa" del universo de usuarios, identificando aquellos de mayor peso en la organización y luego todo el resto.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{lccc}
+        \hline
+        \textbf{Perfiles de Usuarios de Alto Impacto} & \textbf{Línea Base} & \textbf{12meses} \\ \hline
+        Vice Presidentes Sr & 0 & 2 \\ \hline
+        Vice Presidentes & 0 & 2 \\ \hline
+        Vice Presidentes Asociados & 0 & 2 \\ \hline
+        Directores Ejecutivos & 0 & 5 \\ \hline
+        Directores & 0 & 15 \\ \hline
+        Otros & 0 & 1759 \\ \hline
+    \end{tabular}
+    \caption{Perfiles de Usuarios de Alto Impacto}
+    \label{tab:perfiles_alto_impacto}
+\end{table}
+
 \section{Impacto en seguridad y cumplimiento}
+
+Un objetivo clave del proyecto era abordar desafíos de cumplimiento que la organización enfrentaba debido a la falta de registros centralizados y mecanismos de auditoría eficientes. Para ello, el sistema de logs de auditoría automáticos y completos que permitió una captura detallada y precisa de todas las actividades relevantes.
+
+El proyecto abordó estos desafíos mediante la implementación de un sistema de logs de auditoría automatizados, que incluía las siguientes características:
+1. **Captura Automática de Datos**: Todas las actividades relevantes se registraban automáticamente, eliminando la necesidad de intervención manual y garantizando la integridad de los datos.
+2. **Registros Completos y Detallados**: Los logs incluían información detallada sobre cada acción, incluyendo el usuario responsable, la fecha y hora, y la naturaleza de la acción.
+3. **Acceso y Monitoreo en Tiempo Real**: Los responsables de cumplimiento podían acceder a los registros en tiempo real, permitiendo una supervisión continua y proactiva.
+
+Beneficios Obtenidos:
+La implementación del sistema de logs de auditoría completos y automatizados resultó en varios beneficios para la organización:
+\begin{itemize}
+    \item \emph{Mejora en el Cumplimiento}: La capacidad de mantener registros detallados y accesibles permitió a la organización cumplir con las regulaciones de manera más efectiva y reducir el riesgo de sanciones.
+    \item \emph{Aumento de la Transparencia}: La disponibilidad de logs detallados mejoró la transparencia dentro de la organización, facilitando la rendición de cuentas y la toma de decisiones basada en datos.
+    \item \emph{Eficiencia Operativa}: La automatización de la captura de datos y la reducción de auditorías manuales permitieron una asignación más eficiente de recursos y una mejora en la eficiencia operativa.
+    \item \emph{Detección Temprana de Incidentes}: El acceso en tiempo real a los registros permitió la detección y respuesta rápida a incidentes, mejorando la seguridad y la gestión de riesgos.
+\end{itemize}
+
+El proyecto fue exitoso en resolver los desafíos de cumplimiento mediante la implementación de un sistema de logs de auditoría completos y automatizados. La organización no solo mejoró su capacidad de cumplir con las regulaciones, sino que también aumentó la transparencia, eficiencia operativa y capacidad de respuesta ante incidentes. Este enfoque proactivo y basado en datos ha fortalecido la posición de la organización en términos de cumplimiento y gestión de riesgos.
+
 \section{Conclusiones de la evaluación}
+
+El proyecto, luego de 12 meses, logró resultados destacados e impactos tangibles. siendo ahora nuevo estándard dentro de la corporación y permitiendo un nivel de simplicidad, acceso y eficiencia que parecia imposible. Una solución simple (aunque con cierta complejidad técnica) logró atender los desafíos propuestos en incluso ser adoptada globalmente.
+
