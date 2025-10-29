@@ -7,12 +7,30 @@
 \glossaryentry{BI?\glossentry{bi}|setentrycounter[]{page}"\glsnumberformat}{\es@scroman  {i}}
 \glossaryentry{DW?\glossentry{dw}|setentrycounter[]{page}"\glsnumberformat}{\es@scroman  {i}}
 \glossaryentry{UX?\glossentry{ux}|setentrycounter[]{page}"\glsnumberformat}{\es@scroman  {i}}
+\glossaryentry{SOA?\glossentry{soa}|setentrycounter[]{page}"\glsnumberformat}{\es@scroman  {vii}}
+\glossaryentry{MVP?\glossentry{mvp}|setentrycounter[]{page}"\glsnumberformat}{\es@scroman  {viii}}
 \glossaryentry{ETL?\glossentry{etl}|setentrycounter[]{page}"\glsnumberformat}{1}
+\glossaryentry{RLS?\glossentry{rls}|setentrycounter[]{page}"\glsnumberformat}{7}
 \glossaryentry{LDAP?\glossentry{ldap}|setentrycounter[]{page}"\glsnumberformat}{7}
+\glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{7}
 \glossaryentry{SOA?\glossentry{soa}|setentrycounter[]{page}"\glsnumberformat}{7}
+\glossaryentry{NFS?\glossentry{nfs}|setentrycounter[]{page}"\glsnumberformat}{8}
+\glossaryentry{DB Server?\glossentry{dbserver}|setentrycounter[]{page}"\glsnumberformat}{8}
 \glossaryentry{SOA?\glossentry{soa}|setentrycounter[]{page}"\glsnumberformat}{12}
 \glossaryentry{SOA?\glossentry{soa}|setentrycounter[]{page}"\glsnumberformat}{21}
 \glossaryentry{MVC?\glossentry{mvc}|setentrycounter[]{page}"\glsnumberformat}{22}
 \glossaryentry{MVC?\glossentry{mvc}|setentrycounter[]{page}"\glsnumberformat}{23}
+\glossaryentry{RLS?\glossentry{rls}|setentrycounter[]{page}"\glsnumberformat}{24}
+\glossaryentry{RLS?\glossentry{rls}|setentrycounter[]{page}"\glsnumberformat}{24}
+\glossaryentry{SSO?\glossentry{sso}|setentrycounter[]{page}"\glsnumberformat}{24}
 \glossaryentry{LDAP?\glossentry{ldap}|setentrycounter[]{page}"\glsnumberformat}{24}
 \glossaryentry{LDAP?\glossentry{ldap}|setentrycounter[]{page}"\glsnumberformat}{24}
+\glossaryentry{SDLC?\glossentry{sdlc}|setentrycounter[]{page}"\glsnumberformat}{29}
+\glossaryentry{RACI?\glossentry{raci}|setentrycounter[]{page}"\glsnumberformat}{31}
+\glossaryentry{SDLC?\glossentry{sdlc}|setentrycounter[]{page}"\glsnumberformat}{31}
+\glossaryentry{RACI?\glossentry{raci}|setentrycounter[]{page}"\glsnumberformat}{31}
+\glossaryentry{MVP?\glossentry{mvp}|setentrycounter[]{page}"\glsnumberformat}{34}
+\glossaryentry{MVP?\glossentry{mvp}|setentrycounter[]{page}"\glsnumberformat}{34}
+\glossaryentry{CoP?\glossentry{cop}|setentrycounter[]{page}"\glsnumberformat}{34}
+\glossaryentry{TTT?\glossentry{ttt}|setentrycounter[]{page}"\glsnumberformat}{34}
+\glossaryentry{ETC?\glossentry{fte}|setentrycounter[]{page}"\glsnumberformat}{36}

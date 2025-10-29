@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.2)  28 OCT 2025 21:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.2)  28 OCT 2025 20:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -892,7 +892,10 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'spanish'.
- (tesis.aux)
+ (tesis.aux
+LaTeX Info: Redefining \. on input line 16.
+LaTeX Info: Redefining \% on input line 16.
+ (Chapters/01-motivacion.aux) (Chapters/02-preliminares.aux) (Chapters/03-propuesta.aux) (Chapters/04-arquitectura.aux) (Chapters/05-desarrolloydespliegue.aux) (Chapters/06-evaluacion.aux) (Chapters/07-conclusiones.aux) (Chapters/08-lecciones.aux))
 \openout1 = `tesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
@@ -992,20 +995,7 @@ Package pdftex.def Info: logofcen.pdf  used on input line 10.
 
 {C:/Users/casullop/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logofcen.pdf>]) [2
 
-] (abs_esp.tex
-
-LaTeX Warning: Citation 'inmon1992' on page 1 undefined on input line 9.
-
-
-LaTeX Warning: Citation 'isaca2012' on page 1 undefined on input line 9.
-
-
-LaTeX Warning: Citation 'davenport2006' on page 1 undefined on input line 9.
-
-
-LaTeX Warning: Citation 'jacobson1986' on page 1 undefined on input line 11.
-
-) [1
+] (abs_esp.tex) [1
 
 ] [2
 
@@ -1016,55 +1006,29 @@ LaTeX Warning: Citation 'jacobson1986' on page 1 undefined on input line 11.
 
 ] (dedicatoria.tex) [5] [6
 
-]
-No file tesis.toc.
+] (tesis.toc
+LaTeX Info: Redefining \sptext on input line 1.
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [7
+
+])
 \tf@toc=\write8
 \openout8 = `tesis.toc'.
 
-[7
-
-] [8
-
-]
+ [8]
 \openout2 = `Chapters/01-motivacion.aux'.
 
  (Chapters/01-motivacion.tex
 Cap\'{\i }tulo 1.
-
-LaTeX Warning: Citation 'inmon1992' on page 1 undefined on input line 14.
-
-
-LaTeX Warning: Citation 'jacobson1986' on page 1 undefined on input line 16.
-
-
-LaTeX Warning: Citation 'isaca2012' on page 1 undefined on input line 22.
-
-
-LaTeX Warning: Citation 'davenport2006' on page 1 undefined on input line 24.
-
 [1
+
 
 
 ]
 LaTeX Info: Redefining \. on input line 73.
 LaTeX Info: Redefining \% on input line 73.
- [2]
-
-LaTeX Warning: Citation 'zave1979' on page 3 undefined on input line 96.
-
-
-LaTeX Warning: Citation 'yeh1980' on page 3 undefined on input line 96.
-
-
-LaTeX Warning: Citation 'yourdon1979' on page 3 undefined on input line 98.
-
-
-LaTeX Warning: Citation 'erl2005' on page 3 undefined on input line 98.
-
-
-LaTeX Warning: Citation 'fowler2003' on page 3 undefined on input line 98.
-
-)
+ [2])
 LaTeX Info: Redefining \. on input line 97.
 LaTeX Info: Redefining \% on input line 97.
  [3]
@@ -1080,133 +1044,16 @@ LaTeX Info: Redefining \% on input line 1.
 
 ]
 Cap\'{\i }tulo 2.
-
-LaTeX Warning: Citation 'pope1988' on page 5 undefined on input line 36.
-
 [5]
 LaTeX Info: Redefining \. on input line 86.
 LaTeX Info: Redefining \% on input line 86.
  [6]
-
-Chapters/02-preliminares.tex:98: Package glossaries Error: Glossary entry `rls' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.98     \item [RLS:] \gls{rls},
-                                 directrices o políticas que definen cómo ...
-You need to define a glossary entry before you can use it.
-
-
-Chapters/02-preliminares.tex:100: Package glossaries Error: Glossary entry `api' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.100     \item [API:] \gls{api},
-                                  un conjunto de rutinas y protocolos de pro...
-You need to define a glossary entry before you can use it.
-
-
-LaTeX Warning: Citation 'yourdon1979' on page 7 undefined on input line 102.
-
-
-LaTeX Warning: Citation 'yourdon1979' on page 7 undefined on input line 103.
-
-
-Chapters/02-preliminares.tex:104: Package glossaries Error: Glossary entry `webserver' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.104     \item [\Gls{webserver}:]
-                                   Servidor que sirve páginas web y gestion...
-You need to define a glossary entry before you can use it.
-
-
-Chapters/02-preliminares.tex:105: Package glossaries Error: Glossary entry `loadbalancer' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.105     \item [\Gls{loadbalancer}:]
-                                      Dispositivo de red que distribuye la c...
-You need to define a glossary entry before you can use it.
-
-
-Chapters/02-preliminares.tex:107: Package glossaries Error: Glossary entry `backend' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.107 ...eracción con el front end \gls{backend}.
-                                                  
-You need to define a glossary entry before you can use it.
-
-
-Chapters/02-preliminares.tex:108: Package glossaries Error: Glossary entry `clientserver' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.108     \item [\Gls{clientserver}:]
-                                      Modelo de arquitectura de red en el qu...
-You need to define a glossary entry before you can use it.
-
-
-Chapters/02-preliminares.tex:109: Package glossaries Error: Glossary entry `cache' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.109     \item [\Gls{cache}:]
-                               Componente de hardware o software que almacen...
-You need to define a glossary entry before you can use it.
-
-
-Chapters/02-preliminares.tex:111: Package glossaries Error: Glossary entry `nfs' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.111     \item [NFS:] \Gls{nfs},
-                                  sistema de archivos central y compartido q...
-You need to define a glossary entry before you can use it.
-
-
-Chapters/02-preliminares.tex:112: Package glossaries Error: Glossary entry `dbserver' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.112     \item [\Gls{dbserver}:]
-                                  Un servidor que gestiona bases de datos y ...
-You need to define a glossary entry before you can use it.
-
-
-LaTeX Warning: Citation 'pope1988' on page 7 undefined on input line 113.
-
-
-LaTeX Warning: Citation 'royce1970' on page 7 undefined on input line 121.
-
-LaTeX Info: Redefining \. on input line 122.
-LaTeX Info: Redefining \% on input line 122.
-[7]
-
-LaTeX Warning: Citation 'allspaw2009' on page 8 undefined on input line 123.
-
-LaTeX Info: Redefining \. on input line 158.
-LaTeX Info: Redefining \% on input line 158.
-[8])
+LaTeX Info: Redefining \. on input line 113.
+LaTeX Info: Redefining \% on input line 113.
+ [7]
+LaTeX Info: Redefining \. on input line 149.
+LaTeX Info: Redefining \% on input line 149.
+ [8])
 LaTeX Info: Redefining \. on input line 98.
 LaTeX Info: Redefining \% on input line 98.
  [9]
@@ -1226,15 +1073,9 @@ Cap\'{\i }tulo 3.
 LaTeX Info: Redefining \. on input line 63.
 LaTeX Info: Redefining \% on input line 63.
  [12]
-
-LaTeX Warning: Reference `tab:funcxrol' on page 13 undefined on input line 99.
-
-
-LaTeX Warning: Reference `tab:asignaciones' on page 13 undefined on input line 102.
-
 LaTeX Info: Redefining \. on input line 136.
 LaTeX Info: Redefining \% on input line 136.
-[13]
+ [13]
 LaTeX Info: Redefining \. on input line 150.
 LaTeX Info: Redefining \% on input line 150.
  [14]
@@ -1260,61 +1101,9 @@ LaTeX Info: Redefining \% on input line 1.
 ]
 Cap\'{\i }tulo 4.
 
-LaTeX Warning: Reference `usecases:main' on page 19 undefined on input line 4.
-
-
-LaTeX Warning: Reference `usecases:geolevel1' on page 19 undefined on input line 13.
-
-
-LaTeX Warning: Reference `principios:federado' on page 19 undefined on input line 13.
-
-
-LaTeX Warning: Reference `usecases:geolevel2' on page 19 undefined on input line 14.
-
-
-LaTeX Warning: Reference `principios:federado' on page 19 undefined on input line 14.
-
-
-LaTeX Warning: Reference `usecases:useradmin' on page 19 undefined on input line 15.
-
-
-LaTeX Warning: Reference `principios:federado' on page 19 undefined on input line 15.
-
-
-LaTeX Warning: Reference `usecases:contentadmin' on page 19 undefined on input line 16.
-
-
-LaTeX Warning: Reference `principios:federado' on page 19 undefined on input line 16.
-
-
-LaTeX Warning: Reference `usecases:browse' on page 19 undefined on input line 17.
-
-
-LaTeX Warning: Reference `principios:webapp' on page 19 undefined on input line 17.
-
-
-LaTeX Warning: Reference `principios:leanUx' on page 19 undefined on input line 17.
-
-
-LaTeX Warning: Reference `usecases:accessmgmnt' on page 19 undefined on input line 18.
-
-
-LaTeX Warning: Reference `principios:federado' on page 19 undefined on input line 18.
-
-
-LaTeX Warning: Reference `usecases:contentaccess' on page 19 undefined on input line 19.
-
-
-LaTeX Warning: Reference `principios:webapp' on page 19 undefined on input line 19.
-
-
-LaTeX Warning: Reference `principios:leanUx' on page 19 undefined on input line 19.
-
-
-LaTeX Warning: Reference `usecases:logging' on page 19 undefined on input line 20.
-
-
-LaTeX Warning: Reference `princpipios:auditable' on page 19 undefined on input line 20.
+Overfull \hbox (4.82286pt too wide) in paragraph at lines 11--22
+ [][] 
+ []
 
 [19]
 Overfull \hbox (43.64496pt too wide) in paragraph at lines 109--110
@@ -1327,64 +1116,15 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 114.
 LaTeX Info: Redefining \% on input line 114.
 [20]
-
-LaTeX Warning: Reference `principios:leanUx' on page 21 undefined on input line 118.
-
-
-LaTeX Warning: Reference `principios:soa' on page 21 undefined on input line 122.
-
 LaTeX Info: Redefining \. on input line 125.
 LaTeX Info: Redefining \% on input line 125.
-[21]
-
-LaTeX Warning: Reference `principios:federado' on page 22 undefined on input line 126.
-
-
-LaTeX Warning: Reference `fig:arq_webapp' on page 22 undefined on input line 130.
-
-
-LaTeX Warning: Reference `princpipios:auditable' on page 22 undefined on input line 132.
-
+ [21]
 LaTeX Info: Redefining \. on input line 162.
 LaTeX Info: Redefining \% on input line 162.
-[22]
-
-Chapters/04-arquitectura.tex:194: Package glossaries Error: Glossary entry `rls' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.194 ...de perfiles de usuarios con el \gls{rls} 
-                                                  que se utilice. Este módu...
-You need to define a glossary entry before you can use it.
-
-
-Chapters/04-arquitectura.tex:194: Package glossaries Error: Glossary entry `rls' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.194 ...un proyecto tiene implementado \gls{rls} 
-                                                  o no.
-You need to define a glossary entry before you can use it.
-
+ [22]
 LaTeX Info: Redefining \. on input line 195.
 LaTeX Info: Redefining \% on input line 195.
-[23]
-
-Chapters/04-arquitectura.tex:215: Package glossaries Error: Glossary entry `sso' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.215 ...ación, para poder implmenentar \gls{sso}
-                                                  
-You need to define a glossary entry before you can use it.
-
-
+ [23]
 Overfull \hbox (39.3889pt too wide) in paragraph at lines 303--304
  [][] 
  []
@@ -1400,30 +1140,30 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 324.
 LaTeX Info: Redefining \% on input line 324.
  [25]
-<Workflow-aprobacion-original.jpeg, id=156, 995.72pt x 654.445pt>
-File: Workflow-aprobacion-original.jpeg Graphic file (type jpg)
-<use Workflow-aprobacion-original.jpeg>
-Package pdftex.def Info: Workflow-aprobacion-original.jpeg  used on input line 326.
-(pdftex.def)             Requested size: 426.79134pt x 280.5171pt.
+<Workflow-aprobacion-original.jpg, id=157, 676.5275pt x 387.4475pt>
+File: Workflow-aprobacion-original.jpg Graphic file (type jpg)
+<use Workflow-aprobacion-original.jpg>
+Package pdftex.def Info: Workflow-aprobacion-original.jpg  used on input line 326.
+(pdftex.def)             Requested size: 426.79134pt x 244.43019pt.
 
 Overfull \hbox (29.0pt too wide) in paragraph at lines 325--329
 [][] 
  []
 
-<Workflow-aprobacion-mejorado.jpeg, id=157, 614.295pt x 738.76pt>
-File: Workflow-aprobacion-mejorado.jpeg Graphic file (type jpg)
-<use Workflow-aprobacion-mejorado.jpeg>
-Package pdftex.def Info: Workflow-aprobacion-mejorado.jpeg  used on input line 335.
-(pdftex.def)             Requested size: 284.52756pt x 342.1784pt.
+<Workflow-aprobacion-mejorado.jpg, id=158, 468.75125pt x 573.14125pt>
+File: Workflow-aprobacion-mejorado.jpg Graphic file (type jpg)
+<use Workflow-aprobacion-mejorado.jpg>
+Package pdftex.def Info: Workflow-aprobacion-mejorado.jpg  used on input line 335.
+(pdftex.def)             Requested size: 284.52756pt x 347.88405pt.
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 100.
 LaTeX Info: Redefining \% on input line 100.
- [26 <./Workflow-aprobacion-original.jpeg>]
+ [26 <./Workflow-aprobacion-original.jpg>]
 LaTeX Info: Redefining \. on input line 100.
 LaTeX Info: Redefining \% on input line 100.
- [27 <./Workflow-aprobacion-mejorado.jpeg>]
+ [27 <./Workflow-aprobacion-mejorado.jpg>]
 \openout2 = `Chapters/05-desarrolloydespliegue.aux'.
 
  (Chapters/05-desarrolloydespliegue.tex
@@ -1436,143 +1176,99 @@ LaTeX Info: Redefining \% on input line 1.
 
 ]
 Cap\'{\i }tulo 5.
-
-Chapters/05-desarrolloydespliegue.tex:4: Package glossaries Error: Glossary entry `sdlc' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4 ...se estructuró de modo clásico \gls{sdlc} 
-                                                  con las siguientes fases:
-You need to define a glossary entry before you can use it.
-
 [29]
 LaTeX Info: Redefining \. on input line 32.
 LaTeX Info: Redefining \% on input line 32.
  [30]
-
-Chapters/05-desarrolloydespliegue.tex:33: Package glossaries Error: Glossary entry `raci' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.33 ...esumirse en la siguiente matriz \gls{raci}
-                                                  
-You need to define a glossary entry before you can use it.
-
-
 Overfull \hbox (12.31847pt too wide) in paragraph at lines 37--50
 [][] 
  []
 
-
-Chapters/05-desarrolloydespliegue.tex:50: Package glossaries Error: Glossary entry `raci' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 ...{raci}-\gls{sdlc} para el equipo definido}
-                                                  
-You need to define a glossary entry before you can use it.
-
-
-Chapters/05-desarrolloydespliegue.tex:50: Package glossaries Error: Glossary entry `sdlc' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 ...{raci}-\gls{sdlc} para el equipo definido}
-                                                  
-You need to define a glossary entry before you can use it.
-
 LaTeX Info: Redefining \. on input line 54.
 LaTeX Info: Redefining \% on input line 54.
 [31]
-LaTeX Info: Redefining \. on input line 158.
-LaTeX Info: Redefining \% on input line 158.
- [32]
+<waterfal_dev_phase1.jpg, id=178, 1093.08376pt x 636.3775pt>
+File: waterfal_dev_phase1.jpg Graphic file (type jpg)
+<use waterfal_dev_phase1.jpg>
+Package pdftex.def Info: waterfal_dev_phase1.jpg  used on input line 97.
+(pdftex.def)             Requested size: 426.79134pt x 248.46782pt.
 
-Chapters/05-desarrolloydespliegue.tex:180: Package glossaries Error: Glossary entry `cop' has not been defined.
+Overfull \hbox (29.0pt too wide) in paragraph at lines 96--100
+[][] 
+ []
 
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.180 ...cias. Se encaró un enfoque de \gls{cop},
-                                                   que permitió crear un un...
-You need to define a glossary entry before you can use it.
-
-
-Chapters/05-desarrolloydespliegue.tex:182: Package glossaries Error: Glossary entry `ttt' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.182 ...o una capacitación del estilo \gls{ttt},
-                                                   para poder hacerlo en mú...
-You need to define a glossary entry before you can use it.
-
-LaTeX Info: Redefining \. on input line 184.
-LaTeX Info: Redefining \% on input line 184.
-[33])
+LaTeX Info: Redefining \. on input line 103.
+LaTeX Info: Redefining \% on input line 103.
+[32 <./waterfal_dev_phase1.jpg>]
+LaTeX Info: Redefining \. on input line 130.
+LaTeX Info: Redefining \% on input line 130.
+ [33]
+LaTeX Info: Redefining \. on input line 156.
+LaTeX Info: Redefining \% on input line 156.
+ [34]
+LaTeX Info: Redefining \. on input line 196.
+LaTeX Info: Redefining \% on input line 196.
+ [35])
 LaTeX Info: Redefining \. on input line 101.
 LaTeX Info: Redefining \% on input line 101.
- [34]
+ [36]
 \openout2 = `Chapters/06-evaluacion.aux'.
 
  (Chapters/06-evaluacion.tex
 Cap\'{\i }tulo 6.
-) [35
+[37
 
 
 
 
 ]
+LaTeX Info: Redefining \. on input line 106.
+LaTeX Info: Redefining \% on input line 106.
+ [38])
+LaTeX Info: Redefining \. on input line 102.
+LaTeX Info: Redefining \% on input line 102.
+ [39]
 \openout2 = `Chapters/07-conclusiones.aux'.
 
  (Chapters/07-conclusiones.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [36
+ [40
 
 
 
 
 ]
 Cap\'{\i }tulo 7.
-) [37]
+) [41]
 \openout2 = `Chapters/08-lecciones.aux'.
 
  (Chapters/08-lecciones.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [38
+ [42
 
 
 
 
 ]
 Cap\'{\i }tulo 8.
-) [39]
+) [43]
 LaTeX Info: Redefining \. on input line 109.
 LaTeX Info: Redefining \% on input line 109.
- [40
+ [44
 
 
 
 ]
-
-LaTeX Warning: Empty bibliography on input line 111.
-
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 111.
+ (C:\Users\casullop\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
 No file tesis.gls.
-LaTeX Info: Redefining \. on input line 116.
-LaTeX Info: Redefining \% on input line 116.
-[41] (tesis.aux
+[45
+
+] (tesis.aux
 LaTeX Info: Redefining \sptext on input line 16.
 LaTeX Info: Redefining \. on input line 16.
 LaTeX Info: Redefining \% on input line 16.
@@ -1581,34 +1277,22 @@ LaTeX Info: Redefining \% on input line 16.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                tesis
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to 'tesis.run.xml'.
 \openout1 = `tesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35200 strings out of 474486
- 753979 string characters out of 5742339
+ 35791 strings out of 474486
+ 765779 string characters out of 5742339
  1951542 words of memory out of 5000000
- 56926 multiletter control sequences out of 15000+600000
- 567708 words of font info for 68 fonts, out of 8000000 for 9000
+ 57495 multiletter control sequences out of 15000+600000
+ 567814 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,16n,87p,2522b,1862s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\casullop\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on tesis.pdf (51 pages, 469879 bytes).
+ 84i,16n,87p,2522b,1968s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\casullop\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/lasy10.pfb><C:/Users/casullop/AppData/Local/Programs/MiKTeX/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on tesis.pdf (55 pages, 766739 bytes).
 PDF statistics:
- 265 PDF objects out of 1000 (max. 8388607)
+ 289 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 124 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 129 words of extra memory for PDF output out of 10000 (max. 10000000)
 
