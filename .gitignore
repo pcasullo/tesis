@@ -20,6 +20,7 @@
 *.cls
 *.glo
 *.ist
+*.fdb_latexmk
 
 # LaTeX auxiliary files from subdirectories
 **/*.aux
@@ -40,6 +41,7 @@
 **/*.fls
 **/*.fli
 **/*.latexmk
+**/*.fdb_latexmk
 **/*.cls
 **/*.glo
 **/*.ist
