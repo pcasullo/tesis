@@ -32,6 +32,9 @@ Las métricas que se evaluaron son las detalladas inicilamnete en la Sec.\ref{su
 
 A continuación, se detallan las mediciones para cada metrica comparando el punto de partida (línea base) y el resultado al cabo de 12 meses del primer despliegue a producción.
 
+En primer lugar, se puede ver en la \emph{Tabla \ref{tab:tiempo_respuesta}}, que los tiempos de repuesta están en su mayoría alineados con lo planificado, aunque en el caso de la gestión de usuario, hasta ese momento no se había logrado alcanzar la meta propuesta.
+
+
 \begin{table}[h!]
     \centering
     \begin{tabular}{lcccccc}
@@ -48,6 +51,9 @@ A continuación, se detallan las mediciones para cada metrica comparando el punt
     \label{tab:tiempo_respuesta}
 \end{table}
 
+Respecto de las métricas de adopción, se puede ver en la \emph{Tabla \ref{tab:adopcion_contenidos}}, que como el sistema es nuevo, se partió de una base de accesos, reportes, usuarios y países en 0 (cero), y al cabo de 12 meses se pudo evaluar el tráfico, en función de los contenidos y equipos que se fueron sumando. 
+
+Respecto de los objetivos de cobertura en términos de reportes, el avance fue significativo, cubriendo en todos los casos, la mayoría de los reportes, usuarios y países existentes. Queda espacio para seguir expandiendo y es un punto que se abordará en el trabajo futuro propuesto, sobre el final de esta tesis.
 
 \begin{table}[h!]
     \centering
@@ -63,6 +69,9 @@ A continuación, se detallan las mediciones para cada metrica comparando el punt
     \label{tab:adopcion_contenidos}
 \end{table}
 
+Finalmente, en la \emph{Tabla \ref{tab:ahorros_optimizacion}}, se hizo una evaluación de los tickets de soporte creados de modo automático y los pedidos de acceso resueltos. Si historicamente, la creación manual de un ticket de soporte, llevaba alrededor de 5 minutos, es fácil ver que solamente en tiempo de ingreso de datos, se ahorraron el equivalente a unas 86 horas de trabajo consolidadas, que aunque en período de 12 meses, podría ser un tiempo marginal, representa menos desperdicio y una mejor experiencia para los usuarios, con tareas que ya no exsiten de modo manual.
+
+Respecto a los pedidos de acceso que se registraron, por cada pedido de acceso, el tiempo de resolución orignal, pasando por múltiples personas y equipos hasta que era finalmente rechazado o aprobado, se calculaba en unas 48hs hábiles (en promedio), con lo cual, en este caso, los ahorros de tiempo por la simplificación del proceso de gestión de accesos, representó un 95\% de ahorro por pedido, lo cual se traduce en casi 2750 días de espera eliminados.
 
 
 \begin{table}[h!]
@@ -77,12 +86,11 @@ A continuación, se detallan las mediciones para cada metrica comparando el punt
     \label{tab:ahorros_optimizacion}
 \end{table}
 
-aquí, tengo que agregar un correlato entre el volumen de accesos y tickets y ahorros tanto de tiempos como eventualmente costos... (pendiente)
 
 
 \section{Resultados cualitativos}
 
-Adicionalmente, se hizo una medición "cualitativa" del universo de usuarios, identificando aquellos de mayor peso en la organización y luego todo el resto.
+Adicionalmente, se hizo una medición "cualitativa" del universo de usuarios, identificando aquellos de mayor peso en la organización y luego todo el resto. Esto es de fundamental relevancia, porque cuanto más alto en la escala de la organización se llega, mayor exposición se logra de la solución, y si bien esto puede representar un riesgo desde el punto de vista de posibles fallas de funcionamiento, ha sido muy bien recibido y ha generado aliados y promotores de la plataforma, con peso significativo en la organización. El detalle de los perfiles de los usuarios, se detalla a continuación, en la en la \emph{Tabla \ref{tab:perfiles_alto_impacto}}.
 
 \begin{table}[h!]
     \centering
