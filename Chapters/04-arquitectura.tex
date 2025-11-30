@@ -121,7 +121,7 @@ A continuación, describimos el diagrama de despliegue físico que permitió imp
     
     \item Tener una \gls{soa} (\ref{principios:soa})
 
-    En este caso particular, se buscó implementar una arquitectura orientada a servicios, para la capa de negocio, de modo que pueda hacerse una separación, escalable de ser necesaria de ciertos servicios críticos y de alta demanda. de este modo, se puede seguir escalando la capacidad de la aplicación, en funcion de ciertas operaciones de alta demanda y críticas para brindar los servicios del portal. En otros casos, ciertos servicios se definieron como elementos reusables que pueden ser parte de un ecosistema más grande de aplciaciones y que tenía sentido independizar del bloque inicial de código, somo proyectos "hijos".
+    En este caso particular, se buscó implementar una arquitectura orientada a servicios, para la capa de negocio, de modo que pueda hacerse una separación, escalable de ser necesaria de ciertos servicios críticos y de alta demanda. de este modo, se puede seguir escalando la capacidad de la aplicación, en función de ciertas operaciones críticas y de alta demanda para brindar los servicios del portal. En otros casos, ciertos servicios se definieron como elementos reusables que pueden ser parte de un ecosistema más grande de aplicaciones y que tenía sentido independizar del bloque inicial de código, como proyectos "hijos". En este caso, el Users API y el RLS API.
     
     \item Descentralizado y escalable (\ref{principios:federado})
     
@@ -308,10 +308,10 @@ Algunos elementos del ecosistema que debían utilizarse y con los que se tenía 
 \newpage
 
 \section{Diseño de seguridad y Row Level Security (RLS)}
-Por cuestiones de simplicidad y de diseño general, se trabajó con un esquema de seguirdad donde usuarios de ciertas áreas funcionales, pueden tener acceso a la información completa de dichas áreas, con limitaciones geográficas. en el caso de los usuarios "locales", en general se les otorga permiso vingulado al país donde operan. usuarios regionales, se les otorga visibilidad sobre la región (información consolidada a nivel regional) y del detalle de los paises incluidos en dicha región.
-finalmente hay usuarios globales que tienen acceso a una capa global de datos (del area de interés del contenido publicado) y luego a los datos consolidados en niveles geográficos incluidos (regionales y paiese de cada región).
+Por cuestiones de simplicidad y de diseño general, se trabajó con un esquema de seguridad donde usuarios de ciertas áreas funcionales, pueden tener acceso a la información completa de dichas áreas, con limitaciones geográficas. En el caso de los usuarios "locales", en general se les otorga permiso vinculado al país donde operan. A los usuarios regionales, se les otorga visibilidad sobre la región (información consolidada a nivel regional) y del detalle de los paises incluidos en dicha región.
+finalmente hay usuarios globales que tienen acceso a una capa global de datos (del area de interés del contenido publicado) y luego a los datos consolidados en niveles geográficos incluidos (regionales y paises de cada región).
 
-Normlamnete para implementar el filtrado a nivel geográfico, se aplicaron técnicas de RLS, de modo que permite mediante el rol del usuario, poder tener scope a las filas (rows) que son relevantes a dicho usuario.
+Para implementar el filtrado a nivel geográfico, se aplicaron técnicas de RLS, de modo que permite mediante el rol del usuario, poder tener scope a las filas (rows) que son relevantes a dicho usuario.
 
 La implmentación, normalmente se aplica a nivel de modelo de datos, haciéndola inherente a las consultas, de modo que siempre se agregan automáticamente a todas las queries, where conditions limitando las filas con las que se trabaja por alcance geográfico.
 
@@ -319,20 +319,25 @@ La implmentación, normalmente se aplica a nivel de modelo de datos, haciéndola
 
 \section{Mejora y simplificación en el proceso estándard de asignación de permisos}
 
-En el caso del proceso de asignación de permisos, puede observarse que intervienen dos roles, llamados Business Analysts y AMS BI Tool y AMS Project Support team que son resultado de la extrema burocracia y configuración sub-óptima del funcionamiento de las áreas de operaciones y mantenimiento.
-\vspace{1cm}
 
-\begin{tabular}{l}
+En el caso del proceso de asignación de permisos, puede observarse que intervienen múltiples roles, llamados Analistas de negocios, Aprobador (Dueño del reporte), Soporte de Tool de BI (que son los encargados de la administración de las herramientas de visualización de BI) y Equipo de soporte de proyecto, que asignan cuando corresponde el Row Level Security a nivel de la base de datos del proyecto. Esto resulta en una extrema burocracia y configuración sub-óptima del funcionamiento de las áreas de operaciones y mantenimiento. Esto puede verse en la \emph{Fig.} \ref{fig:procesoOriginal}.
+
+\begin{figure} [h]
+\centering
 \includegraphics[width=15cm]{Workflow-aprobacion-original.jpg}
-%\caption{proceso Original}
-\end{tabular}
+\caption{proceso Original}
+\label{fig:procesoOriginal}    
+\end{figure} 
 
-El nuevo proceso resultante, quita del medio todos los elementos de "complejidad accidental", dejando simplemente a los únicos dos roles, que son relevantes, el "End User" que es el usuario final quien solicita el acceso al reporte y el "Report Owner" que es quien determina si la solicitud corresponde o no y puede actuar en consecuencia.
 
-EL proceso resultante de la simplificación e integración del portal conlas herramientas de visualización y también del RLS (en caso de ser necesario), se describe a continuación:
+El nuevo proceso resultante, elimina todos los elementos de complejidad accidental, dejando simplemente a los únicos dos roles, que son relevantes, el \emph{End User} que es el usuario final quien solicita el acceso al reporte y el \emph{Aprobador o Dueño del reporte}, que es quien determina si la solicitud corresponde o no y puede actuar en consecuencia.
 
-\begin{tabular}{l}
+EL proceso resultante de la simplificación e integración del portal conlas herramientas de visualización y también del RLS (en caso de ser necesario), se describe en la \emph{Fig.} \ref{fig:procesoMejorado}.
+
+\begin{figure} [h]
+\centering
 \includegraphics[width=10cm]{Workflow-aprobacion-mejorado.jpg}
-%\caption{Proceso simplificado}
-\end{tabular}
+\caption{Proceso simplificado}
+\label{fig:procesoMejorado}    
+\end{figure}
 

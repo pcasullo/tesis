@@ -58,32 +58,46 @@ Capacitación & I & A & I & I & \textbf{R} & C \\
   role/.style={rectangle, draw, rounded corners, align=center, minimum height=1.5cm},
   arr/.style={-{Stealth}, thick}
   ]
+  \centering
 
+  %\draw[help lines] (0,0) grid (16,16);
   % Nodos
-  \coordinate (anchoro) at (-5cm,0cm);
-  \node[role, right=10cm of anchoro] (PO) {Product Owner};
-  \node[role, below=of PO] (PM) {Project Manager};
-  \node[role, below=of PM] (DEV) {Equipo de Desarrollo};
-  \node[role, right=of DEV] (TEST) {Equipo de Testing};
-  \node[role, below=of TEST] (OPS) {Equipo de Operaciones};
-  \node[role, right=of TEST] (TRAIN) {Equipo de Capacitación};
+  \node[role] (PO) at (5,15) {Product Owner};
+  \node[role, right=3cm of PO] (PM) {Project Manager};
+  \node[role, below left=3cm of PM] (DEV) {Equipo de Desarrollo};
+  \node[role, right=5cm of DEV] (TEST) {Equipo de Testing};
+  \node[role, below=2cm of DEV] (OPS) {Equipo de Operaciones};
+  \node[role, right=3cm of OPS] (TRAIN) {Equipo de Capacitación};
 
   % Flechas principales
-  \draw[arr] (PO) -- (PM);
-  \draw[arr] (PM) -- (DEV);
-  \draw[arr] (PM) -- (TEST);
-  \draw[arr] (PM) -- (OPS);
-  \draw[arr] (PM) -- (TRAIN);
+  \draw[arr] (PO.east) -- (PM.west);
+  \draw[arr] (PO.south) -- (DEV.north);
+  \draw[arr] (PO.south) -- (TRAIN.north);
+
+  \draw[arr] (PM.west) -- (PO.east);
+  \draw[arr] (PM.south) -- (DEV.north);
+  \draw[arr] (PM.south) -- (TEST.north);
+  \draw[arr] (PM.south) -- (OPS.north);
+  \draw[arr] (PM.south) -- (TRAIN.north);
 
   % Interacciones entre equipos
-  \draw[arr] (DEV) -- (TEST);
-  \draw[arr] (TEST) -- (DEV);
-  \draw[arr] (DEV) -- (OPS);
-  \draw[arr] (OPS) -- (DEV);
+  \draw[arr] (DEV.east) -- (TEST.west);
+  \draw[arr] (DEV.north) -- (PM.south);
+  \draw[arr] (DEV.north) -- (PO.south);
+  \draw[arr] (DEV.south) -- (TRAIN.north);
+  \draw[arr] (DEV.south) -- (OPS.north);
+  
+  \draw[arr] (TEST.west) -- (DEV.east);
+  \draw[arr] (TEST.north) -- (PM.south);
+  
+  \draw[arr] (OPS.north) -- (DEV.south);
+  \draw[arr] (OPS.east) -- (TRAIN.west);
+  \draw[arr] (OPS.north) -- (PM.south);
 
-  \draw[arr] (TRAIN) -- (DEV);
-  \draw[arr] (TRAIN) -- (OPS);
-  \draw[arr] (TRAIN) -- (PM);
+  \draw[arr] (TRAIN.north) -- (DEV.south);
+  \draw[arr] (TRAIN.west) -- (OPS.east);
+  \draw[arr] (TRAIN.north) -- (PM.south);
+  \draw[arr] (TRAIN.north) -- (PO.south);
 
 \end{tikzpicture}
     \caption{Interacciones entre roles/sub-equipos}
@@ -93,10 +107,12 @@ Capacitación & I & A & I & I & \textbf{R} & C \\
 
 En esta metodología de desarrollo waterfall, se encuentran diferentes entornos de trabajo, dedicados a distintos fines y a la vez, a los que se accede, al cumplir satisfactoriamente diferentes verificaciones del ciclo de desarrollo.
 
-\begin{tabular}{l}
+\begin{figure} [h]
+\centering
 \includegraphics[width=15cm]{waterfal_dev_phase1.jpg}
-%\caption{Actividades según roles y entornos}
-\end{tabular}
+\label{fig:workflowDesarrollo}
+\caption{Actividades según roles y entornos}
+\end{figure}
 
 \begin{enumerate}
     \item Entornos locales: En los entornos locales, se trabaja de manera independiente en la documentación de casos de uso, diseño de arquitectura y luego cada desarrollador y tester, trabaja con versiones locales del codigo. En este caso, pueden exisistir múltiples versiones del mismo código que se modifican en paralelo por los distintos desarrolladores, según se hayan dividido las tareas según los skills de los miembros del equipo. (puede ser front end, back end, modelos de datos, apis, etc.).
@@ -145,7 +161,7 @@ Ya con el piloto satisfactorio, una lista mínima de mejoras ya implementadas y 
 Se adoptó un enfoque de entrenamiento para los creadores de contenidos y ellos a su vez comenzaron a promocionarlo y entrenar a sus propios usuarios y en muchos casos, cuando había usuarios que ya usaban el portal por otros creadores de contenido, preguntaban proactivamente por qué faltaban agregar más contenidos, con lo cual el crecimiento se dio de modo orgánico y natural.
 
 \section{Plan de comunicación y capacitación}
-El plan de comunicación y de capacitación, se diseñó de modo de acompañar las fases de despliegue por grupos de usuarios y audiencias. Se encaró un enfoque de \gls{cop}, que permitió crear un universo de usuarios general, con algunos más "expertos" que ayudaron a disceminar las mejores prácticas. 
+El plan de comunicación y de capacitación, se diseñó de modo de acompañar las fases de despliegue por grupos de usuarios y audiencias. Se encaró un enfoque de \gls{cop}, que permitió crear un universo de usuarios general, con algunos más expertos que ayudaron a diseminar las mejores prácticas. 
 
 se identificaron dichos usuarios líderes o clave y se hizo una capacitación del estilo \gls{ttt}, para poder hacerlo en múltiples olas y a la vez de modo federado y escalable.
 
@@ -163,44 +179,44 @@ Es importante destacar que el objetivo del equipo de nivel 2, es garantizar la c
 
 En caso de que los usuarios finales hayan reportado un comportamiento compatible con un defecto o bug, entonces se derivaba al equipo de desarrollo para seguir con máxima prioridad un proceso de troubleshooting y análisis de causa raíz, para a su vez aplicar una solución definitiva.
 
+\section{Gestión de calidad}
 
-\section{Gestión de calidad y ajustes/mejoras metodológicas}
+La gestión de la calidad comenzó inicialmente con un enfoque tradicional, y a medida que se avanzó con el desarrollo, fue necesario optimizarlo. 
 
+\subsection{Esquema inicial}
 
-Inicialmente, la calidad del desarrollo se fue monitoreando mediante el equipo de testing. EL leader de testing había creado un plan de pruebas y estas pruebas eran ejecutadas y documentadas rigurosamente antes de realizar pasajes a producción. 
+Se comenzó monitoreando la calidad del desarrollo  mediante el equipo de testing. El leader de testing había creado un plan de pruebas y junto con el equipo de testing creaban un conjunto de casos de pruebas, en funcion de las especificaciones de los requerimientos que se desarrollaban y estas pruebas eran ejecutadas y documentadas rigurosamente antes de realizar pasajes a producción. 
 
+En caso de encontrar errores, se notificaban y registraban en una plataforma que utilizabamos para tal fin y se compartían con el equipo de desarrollo y luego de corregirse, se re-verificaban. 
 
-En caso de encontrar errores, se notificaban registraban en una plataforma que utilizabamos para tal fin y se compartían con el equipo de desarrollo y luego de corregirse, se re-verificaban. 
-
-
-El proceso era muy manual y no permitía, ni gran agilidad, ni múltiples y rápidas iteraciones a la hora de lanzar nuevas versiones a producción.
-
+El proceso era manual y no permitía, ni gran agilidad, ni múltiples y rápidas iteraciones a la hora de lanzar nuevas versiones a producción.
 
 Después de un período inicial de desarrollo de 6 meses, se logró alcanzar el primer hito, donde se implementaron de manera básica todos los casos de uso definidos inicialmente. 
 
-
 Esto por un lado permitió ofrecer un MVP útil y funcional y a la vez, detectar oportunidades de mejora y evoluciones posibles, ya con el sistema rodando en el entorno de producción.
 
+\subsection{Ajustes/mejoras metodológicas}
 
-Para poder encarar sucesivas iteraciones en la evolución de la plataforma, se tuvo que cambiar drásticamente la composición del equipo, como así también la metodología de desarrollo, de modo tal de poder responder on mayor agilidad a los cambios y necesidades aumentando significativamente calidad y reduciendo los plazos de entrega.
-
-
-Los cambios, fueron sustantivos y afectaron, no sólo la metodología de desarrollo, sino también la composición del equipo de desarrollo y operaciones.
-
+Para poder encarar sucesivas iteraciones en la evolución de la plataforma, se tuvo que cambiar totalmente el enfoque, lo cual fue posible, mediante cambios drásticos en la composición del equipo, como así también la metodología de desarrollo. Así entonces, fue posible responder con mayor agilidad a los cambios y necesidades aumentando significativamente calidad y reduciendo los plazos de entrega.
 
 Las principales causas para revisar la forma de trabajo fueron las siguientes:
-El esfuerzo manual de testeo, por parte del equipo de testing era excesivo, lento y un verdadero cuello de botella. La forma en la que se documentaban los defectos, a veces era inconsistente y se podían duplicar y a medida que la complejidad de la aplicación aumentaba, los casos de pruebas y sus tiempos de ejecución crecían de modo exponencial. La complejidad y diversidad casuística aumentaba a un ritmo mucho mayor que el código que la soportaba y era fundamental buscar alternativas.
 
+\begin{itemize}
 
-Esto además tenía un impacto muy negativo en los ciclos de entrega, haciendonos demorar meses hasta que una versión inicial y funcional, llegó a un punto de madurez que la hizo "usable".
+\item El esfuerzo manual de testeo, por parte del equipo de testing era excesivo, lento y un verdadero cuello de botella. 
+\item La forma en la que se documentaban los defectos, a veces era inconsistente y se podían duplicar.
+\item A medida que la complejidad de la aplicación aumentaba, los casos de pruebas y sus tiempos de ejecución crecían de modo exponencial.
+\item La complejidad y diversidad casuística aumentaba a un ritmo mucho mayor que el código que la soportaba y era fundamental buscar alternativas. Esto además tenía un impacto muy negativo en los ciclos de entrega, resultando en una demora de  meses hasta que una versión inicial y funcional, llegó a un punto de madurez aceptable.
+\item Problemas en la calidad del código desarrollado por los desarrolladores, porque al demorarse las entregas, la presión por terminar aumentaba e impactaba los entregables generando retrabajo. 
+\item Finalmente, cuando llegaban las versiones al entorno de producción, notamos que en varias ocasiones, a pesar de haber pasado satisfactoriamente las fases de testeo y control de calidad, tenían defectos.
+\item El equipo de operaciones, tampoco era efectivo a la hora de resolver algunos incidentes, por falta de conocimiento de la aplicación, y las capacitaciones que el equipo de desarrollo les daba al hacer los despliegues productivos, eran complejas o insuficientes.
+\end{itemize}
 
+Entonces se optó por pasar a una filosofía pura de DevOps, donde los mismos desarrolladores darían soporte a la aplicación en producción y a la vez se incorporaron tecnologías y prácticas para poder implementar \gls{ci-cd}.
 
-Adicionalmente, había problemas en la calidad del código desarrollado por los desarrolladores, porque al demorarse las entregas, la presión por terminar aumentaba e impactaba los entregables generando retrabajo. 
+\newpage
 
-
-Finalmente, cuando llegaban las versiones al entorno de producción, notamos que en varias ocasiones, a pesar de haber pasado satisfactoriamente las fases de testeo y control de calidad, tenían defectos y el equipo de operaciones, tampoco era efectivo a la hora de resolver algunos incidentes, por falta de conocimiento de la aplicación, y las capacitaciones que el equipo de desarrollo les daba al hacer los despliegues productivos, eran complejas o insuficientes.
-
-\begin{table} 
+\begin{table} [h]
     \centering
     \begin{tabular}{|c|c|c|c|}\hline
         \textbf{Actividades}&  \textbf{Waterfall}&  \textbf{DevOps Interino}&  \textbf{DevOps Final}\\\hline
@@ -208,26 +224,26 @@ Finalmente, cuando llegaban las versiones al entorno de producción, notamos que
          Cobertura del código& $\approx 25$\% &  $\approx 25$\%&  $\approx 50$\%\\\hline
          Pruebas de Regresión (hs)&  24&  1&  2\\\hline
          Tiempos de Hand Over (hs)& 8&  4&  -\\\hline
-         Tasa de defectos desde Prod\\ (vs trabajo nuevo x mes)&  $\approx 30$\%&  $\approx 15$\%&  $\approx 5$\%\\\hline
+         Tasa de defectos en Prod \tablefootnote{Tasa de defectos en producción en función del código desplegado en cada iteración.}&  $\approx 30$\%&  $\approx 15$\%&  $\approx 5$\%\\\hline
     \end{tabular}
     \caption{Mejoras metodológicas}
     \label{tab:water_to_devops_method}
 \end{table}
 
-A continuación, se detalla cómo ha evolucionado la composición del equipo, a medida que se avanzó con la transformación metodológica, comparando \gls{fte}.
+A continuación, se detalla cómo fue evolucionando la composición del equipo, a medida que se avanzó con la transformación metodológica, comparando \gls{fte}.
 
-\begin{table}
+\begin{table} [h]
     \centering
     \begin{tabular}{|c|c|c|c|}\hline
-        \textbf{Composición del Equipo}&  \textbf{Waterfall}&  \textbf{DevOps Interino}&  \textbf{DevOps Final}\\\hline
+        \textbf{Composición del Equipo}&  \textbf{Waterfall}&  \textbf{DevOps Interino}&  \textbf{DevOps Final}\\\hline  
          ProductOwner&  1 &  1 & 1  \\\hline
          PM/ScrumMaster& 1 &  1&  1\\\hline
          Desarroladores&  4&  4&  4\\\hline
          Arquitecto& 0,3&  0,3&  0,3\\\hline
          DevOps Engineer& 0&  0,1&  0,1\\\hline
          Lead de Test& 1&  1&  0\\\hline
-         Testers& 4&  3&  0\\\hline
-         Testers+& 0&  2&  2\\\hline
+         Testers \tablefootnote{\emph{Testers}: recursos que toman casos de prueba, los ejecutan y documentan los resultados.} & 4&  3&  0\\\hline
+         Testers+ \tablefootnote{\emph{Testers+}: recursos de testing que pueden codificar pruebas automáticas para integración contínua.} & 0&  2&  2\\\hline
          Training& 0,3&  0,3&  0,3\\\hline
          Support Lead& 1&  0&  0\\\hline
          Support& 1&  0&  0\\\hline
@@ -237,3 +253,5 @@ A continuación, se detalla cómo ha evolucionado la composición del equipo, a 
     \caption{Evolución del Equipo}
     \label{tab:water_to_devops_team}
 \end{table}
+
+Este cambio de equipo, permitió pasar del enfoque original a uno basado totalmente en los principios de \gls{ci-cd} y con la construcción de pipelines automáticos, se pusieron en funcionamiento una serie de elementos que conformaron una red de seguiridad para garantizar la calidad de modo escalable y automatizado, con cada nuevo commit de código que se hacía en nuestro repositorio.

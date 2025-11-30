@@ -27,9 +27,9 @@ Será una aplicación web, que contará con una elementos de presentación el el
 \label{principios:leanUx}
 Experiencia de usuario simple e intuitiva para cada uno de los roles en que los usuarios operen la solución, ya que un mismo usuario, puede tener contenidos para publicar, ser administrador del sistema y eventualmente consumidor de contenidos publicados por otros usuarios:
  \begin{itemize}
- \item \textit{Administradores, roles:} “Admin Global / Admin Local”.
- \item \textit{Creadores de Contenidos, rol:} “Creador”.
- \item \textit{Consumidores de contenidos, rol:} “Consumidor”.
+ \item \textit{Administradores, roles:} Admin Global / Admin Local.
+ \item \textit{Creadores de Contenidos, rol:} Creador.
+ \item \textit{Consumidores de contenidos, rol:} Consumidor.
  \end{itemize}
 
 La interfaz, debe evitar que el usuario cargue información inválida mediante reglas de negocio intuitivas y ya incorporadas a la navegación y cuando esto nos sea posible, validará la información que el usuario ingrese y proveerá feedback inmediato en el momento de las interacciones para poder corregir problemas.
@@ -143,7 +143,7 @@ La publicación de contenidos se hará de modo que cada pieza de contenido estar
 \item Descripción: Texto que da una breve descripción de lo que el contenido ilustra o representa.
 \item Imagen miniatura: una imagen que representa el contenido, pudiendo ser un logo, un pequeño screenshot o cualquier elemento visual que permita reconocer al contenido publicado.
 \item Tipo de Contenido: Los contenidos pueden ser de dos tipos, o bien archivos cargables o bien URLs a elementos que residan dentro de la intranet.
-\item Segmentos de usuarios: Debe haber al menos 1 segmento de usuario (segmento por defecto llamado usuarios generales) y se le deben asignar objetivos de frecuencia de uso, en función de una cantidad de veces por unidades de tiempo. 
+\item Segmentos de usuarios: Los segmentos de usuarios representan distintos perfiles de usuarios que ilustran la frecuencia esperada de uso de los contenidos de acuerdo al rol que cumplen en la organización. Puede ser que haya usuarios más operativos que necesitan acceder a un contenido particular con una frecuencia alta (por ejemplo varias veces por semana), y otros que tengan roles más tácticos o estratégicos y que utilicen estos contenidos con frecuencias menores (1 vez al mes o incluso de modo trimestral). Debe haber al menos 1 segmento de usuario (segmento por defecto llamado usuarios generales) y se le deben asignar objetivos de frecuencia de uso, en función de una cantidad de veces por unidades de tiempo. 
     Cantidad: Un número natural mayor a cero.
 	Frecuencia: deberá ser algún valor de esta lista: “diario, semanal, mensual, trimestral, semestral, anual”
 
