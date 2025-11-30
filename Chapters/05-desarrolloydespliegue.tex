@@ -1,6 +1,7 @@
 \chapter{desarrollo y despliegue}
 \section{Enfoque metodológico}
 
+\subsection{Metodología inicial}
 El proyecto se estructuró de modo clásico \gls{sdlc} con las siguientes fases:
 
 \begin{enumerate}
@@ -17,6 +18,7 @@ El proyecto se estructuró de modo clásico \gls{sdlc} con las siguientes fases:
 
 Inicialmente se decidió trabajar con una metodología \emph{Waterfall}, para poder enfocarse en un primer entregable, que pudiera cumplir con la funcionalidad básica de los casos de uso.
 
+\subsection{Composición del equipo}
 
 Para encarar el desarrollo, también se ensambló un equipo compuesto por los siguientes roles:
 
@@ -29,31 +31,9 @@ Para encarar el desarrollo, también se ensambló un equipo compuesto por los si
     \item Equipo de capacitación: Equipo responsable de generar el material didáctico y planificar junto con el PM las capacitaciones de los usuarios, para poder garantizar una adopción adecuada del producto. También se explica el esquema de soporte en caso de necesitar reportar incidentes.
 \end{enumerate}
 
-\newpage
-El esquema de trabajo en función de responsabilidades puede resumirse en la siguiente matriz \gls{raci}
+En la  \emph{Fig \ref{fig:ways_of_working}}, se detalla, como se da una interacción entre los roles del equipo, siguiendo con la lógica de la matriz antes descripta.
 
-
-\begin{figure}
-\begin{tabular}{lcccccc}
-\toprule
-\textbf{Rol / Fase} & \textbf{Ideación} & \textbf{Reqs} & \textbf{Diseño} & \textbf{Desarrollo } & \textbf{Despliegue} & \textbf{Operación} \\
-\midrule
-PO & \textbf{A / R} & \textbf{A / R} & C & C & C & I \\
-PM & C & C & \textbf{R} & A & \textbf{A / R} & I \\
-Architect & C & C & \textbf{A} & R & C & I \\
-Desarrollo & I & C & R / C & \textbf{R} & C & I \\
-Testing & I & C & C & \textbf{R / C} & C & I \\
-Operaciones & I & I & C & I & \textbf{I} & \textbf{R / A} \\
-Capacitación & I & A & I & I & \textbf{R} & C \\
-\bottomrule
-\end{tabular}
-    \caption{Matriz \gls{raci}-\gls{sdlc} para el equipo definido}
-    \label{fig:raci_matrix} 
-\end{figure}
-
-    \newpage
-
-\begin{figure}
+\begin{figure} [h]
 \begin{tikzpicture}[
   role/.style={rectangle, draw, rounded corners, align=center, minimum height=1.5cm},
   arr/.style={-{Stealth}, thick}
@@ -105,7 +85,31 @@ Capacitación & I & A & I & I & \textbf{R} & C \\
 \end{figure}
 
 
-En esta metodología de desarrollo waterfall, se encuentran diferentes entornos de trabajo, dedicados a distintos fines y a la vez, a los que se accede, al cumplir satisfactoriamente diferentes verificaciones del ciclo de desarrollo.
+
+El esquema de trabajo en función de responsabilidades puede resumirse en la siguiente matriz \gls{raci}, ilustrada en la  \emph{Fig. \ref{fig:raci_matrix}},
+
+
+\begin{figure} [h]
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Rol / Fase} & \textbf{Ideación} & \textbf{Reqs} & \textbf{Diseño} & \textbf{Desarrollo } & \textbf{Despliegue} & \textbf{Operación} \\
+\midrule
+PO & \textbf{A / R} & \textbf{A / R} & C & C & C & I \\
+PM & C & C & \textbf{R} & A & \textbf{A / R} & I \\
+Architect & C & C & \textbf{A} & R & C & I \\
+Desarrollo & I & C & R / C & \textbf{R} & C & I \\
+Testing & I & C & C & \textbf{R / C} & C & I \\
+Operaciones & I & I & C & I & \textbf{I} & \textbf{R / A} \\
+Capacitación & I & A & I & I & \textbf{R} & C \\
+\bottomrule
+\end{tabular}
+    \caption{Matriz \gls{raci}-\gls{sdlc} para el equipo definido}
+    \label{fig:raci_matrix} 
+\end{figure}
+
+\subsection{Flujo de trabajo y transiciones entre entornos}
+
+Para este proyecto, se contó, con diferentes entornos de trabajo, dedicados a distintos fines y a los que se accede, al cumplir satisfactoriamente diferentes hitos y verificaciones del ciclo de desarrollo.
 
 \begin{figure} [h]
 \centering
@@ -115,12 +119,12 @@ En esta metodología de desarrollo waterfall, se encuentran diferentes entornos 
 \end{figure}
 
 \begin{enumerate}
-    \item Entornos locales: En los entornos locales, se trabaja de manera independiente en la documentación de casos de uso, diseño de arquitectura y luego cada desarrollador y tester, trabaja con versiones locales del codigo. En este caso, pueden exisistir múltiples versiones del mismo código que se modifican en paralelo por los distintos desarrolladores, según se hayan dividido las tareas según los skills de los miembros del equipo. (puede ser front end, back end, modelos de datos, apis, etc.).
+    \item \emph{Entornos locales}: En los entornos locales, se trabaja de manera independiente en la documentación de casos de uso, diseño de arquitectura y luego cada desarrollador y tester, trabaja con versiones locales del codigo. En este caso, pueden exisistir múltiples versiones del mismo código que se modifican en paralelo por los distintos desarrolladores, según se hayan dividido las tareas según los skills de los miembros del equipo. (puede ser front end, back end, modelos de datos, \Gls{api}s, etc.).
 
         A su vez, el equipo de testing, en sus equipos locales, también desarrolla sus casos de prueba, alineados con la funcionalidad definida en la especificación, pero sin interactuar con el equipo de desarrollo, de modo que se toma como base la especifiación y no el código que desarrollan los programadores. De este modo, el equipo de testing se enfoca 100\% en la escencia de la funcionalidad y no necesariamente en cómo se ha desarrollado/implementado la funcionalidad.
     
     
-    \item Entorno de Dev: En el entorno de Dev. (o de Desarrollo), es el primero entorno en el que se realizan pruebas del código generado por los multiples desarrolladores, ya combinado en una versión candidata para ser lanzada a producción. Es el espacio donde el equipo de testing puede correr la totalidad de los casos de pruebas que generaron y se evalúan los resultados de las ejecuciones. Si son exitosas, en principio se habilita esa versión de la aplicación/código para ser promovido al entorno de UAT.
+    \item \emph{Entorno de Dev}: En el entorno de Dev. (o de Desarrollo), es el primero entorno en el que se realizan pruebas del código generado por los multiples desarrolladores, ya combinado en una versión candidata para ser lanzada a producción. Es el espacio donde el equipo de testing puede correr la totalidad de los casos de pruebas que generaron y se evalúan los resultados de las ejecuciones. Si son exitosas, en principio se habilita esa versión de la aplicación/código para ser promovido al entorno de UAT.
     
     En caso de resultar fallidas, el equipo de testing trabaja junto con el equipo de desarrollo para hacer el troubleshooting de aquellos casos fallidos y en función de los hallazgos:
         \begin{enumerate}
@@ -131,11 +135,11 @@ En esta metodología de desarrollo waterfall, se encuentran diferentes entornos 
     
     Finalmente, se vuelve a unificar el código y los casos de pruebas ajustados para luego repetir las pruebas en el entorno de desarrollo hasta que todo sea satisfactorio.
 
-    \item Entorno de UAT: Este es el entorno donde el Product Owner, habilita acceso a ciertos usuarios clave, que ayudan a hacer una verificación del sistema para dar el visto bueno para poder pasar el sistema a producción. De surgir fallas, se reportan al equipo de testing y de desarrollo y se realiza el troubleshooting de modo similar al del estadio anterior. De este modo, cualquier falla que se detecta, lleva el proceso al ajuste de código y luego a las pruebas en el estadio anterior.
+    \item \emph{Entorno de UAT}: Este es el entorno donde el Product Owner, habilita acceso a ciertos usuarios clave, que ayudan a hacer una verificación del sistema para dar el visto bueno para poder pasar el sistema a producción. De surgir fallas, se reportan al equipo de testing y de desarrollo y se realiza el troubleshooting de modo similar al del estadio anterior. De este modo, cualquier falla que se detecta, lleva el proceso al ajuste de código y luego a las pruebas en el estadio anterior.
     
         Una vez que la aplicación se ha desplegado al entorno de UAT, las interfaces de usuario ya son práctiamente definitivas y el equipo de capacitación puede trabajar en el desarrollo de los materiales para la capacitación de los usuarios finales.
     
-    \item Entorno de Producción: Una vez que las pruebas en el entorno de UAT han sido superadas con éxito, se hace el pasaje final a producción y ocurren dos actividades escenciales. El product owner queda ya habilitado para comenzar las sesiones de capacitación según el plan de despliegue y entrenamiento y el equipo de desarrollo realiza una transferencia de conocimiento y capacitación (junto con la entrega de la documentación correspondiente) para que el equpo de operaciones, comience a dar el soporte necesario con la plataforma ya en vivo. 
+    \item \emph{Entorno de Producción}: Una vez que las pruebas en el entorno de UAT han sido superadas con éxito, se hace el pasaje final a producción y ocurren dos actividades escenciales. El product owner queda ya habilitado para comenzar las sesiones de capacitación según el plan de despliegue y entrenamiento y el equipo de desarrollo realiza una transferencia de conocimiento y capacitación (junto con la entrega de la documentación correspondiente) para que el equpo de operaciones, comience a dar el soporte necesario con la plataforma ya en vivo. 
     
     El product owner, junto con el equipo de capacitación (training) hacen el lanzamiento y las campañas de comuniación/entrenamiento con la finalidad de entrenar a los usuarios en el uso del sistema y luego trabajar en la adopción del mismo.
 \end{enumerate}
@@ -179,6 +183,7 @@ Es importante destacar que el objetivo del equipo de nivel 2, es garantizar la c
 
 En caso de que los usuarios finales hayan reportado un comportamiento compatible con un defecto o bug, entonces se derivaba al equipo de desarrollo para seguir con máxima prioridad un proceso de troubleshooting y análisis de causa raíz, para a su vez aplicar una solución definitiva.
 
+\newpage
 \section{Gestión de calidad}
 
 La gestión de la calidad comenzó inicialmente con un enfoque tradicional, y a medida que se avanzó con el desarrollo, fue necesario optimizarlo. 
@@ -212,9 +217,7 @@ Las principales causas para revisar la forma de trabajo fueron las siguientes:
 \item El equipo de operaciones, tampoco era efectivo a la hora de resolver algunos incidentes, por falta de conocimiento de la aplicación, y las capacitaciones que el equipo de desarrollo les daba al hacer los despliegues productivos, eran complejas o insuficientes.
 \end{itemize}
 
-Entonces se optó por pasar a una filosofía pura de DevOps, donde los mismos desarrolladores darían soporte a la aplicación en producción y a la vez se incorporaron tecnologías y prácticas para poder implementar \gls{ci-cd}.
-
-\newpage
+Por estos motivos, se decidió pasar a una filosofía pura de DevOps, donde los mismos desarrolladores darían soporte a la aplicación en producción y a la vez se incorporaron tecnologías y prácticas para poder implementar \gls{ci-cd}. 
 
 \begin{table} [h]
     \centering

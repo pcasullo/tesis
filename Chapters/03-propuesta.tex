@@ -201,7 +201,21 @@ Las acciones de navegación dentro del portal tienen como objetivo poder recorre
 
 \subsection{Logs de actividades y monitoreo de estadísticas.}
 \label{usecases:logging}
-hay que explicar acá qué es lo que se requiere para poder guardar la info y las estadísticas.
+
+El registro de actividades (logs) y el monitoreo de estadísticas de uso son pilares fundamentales para garantizar su correcto funcionamiento, su transparencia y su evolución constante.
+
+Los logs actúan como un diario detallado de todo lo que ocurre dentro del sistema: desde eventos técnicos como errores, advertencias y cambios de configuración, hasta interacciones de los usuarios y transacciones críticas. 
+
+Esta información es esencial para la auditabilidad, ya que permite reconstruir con precisión qué sucedió, cuándo y bajo qué condiciones. En entornos regulados o con altos estándares de seguridad, los logs son la evidencia que respalda el cumplimiento normativo, la trazabilidad de acciones y la detección de comportamientos anómalos o no autorizados.
+
+Por otro lado, el monitoreo de estadísticas de uso recopila datos cuantitativos sobre el rendimiento y la utilización del sistema: tiempos de respuesta, consumo de recursos, patrones de tráfico, tasas de error, entre otros. Estos indicadores no solo permiten evaluar el estado actual del sistema, sino que también habilitan la observabilidad, es decir, la capacidad de comprender su comportamiento interno a partir de la información externa que genera.
+
+La combinación de logs y métricas crea un ecosistema de información que facilita la detección temprana de problemas y la resolución proactiva de incidentes. Por ejemplo, un aumento repentino en el tiempo de respuesta acompañado de errores registrados en los logs puede señalar un cuello de botella en la base de datos o un fallo en un servicio externo.
+
+Además, esta información es clave para instrumentar procesos de mejora continua. Analizando tendencias históricas y correlacionando eventos con métricas, es posible identificar áreas de optimización, priorizar desarrollos y medir el impacto real de los cambios implementados. Esto convierte al monitoreo y al registro en herramientas estratégicas, no solo operativas.
+
+En resumen, sin logs ni monitoreo es como un barco navegando sin brújula ni bitácora: puede avanzar, pero carece de la capacidad de entender su rumbo, aprender de su experiencia y reaccionar ante imprevistos. Implementar un esquema robusto de registro y análisis de datos no solo garantiza auditabilidad y transparencia, sino que también potencia la eficiencia, la resiliencia y la capacidad de innovación de la plataforma.
+
 
 
 \section{Alcance inicial y entregables previstos}
