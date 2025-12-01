@@ -119,16 +119,17 @@ A continuación, la \emph{Fig.} \ref{fig:arq_webapp}, describe el diagrama de de
     
     \item Tener una \gls{soa} (\ref{principios:soa})
 
-    En este caso particular, se buscó implementar una arquitectura orientada a servicios, para la capa de negocio, de modo que pueda hacerse una separación, escalable de ser necesaria de ciertos servicios críticos y de alta demanda. de este modo, se puede seguir escalando la capacidad de la aplicación, en función de ciertas operaciones críticas y de alta demanda para brindar los servicios del portal. En otros casos, ciertos servicios se definieron como elementos reusables que pueden ser parte de un ecosistema más grande de aplicaciones y que tenía sentido independizar del bloque inicial de código, como proyectos "hijos". En este caso, el Users API y el RLS API.
+    En este caso particular, se buscó implementar una arquitectura orientada a servicios, para la capa de negocio, de modo que pueda hacerse una separación de ciertos servicios críticos y de alta demanda. De este modo, se puede seguir escalando la capacidad de la aplicación, en función de ciertas operaciones críticas y de alta demanda para brindar los servicios del portal. También se identificaron dos servicios que se definieron como elementos reusables, en un ecosistema más grande de aplicaciones a nivel compaía y que tenía sentido independizar del bloque inicial de código, como proyectos hijos. Las APIs de Users de RLS.
     
     \item Descentralizado y escalable (\ref{principios:federado})
     
-    La posibilidad de descentralización, tiene que ver con poder distribuir tareas según responsabilidades de ciertos usuarios, en vez de tener un equipo centralizado de gente que opere y administre los contenidos y los manejos de accesos del portal. Esto implica que el volumen de usuarios con la capacidad de ejercer múltiples roles aumenta, en prácticamente un orden de magnitud, de 10x a 100x.
+    La posibilidad de descentralización, tiene que ver con poder distribuir tareas según responsabilidades de ciertos usuarios, en vez de tener un equipo centralizado de gente que opere y administre los contenidos y los manejos de accesos del portal. Esto implica que tamaño del universo de usuarios con la capacidad de ejercer múltiples roles crece, en prácticamente un orden de magnitud, de decenas a centenas.
     
-    La escalabilidad, se vuelve entonces un aspecto escencial para poder sostener un buen desempeño, desde el punto de vista de la performance y la experiencia de usuario, sin poner en riesgo la estabilidad del sistema. Para dicho fin, la arquitectura de \ref{fig:arq_webapp}, mencionada anteriormente se vuelve clave.
+    La escalabilidad, se vuelve entonces un aspecto escencial para poder sostener un buen desempeño, desde el punto de vista de la performance y la experiencia de usuario, sin poner en riesgo la estabilidad del sistema. Para dicho fin, la arquitectura de la Fig. \ref{fig:arq_webapp}, se vuelve clave.
     
     \item Auditable (\ref{princpipios:auditable})
-    explicar toda la lógica de auditoría en función de qué transacciones que hayan identificar como auditables y luego empezar a desarrollar cada uno, los temas de metadata que deben registrarse. en un log de auditoría se registra:
+    
+    En un este log de auditoría se iba a registrar:
 
     \begin{itemize}
         \item userid: identificador unico del usuario que inicia la transacción.
@@ -136,7 +137,7 @@ A continuación, la \emph{Fig.} \ref{fig:arq_webapp}, describe el diagrama de de
         \item operación descripción de la operación que se realiza.
         \item campos afectados (con valores anteriores y nuevos en caso de actualizaciones).
         \item id de transacción (para el caso de que haya multiples operaciones en una transacción).
-        \item duracion (en milisegundos).
+        \item duración (en milisegundos).
         
     \end{itemize}
 
@@ -172,7 +173,7 @@ El controlador está implementado en el servidor de aplicaciones, donde maneja l
 
 A continuación, una breve explicación de cómo el \gls{mvc} se mapeó a esta arquitectura de \Gls{wapp}:
 
-Los componentes se distribuyen a lo largo de los diferentes niveles de la stack tecnológico:
+Los componentes se distribuyen a lo largo de los diferentes niveles del stack tecnológico:
 
 \begin{itemize}
     \item El servidor web (Apache) actúa como el punto de entrada para las solicitudes y atendiendo las solicitudes estáticas y delegando las dinámicas a los componentes tomcats.
@@ -181,7 +182,7 @@ Los componentes se distribuyen a lo largo de los diferentes niveles de la stack 
     \item La base de datos (Oracle) proporciona almacenamiento persistente para los datos generados, mantenidos y accedidos por el modelo.
 \end{itemize}
 
-A su vez, también, dentro del modelo, se identificaron los siguientes componentes lógicos que permitieron distribuir las actividades de desarrollo y mantener a la vez una estructura modular, de muy alta cohesión y bajo acomplamiento.
+A su vez, también, dentro del modelo, se identificaron los siguientes componentes lógicos que permitieron distribuir las actividades de desarrollo y mantener a la vez una estructura modular, de muy alta cohesión y bajo acoplamiento.
 
 \begin{enumerate}
     \item \textbf{ReportsHub}:
@@ -189,16 +190,16 @@ A su vez, también, dentro del modelo, se identificaron los siguientes component
 
     \item \textbf{User Admin API}: Módulo de interacción con el directorio LDAP, que permite al portal ejecutar operaciones básicas de gestion de usuarios y de listas de distribución y grupos de seguridad.
         
-    \item \textbf{RLS API}: Módulo que implementa de manera genérica y universal, la gestión de perfiles de usuarios con el \gls{rls} que se utilice. Este módulo es de uso opcional y depende de un proyecto tiene implementado \gls{rls} o no.
+    \item \textbf{RLS API}: Módulo que implementa de manera genérica y universal, la gestión de perfiles de usuarios con el \gls{rls} que se utilice. Este módulo es de uso opcional y depende de si un proyecto tiene implementado \gls{rls} o no.
     
-        el conjunto de servicios implementados para dicho módulo es el siguiente:
+        El conjunto de servicios implementados para dicho módulo es el siguiente:
         \begin{enumerate}
-            \item **GET\_ROLES**: devuelve una lista de roles de proyecto.
-            \item **GET\_USER\_ROLES**: devuelve el rol asociado a un usuario específico - usando un UserID.
-            \item **ADD\_USER\_ROLES**: agrega o actualiza un rol a un usuario específico.
-            \item **ADD\_USER\_W\_FULL\_NAME\_ROLES**: agrega un rol a un usuario específico enviando el nombre completo también.
-            \item **REMOVE\_USER\_ROLES**: elimina un rol de un usuario.
-            \item **ADD\_ACTIVITY\_LOG**: envía información de auditoría al proyecto.
+            \item \emph{GET\_ROLES}: devuelve una lista de roles de proyecto.
+            \item \emph{GET\_USER\_ROLES}: devuelve el rol asociado a un usuario específico - usando un UserID.
+            \item \emph{ADD\_USER\_ROLES}: agrega o actualiza un rol a un usuario específico.
+            \item \emph{ADD\_USER\_W\_FULL\_NAME\_ROLES}: agrega un rol a un usuario específico enviando el nombre completo también.
+            \item \emph{REMOVE\_USER\_ROLES}: elimina un rol de un usuario.
+            \item \emph{ADD\_ACTIVITY\_LOG}: envía información de auditoría al proyecto.
         \end{enumerate}
 
 
@@ -306,12 +307,8 @@ Algunos elementos del ecosistema que debían utilizarse y con los que se tenía 
 \newpage
 
 \section{Diseño de seguridad y Row Level Security (RLS)}
-Por cuestiones de simplicidad y de diseño general, se trabajó con un esquema de seguridad donde usuarios de ciertas áreas funcionales, pueden tener acceso a la información completa de dichas áreas, con limitaciones geográficas. En el caso de los usuarios "locales", en general se les otorga permiso vinculado al país donde operan. A los usuarios regionales, se les otorga visibilidad sobre la región (información consolidada a nivel regional) y del detalle de los paises incluidos en dicha región.
-finalmente hay usuarios globales que tienen acceso a una capa global de datos (del area de interés del contenido publicado) y luego a los datos consolidados en niveles geográficos incluidos (regionales y paises de cada región).
-
-%Para implementar el filtrado a nivel geográfico, se aplicaron técnicas de RLS, de modo que permite mediante el rol del usuario, poder tener scope a las filas (rows) que son relevantes a dicho usuario.
-
-%La implmentación, normalmente se aplica a nivel de modelo de datos, haciéndola inherente a las consultas, de modo que siempre se agregan automáticamente a todas las queries, where conditions limitando las filas con las que se trabaja por alcance geográfico.
+Por cuestiones de simplicidad y de diseño general, se trabajó con un esquema de seguridad donde usuarios de ciertas áreas funcionales, pueden tener acceso a la información completa de dichas áreas, con limitaciones geográficas. En el caso de los usuarios locales, en general se les otorga permiso vinculado al país donde operan. A los usuarios regionales, se les otorga visibilidad sobre la región (información consolidada a nivel regional) y del detalle de los paises incluidos en dicha región.
+Finalmente hay usuarios globales que tienen acceso a una capa global de datos (del area de interés del contenido publicado) y luego a los datos consolidados en niveles geográficos incluidos (regionales y paises de cada región).
 
 Este enfoque permite restringir el acceso a los datos de una tabla según condiciones definidas, de forma que cada usuario solo pueda visualizar o modificar las filas que le corresponden, puntualmente por geografía. En este esquema, cada registro de la base de datos contiene un campo que identifica su ubicación geográfica, por ejemplo: país. 
 
@@ -339,7 +336,7 @@ En el caso del proceso de asignación de permisos, puede observarse que intervie
 \label{fig:procesoOriginal}    
 \end{figure} 
 
-El nuevo proceso resultante, elimina todos los elementos de complejidad accidental, dejando simplemente a los únicos dos roles, que son relevantes, el \emph{End User} que es el usuario final quien solicita el acceso al reporte y el \emph{Aprobador o Dueño del reporte}, que es quien determina si la solicitud corresponde o no y puede actuar en consecuencia. EL proceso resultante de la simplificación e integración del portal conlas herramientas de visualización y también del RLS (en caso de ser necesario), se describe en la \emph{Fig.} \ref{fig:procesoMejorado}.
+El nuevo proceso resultante, elimina todos los elementos de complejidad accidental, dejando simplemente a los únicos dos roles, que son relevantes, el \emph{End User} que es el usuario final quien solicita el acceso al reporte y el \emph{Aprobador o Dueño del reporte}, que es quien determina si la solicitud corresponde o no y puede actuar en consecuencia. El proceso resultante de la simplificación e integración del portal conlas herramientas de visualización y también del RLS (en caso de ser necesario), se describe en la \emph{Fig.} \ref{fig:procesoMejorado}.
 
 \begin{figure} [h]
 \centering

@@ -24,10 +24,10 @@ Para encarar el desarrollo, también se ensambló un equipo compuesto por los si
 
 \begin{enumerate}
     \item Product Owner: Persona encargada de definir el producto, su roadmap, prioridades y fases de entregas para maximizar el valor de cada entrega, en múltiples fases de desarrollo.
-    \item Project Manager: Persona encargada de armar el plan de trabajo con el product owner, los equipos de desarrollo, pruebas, operaciones y entrenamiento, para poder planificar las entregas y luego hacer la coordinar la ejecución y su seguimiento.
+    \item Project Manager: Persona encargada de armar el plan de trabajo con el product owner, los equipos de desarrollo, pruebas, operaciones y entrenamiento, para poder planificar las entregas y luego hacer la coordinación, ejecución y su seguimiento.
     \item Equipo de desarrollo: Equipo responsable por escribir el código y realizar pruebas unitarias y verificaciones iniciales del código. Conformado por programadores especializados en visualización, en logica de negocio y bases de datos. También hubo apoyo part time de un arquitecto para poder trabajar las definiciones estructurales y detalles de arquitectura definidas en la sección anterior.
     \item Equipo de testing: conformado por un líder de testing encargado de desarrollar los planes de pruebas, y desarrollar los casos de pruebas en funcion de las especificaciones de los casos de uso. Testers, encargados de ejecutar los casos de prueba, de distintos tipos, desde pruebas de integración, como así también de regresión y de performance.
-    \item Equipo de operaciones: Este equipo es el responsable de operar el sistema una vez desplegado en producción y a la vez de dar continuidad a la operación, en caso de que alguno de los componentes falle por algún problema. Frente alguna situación de falla o reportes de errores de usuario, son la primer capa de atención al usuario y que permite analizar el síntoma y hacer un diagnóstico, para saber si lo reportado por los usuarios es realmente un error del sistema, un problema de experiencia de usuario o de entrenamiento.
+    \item Equipo de operaciones: Este equipo es el responsable de operar el sistema una vez desplegado en producción y a la vez de dar continuidad a la operación, en caso de que alguno de los componentes falle por algún problema. Frente a alguna situación de falla o reportes de errores de usuario, son la primer capa de atención al usuario y que permite analizar el síntoma y hacer un diagnóstico, para saber si lo reportado por los usuarios es realmente un error del sistema, un problema de experiencia de usuario o de entrenamiento.
     \item Equipo de capacitación: Equipo responsable de generar el material didáctico y planificar junto con el PM las capacitaciones de los usuarios, para poder garantizar una adopción adecuada del producto. También se explica el esquema de soporte en caso de necesitar reportar incidentes.
 \end{enumerate}
 
@@ -124,7 +124,7 @@ Para este proyecto, se contó, con diferentes entornos de trabajo, dedicados a d
         A su vez, el equipo de testing, en sus equipos locales, también desarrolla sus casos de prueba, alineados con la funcionalidad definida en la especificación, pero sin interactuar con el equipo de desarrollo, de modo que se toma como base la especifiación y no el código que desarrollan los programadores. De este modo, el equipo de testing se enfoca 100\% en la escencia de la funcionalidad y no necesariamente en cómo se ha desarrollado/implementado la funcionalidad.
     
     
-    \item \emph{Entorno de Dev}: En el entorno de Dev. (o de Desarrollo), es el primero entorno en el que se realizan pruebas del código generado por los multiples desarrolladores, ya combinado en una versión candidata para ser lanzada a producción. Es el espacio donde el equipo de testing puede correr la totalidad de los casos de pruebas que generaron y se evalúan los resultados de las ejecuciones. Si son exitosas, en principio se habilita esa versión de la aplicación/código para ser promovido al entorno de UAT.
+    \item \emph{Entorno de Dev}: El entorno de Dev. (o de Desarrollo), es el primero entorno en el que se realizan pruebas del código generado por los multiples desarrolladores, ya combinado en una versión candidata para ser lanzada a producción. Es el espacio donde el equipo de testing puede correr la totalidad de los casos de pruebas que generaron y se evalúan los resultados de las ejecuciones. Si son exitosas, en principio se habilita esa versión de la aplicación/código para ser promovido al entorno de UAT.
     
     En caso de resultar fallidas, el equipo de testing trabaja junto con el equipo de desarrollo para hacer el troubleshooting de aquellos casos fallidos y en función de los hallazgos:
         \begin{enumerate}
@@ -146,9 +146,9 @@ Para este proyecto, se contó, con diferentes entornos de trabajo, dedicados a d
 
 \section{Estrategia de despliegue y fases de rollout.}
 
-Para la estrategia de despliege, se optó, por un enfoque en dos fases. una Fase I, que consistía en un \gls{mvp} con un pequeño grupo piloto de colaboración cercana, de modo de tener un primer acercamiento al uso real del sistema, con quienes se pudo trabajar muy de cerca. Esto permitió que se puedan testear las hipótesis y recolectar feedback valioso, para poder refinar los casos de uso originales.
+Para la estrategia de despliege, se optó, por un enfoque en dos fases. Una Fase I, que consistía en un \gls{mvp} con un pequeño grupo piloto de colaboración cercana, de modo de tener un primer acercamiento al uso real del sistema, con quienes se pudo trabajar muy de cerca. Esto permitió que se puedan testear las hipótesis y recolectar feedback valioso, para poder refinar los casos de uso originales.
 
-Luego, se pasó a la fase II, fomentando un crecimiento "orgánico", donde se identificaron equipos clave en el resto de la organización y se fueron sumando gradualmente en un período de 12 meses.
+Luego, se pasó a la fase II, fomentando un crecimiento orgánico, donde se identificaron equipos clave en el resto de la organización y se fueron sumando gradualmente en un período de 12 meses.
 
 \subsection{Fase I: \gls{mvp} con Grupo piloto}
     
@@ -160,14 +160,14 @@ Se realizaron las capacitaciones y luego estableció un período de tres meses p
 
 \subsection{Fase II: Expansión y escalamiento a más áreas y usuarios}
 
-Ya con el piloto satisfactorio, una lista mínima de mejoras ya implementadas y el equipo redefinido junto con la metodología, se decidió expandir el piloto al resto de las regiones y otros equipos corporativos. El despliege completo duró aproxiamdamente 6 meses más y a medida que se fue avanzando cada vez se fue simplificando más el proceso de "onboarding" de nuevos usuarios.
+Ya con el piloto satisfactorio, una lista mínima de mejoras ya implementadas y el equipo redefinido junto con la metodología, se decidió expandir el piloto al resto de las regiones y otros equipos corporativos. El despliege completo duró aproxiamdamente 6 meses más y a medida que se fue avanzando cada vez se fue simplificando más el proceso de incorporación de nuevos usuarios.
 
 Se adoptó un enfoque de entrenamiento para los creadores de contenidos y ellos a su vez comenzaron a promocionarlo y entrenar a sus propios usuarios y en muchos casos, cuando había usuarios que ya usaban el portal por otros creadores de contenido, preguntaban proactivamente por qué faltaban agregar más contenidos, con lo cual el crecimiento se dio de modo orgánico y natural.
 
 \section{Plan de comunicación y capacitación}
 El plan de comunicación y de capacitación, se diseñó de modo de acompañar las fases de despliegue por grupos de usuarios y audiencias. Se encaró un enfoque de \gls{cop}, que permitió crear un universo de usuarios general, con algunos más expertos que ayudaron a diseminar las mejores prácticas. 
 
-se identificaron dichos usuarios líderes o clave y se hizo una capacitación del estilo \gls{ttt}, para poder hacerlo en múltiples olas y a la vez de modo federado y escalable.
+Se identificaron dichos usuarios líderes o clave y se hizo una capacitación del estilo \gls{ttt}, para poder hacerlo en múltiples olas y a la vez de modo federado y escalable.
 
 Los materiales de soporte y guías de usuario, se defineron en dos niveles: 
 \begin{enumerate}

@@ -21,9 +21,9 @@ La solución debe cumplir con los siguientes principios de diseño:
 
 \subsection{\Gls{wapp}}
 \label{principios:webapp}
-Será una aplicación web, que contará con una elementos de presentación el el browser, una capa de lógica de negocio en un servidor y se apoyará en una base de datos relacional para almacenar la información y meta información necesaria para la configuración, uso y auditoría de actividades.
+Será una aplicación web, que contará con elementos de presentación en el browser, una capa de lógica de negocio en un servidor y se apoyará en una base de datos relacional para almacenar la información y meta información necesaria para la configuración, uso y auditoría de actividades.
 
-\subsection{\gls{lux} minimalista y defensiva}
+\subsection{\Gls{lux} minimalista y defensiva}
 \label{principios:leanUx}
 Experiencia de usuario simple e intuitiva para cada uno de los roles en que los usuarios operen la solución, ya que un mismo usuario, puede tener contenidos para publicar, ser administrador del sistema y eventualmente consumidor de contenidos publicados por otros usuarios:
  \begin{itemize}
@@ -36,7 +36,7 @@ La interfaz, debe evitar que el usuario cargue información inválida mediante r
 
 \subsection{Tener una \Gls{soa}}
 \label{principios:soa}
-Ser agnóstico de las tecnologías en las que se han producido los contenidos que se publicarán minimizando el acoplamiento técnico y a la vez funcionando con una alta cohesión. Este punto permite garantizar la “interoperabilidad" con diferentes tecnologías y a la vez el soporte de procesos comunes, sin estar condicionados por las tecnologías de implementación.
+Ser agnóstico de las tecnologías en las que se han producido los contenidos que se publicarán minimizando el acoplamiento técnico y a la vez funcionando con una alta cohesión. Este punto permite garantizar la interoperabilidad con diferentes tecnologías y a la vez el soporte de procesos comunes, sin estar condicionados por las tecnologías de implementación.
 
 \subsection{Descentrado y Escalable}
 \label{principios:federado}
@@ -63,7 +63,7 @@ Los contenidos del sistema debían estar organizados en una jerarquía de dos ni
 
 %\subsection{Creación de áreas de información para organizar los contenidos(Admin Global/Local).}
 \label{usecases:geolevel2}
-El segundo nivel de organización son áreas de información y permiten una agrupación lógica de los contenidos en función de las temáticas que cubren, como por ejemplo finanzas, marketing, ventas, etc. No existe un listado predefinido de qué áreas de información existen a nivel local y pueden ser creadas libremente por los administradores a nivel geográfico. La única restricción: los nombres de las áreas en una región geográfica deben ser únicos.
+El segundo nivel de organización eran áreas de información y permitían una agrupación lógica de los contenidos en función de las temáticas que cubrían, como por ejemplo finanzas, marketing, ventas, etc. No existía un listado predefinido de qué áreas de información existíann a nivel local y podían ser creadas libremente por los administradores a nivel geográfico. La única restricción: los nombres de las áreas en una región geográfica debían ser únicos.
 
 
 Por ejemplo:
@@ -93,15 +93,12 @@ Por ejemplo:
 \subsection{Gestión de Usuarios.}
 \label{usecases:useradmin}
 
-La “creación” y administración de usuarios, consiste en poder registrar usuarios que ya son parte del directorio corporativo como usuarios de este sistema y asignarles roles de Admins globales, locales, de áreas de información y/o eventualmente como consumidores. Del directorio corporativo se importan los siguientes datos: handle de usuario de la compañía, nombre completo, dirección de correo electrónico.
+La “creación” y administración de usuarios, consistió en poder registrar usuarios que ya eran parte del directorio corporativo como usuarios de este sistema y asignarles roles de Admins globales, locales, de áreas de información y/o eventualmente como consumidores. Del directorio corporativo debían importarse los siguientes datos: handle de usuario de la compañía, nombre completo, dirección de correo electrónico.
 
-	Es importante aclarar que un Admin tiene la capacidad de crear secciones, contenidos y manejar usuarios, pero no necesariamente tiene acceso a los mismos contenidos que publica, ya que son aspectos guiados por diferentes criterios de seguridad y las personas responsables de los contenidos son quienes deben aprobar los accesos y decidir quienes tienen acceso.
-		La forma en la que los permisos serán asignados de acuerdo a los roles se detalla en la tabla \ref{tab:funcxrol}.
+	Es importante aclarar que un Admin tenía la capacidad de crear secciones, contenidos y manejar usuarios, pero no necesariamente acceso a los mismos contenidos que publicó, ya que son aspectos guiados por diferentes criterios de seguridad y las personas responsables de los contenidos eran quienes debían aprobar y decidir quienes debían tener acceso.
+		La forma en la que los permisos iban a ser asignados de acuerdo a los roles se detalla en la tabla \ref{tab:funcxrol}.
 
-        
-        Todos los usuarios pueden asignar a otros usuarios  las siguientes reglas de la tabla \ref{tab:asignaciones}:
-
-\begin{table}
+\begin{table} [h]
     \centering
     \begin{tabular}{|c|c|c|c|c|}\hline
         \textbf{Función/rol}&  \textbf{Admin global}&  \textbf{Admin local}&  \textbf{Creador}& \textbf{Aprobador}\\\hline
@@ -117,8 +114,11 @@ La “creación” y administración de usuarios, consiste en poder registrar us
 \end{table}
 
 
+        
+        Todos los usuarios iban a poder asignar a otros usuarios, según las reglas de la tabla \ref{tab:asignaciones}:
 
-\begin{table}
+
+\begin{table} [h]
 
     \centering
     \begin{tabular}{|c|c|c|c|c|}\hline
@@ -132,11 +132,11 @@ La “creación” y administración de usuarios, consiste en poder registrar us
     \label{tab:asignaciones}
 \end{table}
 
-Estos mecanismos designados, también aplican a la hora de modificar los privilegios de un usuario. En caso de que un usuario vaya a ser desafectado del sistema, debe haber siempre un usuario alternativo como administrador global/local o creador de área de información o contenido. Si en algún momento algún usuario deja de pertenecer a la compañía, y algún área quedara sin administradores, entonces el sistema asignará automáticamente a cargo de los elementos del portal “huérfanos” a quienes sean los responsables inmediatos superiores dentro del mismo, siguiendo la lógica de Aprobador - Creador - Admin Local y Admin Global en última instancia. Para Admins globales debe haber siempre al menos 2 y es parte de la configuración inicial del sistema.
+Estos mecanismos designados, también aplicaron a la hora de modificar los privilegios de un usuario. En caso de que un usuario hubiese sido desafectado del sistema, debía haber siempre un usuario alternativo como administrador global/local o creador de área de información o contenido. Si en algún momento algún usuario dejaba de pertenecer a la compañía, dejando a algún área sin administradores, entonces el sistema iba a asignar automáticamente a cargo de los elementos huérfanos del portal a quienes eran los responsables inmediatos superiores dentro del mismo, siguiendo la lógica de Aprobador - Creador - Admin Local y Admin Global en última instancia. Para Admins globales debía haber siempre al menos 2 e iba a ser parte de la configuración inicial del sistema.
 
 \subsection{Gestión de contenidos (Creador/Admin).}
 \label{usecases:contentadmin}
-La publicación de contenidos se hará de modo que cada pieza de contenido estará representada por los siguientes metadatos obligatorios:
+La publicación de contenidos se iba a hacer de modo que cada pieza de contenido estaría representada por los siguientes metadatos obligatorios:
 
 \begin{itemize}
 \item Título: Un texto denomina al contenido.
@@ -147,9 +147,9 @@ La publicación de contenidos se hará de modo que cada pieza de contenido estar
     Cantidad: Un número natural mayor a cero.
 	Frecuencia: deberá ser algún valor de esta lista: “diario, semanal, mensual, trimestral, semestral, anual”
 
-	De este modo, la idea es poder establecer los objetivos de adopción según perfiles de usuario y cómo se espera que estos utilicen los contenidos para poder ser eficientes en sus procesos de negocio.
+	De este modo, se iban a poder establecer objetivos de adopción según perfiles de usuario, y de acuerdo a la expectativa de cómo éstos, utilicen los contenidos para desempeñarse en sus procesos de negocio.
 
-\item Aprobadores: puede agregarse el listado de aprobadores y por defecto quien crea podrá aprobar acceso.
+\item Aprobadores: El listado de aprobadores y por defecto quiénes iban a poder aprobar accesos.
 
 \item Selección del modo de provisión de acceso:
     \begin{itemize}
@@ -165,12 +165,12 @@ La publicación de contenidos se hará de modo que cada pieza de contenido estar
 		   \item Puesto en la compañía.
 		   \item País de localización de quien lo pide.
            \end{itemize}
-	    \item Si el reporte tiene un modelo de acceso basado en listas de distribución del directorio corporativo, entonces deben especificarse dichas listas y quedarán asociadas al contenido (y se pueden asociar a segmentos de usuarios).
+	    \item Si el reporte tenía un modelo de acceso basado en listas de distribución del directorio corporativo, entonces debían especificarse dichas listas y quedando asociadas al contenido (y se podían asociar a segmentos de usuarios).
         \end{enumerate}
-	\item Si tiene seguridad basada en roles dentro del reporte y de ser así, se definen dos mecanismos posibles:
+	\item Si el reporte tenía seguridad basada en roles se defieron dos mecanismos posibles:
         \begin{enumerate}
-            \item Listas de distribución especificas del directorio corporativo. En este caso se define qué listas del directorio corporativo están asociadas a este contenido, para que el aprobador pueda utilizarlas en el momento de la aprobación.
-		    \item Esquema propio de cada contenido con perfiles/roles particulares. En este caso, deben especificarse los end points y credenciales para poder integrar la administración.
+            \item Listas de distribución especificas del directorio corporativo. En este caso se definía qué listas del directorio corporativo estaban asociadas a este contenido, para que el aprobador pueda utilizarlas en el momento de la aprobación.
+		    \item Esquema propio de cada contenido con perfiles/roles particulares. En este caso, debían especificarse los end points y credenciales para poder integrar la administración.
         \end{enumerate}
     \end{itemize}
 \end{itemize}
@@ -178,48 +178,49 @@ La publicación de contenidos se hará de modo que cada pieza de contenido estar
 \subsection{Navegación del catálogo y solicitud de acceso (Consumidor).}
 \label{usecases:browse}
 
-El portal tiene dos modos de operación. Un primer modo predeterminado, que permite utilizar los contenidos asignados, disponibles y ordenados según las unidades geográficas y áreas de información.
-	También hay una sección de “Favoritos” que contiene aquellos contenidos elegidos por el usuario como favoritos, que normalmente simplifican el acceso a los que son de uso frecuente.
-	Esta la posibilidad de buscar contenidos por textos relacionados a los metadatos definidos en el caso de uso 4.
-	El segundo modo, es el modo “catálogo”, donde el usuario consumidor tendrá la posibilidad de ver por unidades geográficas y áreas de información disponibles pero a los que no tiene acceso. Cada elemento podrá ser agregado a un “carrito de compras”, y una vez terminada la selección de los elementos para solicitar acceso, se podrá hacer un pedido formal de acceso. También está la posibilidad de agregar un texto como solicitud, explicando para cada elemento (o de forma colectiva) por qué la persona necesita acceso para los elementos. Cuando el usuario completa la acción de pedir acceso a los elementos del carrito de compras, se dispararán los procesos de aprobación, otorgamiento de accesos y notificación según se hayan definido en cada elemento.
+El portal iba a tener dos modos de operación. Un primer modo predeterminado, que permitía utilizar los contenidos asignados, disponibles y ordenados según las unidades geográficas y áreas de información.
+	También, una sección de “Favoritos” que iba a contener aquellos contenidos elegidos por el usuario como favoritos, que normalmente simplificaban el acceso a los de uso frecuente.
+	Estaba la posibilidad de buscar contenidos por textos relacionados a los metadatos definidos en el caso de uso \ref{usecases:contentadmin}.
+
+	El segundo modo, “catálogo”, donde el usuario consumidor iba a tener la posibilidad de ver los contenidos publicados, agrupados por unidades geográficas y áreas de información disponibles pero a los que no tiene acceso. Cada elemento iba a ser agregado a un “carrito de compras”, y una vez terminada la selección de los elementos para solicitar acceso, se enviaba un pedido formal de acceso. También estába la posibilidad de agregar un texto como solicitud, explicando para cada elemento (o de forma colectiva) por qué la persona necesitaba acceso para los elementos. Cuando el usuario completaba la acción de pedir acceso a los elementos del carrito de compras, se iban a disparar los procesos de aprobación, otorgamiento de accesos y notificación según se hayan definido, en cada elemento.
 
 
 \subsection{Gestión de accesos y permisos (Creador/Admin).}
 \label{usecases:accessmgmnt}
 
-En el circuito de aprobaciones, quienes son aprobadores recibirán una notificación por email y también tendrán un ícono en el portal que les indicará que tienen “tareas pendientes”. Tanto el email como el ícono, lleva a los aprobadores a la interfaz que les permite evaluar los pedidos en función de las solicitudes que recibieron y poder aprobarlos o rechazarlos de manera general o particular. En caso de rechazo de la solicitud, deben colocar el motivo y en ambos (tanto positivo como negativo) casos el resultado del proceso será informado al usuario solicitante, tanto por email, como una notificación en el portal.
-	Adicionalmente, si el contenido al que se solicita acceso, está cargado en el portal, el acceso se otorga de modo directo.
-	En caso de que el contenido publicado tenga asociada seguridad manejada por listas de distribución, se hará la asociación en ese momento y si además tiene habilitada la configuración de administración de perfiles de aplicación, se asignarán en el momento.
-	Si por último, el contenido publicado, está implementado y operado bajo un modelo de soporte basado en tickets, con la información configurada en el momento de la creación del contenido en el portal, se generará un ticket mediante el equipo correspondiente, adjuntando la información necesaria para el alta y la aprobación del aprobador para que el equipo de mantenimiento tenga el respaldo necesario para poder documentar y accionar el pedido, de acuerdo a las normas de cumplimiento de la empresa. En este caso, la notificación que recibirá el usuario que solicitó acceso tiene un texto que le informa que su pedido fue aprobado y se creó el ticket nro XXX en su nombre, para que pueda darle seguimiento con el equipo de operaciones.
+En el circuito de aprobaciones, quienes son aprobadores iban a recibir una notificación por email y también tendrían un ícono en el portal que les indicaría sus “tareas pendientes”. Tanto el email como el ícono, llevarían a los aprobadores a la interfaz donde evaluaríanlos pedidos en función de las solicitudes que recibieron para probarlos o rechazarlos de manera general (en lote) o particular (cada uno de ellos). En caso de rechazo de la solicitud, deb´pian colocar el motivo y en ambos (tanto positivo como negativo) casos el resultado del proceso iba a ser informado al usuario solicitante, tanto por email, como una notificación en el portal.
+	Adicionalmente, si el contenido al que se solicitaba acceso, estaba cargado en el portal, el acceso se otorgaría de modo directo.
+	En caso de que el contenido publicado tenga asociada seguridad manejada por listas de distribución, se haría la asociación en ese momento y si además tenía habilitada la configuración de administración de perfiles de aplicación, se debían asignar en el momento.
+	Si por último, el contenido publicado, estaba implementado y operado bajo un modelo de soporte basado en tickets, con la información configurada en el momento de la creación del contenido en el portal, se generaría un ticket dirigido al equipo correspondiente, adjuntando la información necesaria para el alta y la aprobación del aprobador para que el equipo de mantenimiento cuente con el respaldo necesario para poder documentar y accionar el pedido, de acuerdo a las normas de cumplimiento de la empresa. En este caso, la notificación que recibiría el usuario que solicitó acceso tendría un texto que le informaría que su pedido fue aprobado y se se había creó un ticket nro XXX en su nombre, para que pudiera darle seguimiento con el equipo de operaciones.
 
 
 \subsection{Navegacion y acceso a los contenidos.}
 \label{usecases:contentaccess}
 
-Las acciones de navegación dentro del portal tienen como objetivo poder recorrer los contenidos y accederlos. Para acceder un contenido, bastará con clickear con el mouse sobre la el ícono que lo representa en el catálogo y esto desplegará un nuevo Frame del navegador de internet que será una dirección enmascarada al elemento en cuestión. Esto permitirá que el enlace se pueda guardar como acceso directo y a la vez compartir por el usuario con otras personas, sin exponer el link original y preservando el control de acceso primario. El efecto deseado es agregar un nivel de indirección de modo tal que al guardar el link como acceso directo, quienes publican los contenidos puedan modificar el link interno de acceso sin afectar los enlaces del portal.
-	Finalmente, todas las acciones de búsqueda, navegación, gestión de usuarios y de accesos, serán registradas en una bitácora de eventos de modo tal de generar un historial de las transacciones ocurridas, para poder luego poder optimizar el funcionamiento del sitio, aplicar auditorías de cumplimento necesarias y a la vez obtener métricas que permitan medir los criterios de éxito del Portal.	
+Las acciones de navegación dentro del portal tenían como objetivo poder recorrer los contenidos y accederlos. Para acceder un contenido, bastaría con clickear con el mouse sobre la el ícono que lo representa en el catálogo y esto desplegaría un nuevo Frame del navegador de internet con una dirección enmascarada al elemento en cuestión. Esto permitiría que el enlace se pueda guardar como acceso directo y a la vez compartir por el usuario con otras personas, sin exponer el link original y preservando el control de acceso primario. El efecto deseado era agregar un nivel de indirección de modo tal que al guardar el link como acceso directo, quienes publicaban los contenidos puedan modificar el link interno de acceso sin afectar los enlaces del portal.
+	Finalmente, todas las acciones de búsqueda, navegación, gestión de usuarios y de accesos, serían registradas en una bitácora de eventos de modo tal de generar un historial de las transacciones ocurridas, para poder luego poder optimizar el funcionamiento del sitio, aplicar auditorías de cumplimento necesarias y a la vez obtener métricas que permitan medir los criterios de éxito del portal.	
 
 \subsection{Logs de actividades y monitoreo de estadísticas.}
 \label{usecases:logging}
 
-El registro de actividades (logs) y el monitoreo de estadísticas de uso son pilares fundamentales para garantizar su correcto funcionamiento, su transparencia y su evolución constante.
+El registro de actividades (logs) y el monitoreo de estadísticas de uso eran pilares fundamentales para garantizar su correcto funcionamiento, su transparencia y su evolución constante.
 
-Los logs actúan como un diario detallado de todo lo que ocurre dentro del sistema: desde eventos técnicos como errores, advertencias y cambios de configuración, hasta interacciones de los usuarios y transacciones críticas. 
+Los logs actuarían como un diario detallado de todo lo que ocurría dentro del sistema: desde eventos técnicos como errores, advertencias y cambios de configuración, hasta interacciones de los usuarios y transacciones críticas. 
 
-Esta información es esencial para la auditabilidad, ya que permite reconstruir con precisión qué sucedió, cuándo y bajo qué condiciones. En entornos regulados o con altos estándares de seguridad, los logs son la evidencia que respalda el cumplimiento normativo, la trazabilidad de acciones y la detección de comportamientos anómalos o no autorizados.
+Esta información era esencial para la auditabilidad, ya que permitiría reconstruir con precisión qué sucedió, cuándo y bajo qué condiciones. En entornos regulados o con altos estándares de seguridad, los logs son la evidencia que respalda el cumplimiento normativo, la trazabilidad de acciones y la detección de comportamientos anómalos o no autorizados.
 
-Por otro lado, el monitoreo de estadísticas de uso recopila datos cuantitativos sobre el rendimiento y la utilización del sistema: tiempos de respuesta, consumo de recursos, patrones de tráfico, tasas de error, entre otros. Estos indicadores no solo permiten evaluar el estado actual del sistema, sino que también habilitan la observabilidad, es decir, la capacidad de comprender su comportamiento interno a partir de la información externa que genera.
+Por otro lado, el monitoreo de estadísticas de uso recopilaría datos cuantitativos sobre el rendimiento y la utilización del sistema: tiempos de respuesta, consumo de recursos, patrones de tráfico, tasas de error, entre otros. Estos indicadores no solo permitirían evaluar el estado actual del sistema, sino que también habilitarían la observabilidad, es decir, la capacidad de comprender su comportamiento interno a partir de la información externa que genera.
 
-La combinación de logs y métricas crea un ecosistema de información que facilita la detección temprana de problemas y la resolución proactiva de incidentes. Por ejemplo, un aumento repentino en el tiempo de respuesta acompañado de errores registrados en los logs puede señalar un cuello de botella en la base de datos o un fallo en un servicio externo.
+La combinación de logs y métricas crearía un ecosistema de información que facilitaría la detección temprana de problemas y la resolución proactiva de incidentes. Por ejemplo, un aumento repentino en el tiempo de respuesta acompañado de errores registrados en los logs podría señalar un cuello de botella en la base de datos o una falla en un servicio externo.
 
-Además, esta información es clave para instrumentar procesos de mejora continua. Analizando tendencias históricas y correlacionando eventos con métricas, es posible identificar áreas de optimización, priorizar desarrollos y medir el impacto real de los cambios implementados. Esto convierte al monitoreo y al registro en herramientas estratégicas, no solo operativas.
+Además, esta información era clave para instrumentar procesos de mejora continua. Analizando tendencias históricas y correlacionando eventos con métricas, es posible identificar áreas de optimización, priorizar desarrollos y medir el impacto real de los cambios implementados. Esto convierte al monitoreo y al registro en herramientas estratégicas, no solo operativas.
 
 En resumen, sin logs ni monitoreo es como un barco navegando sin brújula ni bitácora: puede avanzar, pero carece de la capacidad de entender su rumbo, aprender de su experiencia y reaccionar ante imprevistos. Implementar un esquema robusto de registro y análisis de datos no solo garantiza auditabilidad y transparencia, sino que también potencia la eficiencia, la resiliencia y la capacidad de innovación de la plataforma.
 
 
-
 \section{Alcance inicial y entregables previstos}
 El alcance inicial comenzó con la implementación de los casos de uso para los roles de Administrador Global, Creador y Consumidor de contenidos. En una segunda fase se decidió incorporar al perfil de administrador Local para poder agregar una capa intermedia de administración que permita descentralizar y federar el gobierno de los contenidos de modo más eficiente.
+
 Se priorizó también la publicación de contenido global en una primera instancia y luego en etapas sucesivas, luego de la implementación del rol local, se comenzó a expandir a otras unidades geográficas con el abordaje a los equipos locales de múltiples áreas.
 
 \section{Definición de KPIs y métricas de éxito}
