@@ -6,7 +6,7 @@ Para poder cumplir adecuadamente con los requerimientos funcionales (descriptos 
 
 A continuación, un detalle de qué principios de diseño se eligieron para dar adecuado soporte.
 
-\begin{table} 
+\begin{table} [h]
     \centering
     \begin{tabular}{|c|c|}\hline
          \textbf{Caso de Uso}&  \textbf{Principio de diseño}\\\hline
@@ -33,8 +33,6 @@ Adicionalmente, con un diseño de despliegue físico adecuado, se puede también
 
 En el caso puntual de esta aplicación, se diseñaron dos configuraciones: una para entornos de desarrollo y pruebas y luego una para un entorno productivo, donde se tolera una carga de usuarios real y debe maximizarse la tolerancia a fallas, donde se agrega un tercer servidor web/de aplicaciones.
 
-\newpage 
-
 Finalmente y de acuerdo a los estándares tecnológicos de este proyecto, se utilizó el siguiente stack tecnológico:
 
     \begin{itemize}
@@ -45,9 +43,9 @@ Finalmente y de acuerdo a los estándares tecnológicos de este proyecto, se uti
         \item sistema operativo de servers: RH Linux
     \end{itemize}
 
-A continuación, describimos el diagrama de despliegue físico que permitió implementar la arquitectura de webapp, con máxima tolerancia a fallas en sus componentes de mayor demanda con escalabilidad horizontal.
+A continuación, la \emph{Fig.} \ref{fig:arq_webapp}, describe el diagrama de despliegue físico que permitió implementar la arquitectura de webapp, con máxima tolerancia a fallas en sus componentes de mayor demanda con escalabilidad horizontal.
 
-\begin{figure} [h!]
+\begin{figure} [h]
     \centering
     \begin{tikzpicture} [node distance=1.8cm and 2.5cm]
  % Client
@@ -311,11 +309,23 @@ Algunos elementos del ecosistema que debían utilizarse y con los que se tenía 
 Por cuestiones de simplicidad y de diseño general, se trabajó con un esquema de seguridad donde usuarios de ciertas áreas funcionales, pueden tener acceso a la información completa de dichas áreas, con limitaciones geográficas. En el caso de los usuarios "locales", en general se les otorga permiso vinculado al país donde operan. A los usuarios regionales, se les otorga visibilidad sobre la región (información consolidada a nivel regional) y del detalle de los paises incluidos en dicha región.
 finalmente hay usuarios globales que tienen acceso a una capa global de datos (del area de interés del contenido publicado) y luego a los datos consolidados en niveles geográficos incluidos (regionales y paises de cada región).
 
-Para implementar el filtrado a nivel geográfico, se aplicaron técnicas de RLS, de modo que permite mediante el rol del usuario, poder tener scope a las filas (rows) que son relevantes a dicho usuario.
+%Para implementar el filtrado a nivel geográfico, se aplicaron técnicas de RLS, de modo que permite mediante el rol del usuario, poder tener scope a las filas (rows) que son relevantes a dicho usuario.
 
-La implmentación, normalmente se aplica a nivel de modelo de datos, haciéndola inherente a las consultas, de modo que siempre se agregan automáticamente a todas las queries, where conditions limitando las filas con las que se trabaja por alcance geográfico.
+%La implmentación, normalmente se aplica a nivel de modelo de datos, haciéndola inherente a las consultas, de modo que siempre se agregan automáticamente a todas las queries, where conditions limitando las filas con las que se trabaja por alcance geográfico.
 
-%Se puede agregar algún diagrama de RLS y algún modelo de datos (DER) que ayude a implmenentarlo.
+Este enfoque permite restringir el acceso a los datos de una tabla según condiciones definidas, de forma que cada usuario solo pueda visualizar o modificar las filas que le corresponden, puntualmente por geografía. En este esquema, cada registro de la base de datos contiene un campo que identifica su ubicación geográfica, por ejemplo: país. 
+
+Paralelamente, cada usuario del sistema tiene asociado un atributo geográfico en su perfil, que define el alcance territorial de su acceso. Recordemos que dado que la información geográfica es jerárquica, puede ser que haya usuarios regionales y globales, que accedan a múltiples paises o a información geográfica consolidada al nivel que corresponda, según dicha jerarquía.
+
+En este caso puntual, el funcionamiento se basa en una función de predicado que compara el atributo geográfico del usuario con el del registro. Por ejemplo, si un usuario tiene asignado el país “India”, la función sólo permitirá acceder a las filas cuyo campo país sea “India”. Esta lógica actúa como un filtro implícito en todas las consultas, sin que el usuario o la aplicación deban incluir manualmente condiciones WHERE.
+
+La implementación, en este caso, a nivel de SQL contempla:
+
+Tabla de datos con columna de ubicación (Pais).
+Tabla de usuarios con el atributo geográfico asignado.
+Tabla de información sobre la jerarquía geográfica.
+Función de predicado que recibe el identificador del usuario y valida la coincidencia geográfica.
+Política de seguridad que aplica la función a la tabla objetivo.
 
 \section{Mejora y simplificación en el proceso estándard de asignación de permisos}
 
@@ -329,10 +339,7 @@ En el caso del proceso de asignación de permisos, puede observarse que intervie
 \label{fig:procesoOriginal}    
 \end{figure} 
 
-
-El nuevo proceso resultante, elimina todos los elementos de complejidad accidental, dejando simplemente a los únicos dos roles, que son relevantes, el \emph{End User} que es el usuario final quien solicita el acceso al reporte y el \emph{Aprobador o Dueño del reporte}, que es quien determina si la solicitud corresponde o no y puede actuar en consecuencia.
-
-EL proceso resultante de la simplificación e integración del portal conlas herramientas de visualización y también del RLS (en caso de ser necesario), se describe en la \emph{Fig.} \ref{fig:procesoMejorado}.
+El nuevo proceso resultante, elimina todos los elementos de complejidad accidental, dejando simplemente a los únicos dos roles, que son relevantes, el \emph{End User} que es el usuario final quien solicita el acceso al reporte y el \emph{Aprobador o Dueño del reporte}, que es quien determina si la solicitud corresponde o no y puede actuar en consecuencia. EL proceso resultante de la simplificación e integración del portal conlas herramientas de visualización y también del RLS (en caso de ser necesario), se describe en la \emph{Fig.} \ref{fig:procesoMejorado}.
 
 \begin{figure} [h]
 \centering
@@ -340,4 +347,3 @@ EL proceso resultante de la simplificación e integración del portal conlas her
 \caption{Proceso simplificado}
 \label{fig:procesoMejorado}    
 \end{figure}
-
